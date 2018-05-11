@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: variable_dec
+# key: v 
+# --
+${1:type} ${2:name}$0;

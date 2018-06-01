@@ -1,8 +1,10 @@
 ;; custom settings for web-mode
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-enable-current-element-highlight t)
+  (set (make-local-variable 'company-backends) '(company-css company-web-html company-yasnippet company-files))
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
@@ -26,3 +28,6 @@
     (let ((web-mode-enable-part-face nil))
       ad-do-it)
     ad-do-it))
+
+;; use eslint with web-mode for jsx files
+;(flycheck-add-mode 'javascript-eslint 'web-mode)

@@ -1,3 +1,3 @@
 ;; If use bundled typescript.el,
-(require 'typescript)
+(require 'typescript-mode)
 

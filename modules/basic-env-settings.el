@@ -1,12 +1,20 @@
+;;; ALL THINGS RELATED TO ENV AND KEY-BINDINGS GO HERE!
+;;; THIS INCLUDES PACKAGES LIKE expand-region.el BUT NOT THINGS LIKE NEOTREE
+
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
+;; turn off the annoying bell
+(setq visible-bell 1)
+
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
 (global-set-key [f4] 'uncomment-region)
-(global-set-key [f5] 'eshell)
+
+;; enable visual-line-mode
+;(global-visual-line-mode t)
 
 ;; line and column numbering
 (column-number-mode 1)
@@ -29,6 +37,10 @@
 
 ;; refresh buffers when any file change
 (global-auto-revert-mode t)
+
+;; expand region keybinding
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; window-move
 (global-set-key (kbd "C-x <up>") 'windmove-up)

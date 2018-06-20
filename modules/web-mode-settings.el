@@ -15,11 +15,11 @@
 ;;web-mode for EJS files (might change it to something better)
 (add-to-list 'auto-mode-alist '("\\.ejs?\\'" . web-mode))
 
-;; use web-mode for .jsx files
+;; use web-mode for reactjs .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
-;; use eslint with web-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; use web-mode for .tsx files
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
 ;; better jsx syntax-highlighting in web-mode
 ;; courtesy of Patrick @halbtuerke. DOPE AS FUCK!
@@ -30,4 +30,7 @@
     ad-do-it))
 
 ;; use eslint with web-mode for jsx files
-;(flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; enable typescript-tslint checker in web mode
+(flycheck-add-mode 'typescript-tslint 'web-mode)

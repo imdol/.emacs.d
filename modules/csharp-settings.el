@@ -1,4 +1,4 @@
-;;omnisharp for C# dev
+;; omnisharp for C# dev
 (eval-after-load
   'company
   '(add-to-list 'company-backends #'company-omnisharp))

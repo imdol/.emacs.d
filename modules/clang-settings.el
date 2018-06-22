@@ -20,4 +20,5 @@
 
 ;;; for building irony server on backend you need the following:
 ;; sudo apt install libclang-dev
+;; sudo apt install libclang
 ;; sudo apt install cmake

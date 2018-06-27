@@ -6,4 +6,5 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 
 ;; the default value was '(save idle-change new-line mode-enabled)
-(setq flycheck-check-syntax-automatically '(save mode-enable))
+;; having this enabled only checks syntax on SAVE
+;(setq flycheck-check-syntax-automatically '(save mode-enable))

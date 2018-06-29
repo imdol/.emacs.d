@@ -70,19 +70,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "lightblue" :foreground "#151718"))))
+ '(cursor ((t (:background "#e52938" :foreground "#151718"))))
  '(mode-line ((t (:background "black" :foreground "#4499FF"))))
  '(neo-dir-link-face ((t (:foreground "#bd00ff" :slant normal :weight bold :height 100 :family "Fantasque Sans Mono"))))
  '(neo-file-link-face ((t (:foreground "White" :weight normal :height 90 :family "Fantasque Sans Mono"))))
  '(neo-root-dir-face ((t (:foreground "lightblue" :weight bold))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "deep sky blue"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#00b8ff"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "orchid"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "chartreuse"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "deep orange"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#FF4951"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#00ff9f"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "chartreuse")))))
 
 
 

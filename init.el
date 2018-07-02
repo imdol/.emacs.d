@@ -17,7 +17,7 @@
 
 ;; refresh packages
 (when (not package-archive-contents)
-    (package-refresh-contents))
+  (package-refresh-contents))
 
 ;; require packages in modules/ !!
 (mapc 'load (directory-files module-dir nil "^[^#].*el$"))
@@ -81,8 +81,7 @@
  '(rainbow-delimiters-depth-4-face ((t (:foreground "#FF4951"))))
  '(rainbow-delimiters-depth-5-face ((t (:foreground "#00ff9f"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "chartreuse")))))
-
-
-
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#711c91"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-10-face ((t (:foreground "#711c91")))))

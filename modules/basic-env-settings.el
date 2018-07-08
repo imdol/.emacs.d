@@ -6,6 +6,9 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
+;; maximize screen on startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; turn off the annoying bell
 (setq visible-bell 1)
 

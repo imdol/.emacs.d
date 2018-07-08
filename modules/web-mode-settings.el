@@ -9,7 +9,6 @@
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;;web-mode  for HTML
-(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;;web-mode for EJS files (might change it to something better)

@@ -1,2 +1,2 @@
 ;; iedit to edit multiple var names
-(require 'iedit)
+(global-set-key (kbd "C-:") 'iedit-mode)

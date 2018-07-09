@@ -7,4 +7,5 @@
   (sp-with-modes
       '(c++-mode objc-mode c-mode js-mode js2-mode typescript-mode css-mode web-mode)
 	(sp-local-pair "(" nil :post-handlers '(:add ("||\n[i]" "RET")))
+	(sp-local-pair "[" nil :post-handlers '(:add ("||\n[i]" "RET")))
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))

@@ -1,1 +1,1 @@
-("~/Desktop/packOS/" "~/.emacs.d/")
+("~/Desktop/dev-connect/" "~/.emacs.d/" "~/Desktop/packOS/")

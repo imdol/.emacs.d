@@ -1,0 +1,1 @@
+("~/Desktop/packOS/" "~/.emacs.d/")

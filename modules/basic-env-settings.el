@@ -27,7 +27,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; disable extraneous bars
-;(menu-bar-mode -1)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
@@ -45,11 +45,9 @@
 ;(add-hook 'after-init-hook 'global-color-identifiers-mode)
 
 ;; rainbow delimiters
-(require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; expand region keybinding
-(require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; window-move

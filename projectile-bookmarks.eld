@@ -1,1 +1,1 @@
-("~/Desktop/dev-connect/" "~/.emacs.d/" "~/Desktop/packOS/")
+("~/Desktop/packOS/" "~/Desktop/amazon-clone/client/amazon-clone/" "~/Desktop/amazon-clone/server/" "~/Desktop/SealedAir code/Release1.95/" "~/.emacs.d/" "~/Desktop/dev-connect/")

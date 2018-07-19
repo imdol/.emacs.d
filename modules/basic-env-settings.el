@@ -31,6 +31,9 @@
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
+;; prettify all symbols
+(global-prettify-symbols-mode 1)
+
 ;; indentation
 (setq-default tab-width 4)
 (setq standard-indent 4)

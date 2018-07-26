@@ -1,1 +1,1 @@
-("~/Desktop/amazon-clone/client/amazon-clone/" "~/.emacs.d/" "~/Desktop/SealedAir code/Release1.95/PackOs/PackOs/ui/" "~/Desktop/SealedAir code/Release1.95/" "~/Desktop/packOS/" "~/Desktop/amazon-clone/server/" "~/Desktop/dev-connect/")
+("~/.emacs.d/" "~/Desktop/amazon-clone/server/" "~/Desktop/dev-connect/" "~/Desktop/amazon-clone/client/amazon-clone/" "~/Desktop/amazon-clone/" "~/Desktop/SealedAir code/Release1.95/PackOs/PackOs/ui/" "~/Desktop/SealedAir code/Release1.95/" "~/Desktop/packOS/")

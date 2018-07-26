@@ -6,6 +6,12 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
+;; store all backup and autosaves in a tmp dir
+(setq backup-directory-alist
+	  `((".*" . "~/.saves")))
+(setq auto-save-file-name-transforms
+	  `((".*" "~/.saves" t)))
+
 ;; maximize screen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 

@@ -9,3 +9,17 @@
 
 ;; use helm buffer list because it's better
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
+
+;; additional ignored directories to be added to projectile globally ignored directories
+(setq additional-ignored-directories '("node_modules"
+									   "dirty_dawgs"))
+(setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
+
+;; additional ignored files to be added to projectile globally ignored files
+(setq additional-ignored-files '("*.png"
+								 "*.jpg"
+								 "polyfills.js"
+								 "package.json"
+								 "package-lock.json"
+								 ".gitignore"))
+(setq projectile-globally-ignored-files (append projectile-globally-ignored-files additional-ignored-files))

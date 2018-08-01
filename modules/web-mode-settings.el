@@ -20,6 +20,9 @@
 ;; use web-mode for .tsx files
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
+;; use web-mode for .cshtml files
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
+
 ;; better jsx syntax-highlighting in web-mode
 ;; courtesy of Patrick @halbtuerke. DOPE AS FUCK!
 (defadvice web-mode-highlight-part (around tweak-jsx activate)

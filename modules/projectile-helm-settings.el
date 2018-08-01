@@ -18,6 +18,7 @@
 ;; additional ignored files to be added to projectile globally ignored files
 (setq additional-ignored-files '("*.png"
 								 "*.jpg"
+								 "*.md"
 								 "polyfills.js"
 								 "package.json"
 								 "package-lock.json"

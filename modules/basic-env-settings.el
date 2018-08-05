@@ -6,14 +6,12 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
-;; store all backup and autosaves in a tmp dir
-;(setq backup-directory-alist
-;	  `((".*" . "~/.saves")))
-;(setq auto-save-file-name-transforms
-;	  `((".*" "~/.saves" t)))
-
 ;; don't store any backup files
-(setq make-backup-files nil)
+;(setq make-backup-files nil)
+
+;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
+(setq backup-directory-alist
+	  `(("." . ,(concat user-emacs-directory "backups"))))
 
 ;; maximize screen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

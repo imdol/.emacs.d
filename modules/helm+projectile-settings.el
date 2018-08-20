@@ -12,7 +12,7 @@
 
 ;; additional ignored directories to be added to projectile globally ignored directories
 (setq additional-ignored-directories '("node_modules"
-									   "dirty_dawgs"))
+									   ))
 (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
 
 ;; additional ignored files to be added to projectile globally ignored files

@@ -21,4 +21,3 @@
 	(?o delete-other-windows "Delete Other Windows")
 	(?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
-

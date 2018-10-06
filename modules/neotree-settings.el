@@ -1,5 +1,4 @@
 ;; navigation tree/neotree
-(require 'neotree)
 
 ;; neotree theme with all-the-icons
 ;; require all-the-icons

@@ -21,6 +21,9 @@
 ;; turn off the annoying bell
 (setq visible-bell 1)
 
+;; delete section default
+(delete-selection-mode 1)
+
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
 (global-set-key [f4] 'uncomment-region)

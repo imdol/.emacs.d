@@ -23,3 +23,4 @@
 ;; sudo apt install libclang-dev
 ;; sudo apt install libclang
 ;; sudo apt install cmake
+;; sudo apt install clang

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: let require
+# key: lr
+# group: node
+# --
+let ${1:module} = require('$2');
+$0 

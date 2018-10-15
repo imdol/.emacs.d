@@ -1,13 +1,12 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: class-es6
-# key: class
+# name: class
+# key: cls
 # group: es6
 # --
-class ${1:Class}${2: extends ${3:ParentClass}} {
+class ${1:Name}{
   ${4:constructor(${5:arg}) {
-    ${6:super(arg);}
-    $7
+    $6
   }}
-
+  
   $0
 }

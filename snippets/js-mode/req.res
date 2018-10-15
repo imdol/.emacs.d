@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: req,res
+# name: req.res
 # key: rr
 # group: node
 # --

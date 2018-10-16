@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: const require
-# key: cr
+# name: await
+# key: aw
 # group: node
 # --
-const ${1:module} = require('$0');
+await $0

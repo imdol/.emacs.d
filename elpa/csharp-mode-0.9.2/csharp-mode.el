@@ -991,7 +991,7 @@ to work properly with code that includes attributes."
                                    (condition-case nil
                                        (c-font-lock-declarators limit t nil)
                                      (wrong-number-of-arguments
-                                      (c-font-lock-declarators limit t nil nil)))))
+                                      (c-font-lock-declarators limit t nil)))))
                                (goto-char (match-end 0))
                                )
                              )))

@@ -3,4 +3,4 @@
 # key: mex
 # group: node
 # --
-module.exports = $0; 
+module.exports$1 = $0;

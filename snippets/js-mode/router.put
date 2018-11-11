@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: router.put
+# key: rpu
+# group: node
+# --
+router.put('$1', $0);

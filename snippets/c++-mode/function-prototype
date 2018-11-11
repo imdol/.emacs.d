@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: function-prototype
+# key: fp
+# --
+${1:type} ${2:name}(${3:arg});$0

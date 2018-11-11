@@ -64,3 +64,6 @@
 
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; log files to use json mode
+(add-to-list 'auto-mode-alist '("\\.log\\'" . json-mode))

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: router.post
+# key: rpo
+# group: node
+# --
+router.post('$1', $0);

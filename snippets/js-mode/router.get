@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: router.get
+# key: rge
+# group: node
+# --
+router.get('$1', $0);

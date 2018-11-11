@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: router.delete
+# key: rde
+# group: node
+# --
+router.delete('$1', $0);

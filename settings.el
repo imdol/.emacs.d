@@ -63,6 +63,13 @@
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 ;; log files to use json mode
 (add-to-list 'auto-mode-alist '("\\.log\\'" . json-mode))
 

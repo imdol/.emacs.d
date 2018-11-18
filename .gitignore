@@ -48,3 +48,8 @@ projectile-bookmarks.eld
 # sessions
 session.*
 
+# omnisharp
+/.cache/
+
+* anaconda
+/anaconda-mode/

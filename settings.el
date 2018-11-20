@@ -339,7 +339,7 @@
 
 (yas-global-mode 1)
 
-(add-hook 'prog-mode-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
@@ -375,3 +375,7 @@
 
 ;; caching projectile
 (setq projectile-enable-caching t)
+
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)

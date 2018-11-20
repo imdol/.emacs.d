@@ -51,5 +51,8 @@ session.*
 # omnisharp
 /.cache/
 
-* anaconda
+# anaconda
 /anaconda-mode/
+
+# var
+/var/

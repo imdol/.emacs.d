@@ -181,7 +181,6 @@
 ;; start js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist `(,(rx ".jsx" string-end) . js2-mode))
-(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 ;; disable js2 mode errors, we have eslint
 (setq js2-mode-show-parse-errors nil)
@@ -205,6 +204,10 @@
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
@@ -312,7 +315,7 @@
 (add-to-list 'auto-mode-alist '("\\.ejs?\\'" . web-mode))
 
 ;; use web-mode for reactjs .jsx files
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+;(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 ;; use web-mode for .tsx files
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))

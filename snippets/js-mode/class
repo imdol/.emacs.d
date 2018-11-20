@@ -3,7 +3,7 @@
 # key: cls
 # group: es6
 # --
-class ${1:Name}{
+class ${1:Name} {
   ${4:constructor(${5:arg}) {
     $6
   }}

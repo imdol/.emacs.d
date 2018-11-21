@@ -70,6 +70,10 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
+
 ;; log files to use json mode
 (add-to-list 'auto-mode-alist '("\\.log\\'" . json-mode))
 

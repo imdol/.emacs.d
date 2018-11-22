@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "tide" "tide.el" (23536 64472 192169 695000))
+;;;### (autoloads nil "tide" "tide.el" (23542 28698 162649 740000))
 ;;; Generated autoloads from tide.el
 
 (autoload 'company-tide "tide" "\
@@ -57,8 +57,8 @@ timeout.
 
 ;;;***
 
-;;;### (autoloads nil nil ("tide-lv.el" "tide-pkg.el") (23536 64472
-;;;;;;  44170 9000))
+;;;### (autoloads nil nil ("tide-lv.el" "tide-pkg.el") (23542 28697
+;;;;;;  998650 165000))
 
 ;;;***
 

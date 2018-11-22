@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "irony" "irony.el" (23536 64555 987992 934000))
+;;;### (autoloads nil "irony" "irony.el" (23542 24846 367864 6000))
 ;;; Generated autoloads from irony.el
 
 (defvar irony-additional-clang-options nil "\
@@ -42,8 +42,8 @@ Get the type of symbol under cursor.
 
 ;;;***
 
-;;;### (autoloads nil "irony-cdb" "irony-cdb.el" (23536 64556 87992
-;;;;;;  725000))
+;;;### (autoloads nil "irony-cdb" "irony-cdb.el" (23542 24846 459864
+;;;;;;  330000))
 ;;; Generated autoloads from irony-cdb.el
 
 (autoload 'irony-cdb-autosetup-compile-options "irony-cdb" "\
@@ -59,7 +59,7 @@ Get the type of symbol under cursor.
 ;;;***
 
 ;;;### (autoloads nil "irony-cdb-clang-complete" "irony-cdb-clang-complete.el"
-;;;;;;  (23536 64555 991992 927000))
+;;;;;;  (23542 24846 371864 20000))
 ;;; Generated autoloads from irony-cdb-clang-complete.el
 
 (autoload 'irony-cdb-clang-complete "irony-cdb-clang-complete" "\
@@ -69,8 +69,8 @@ Get the type of symbol under cursor.
 
 ;;;***
 
-;;;### (autoloads nil "irony-cdb-json" "irony-cdb-json.el" (23536
-;;;;;;  64556 91992 716000))
+;;;### (autoloads nil "irony-cdb-json" "irony-cdb-json.el" (23542
+;;;;;;  24846 463864 343000))
 ;;; Generated autoloads from irony-cdb-json.el
 
 (autoload 'irony-cdb-json "irony-cdb-json" "\
@@ -111,7 +111,7 @@ Select CDB that is most recently modified.
 ;;;***
 
 ;;;### (autoloads nil "irony-cdb-libclang" "irony-cdb-libclang.el"
-;;;;;;  (23536 64556 95992 708000))
+;;;;;;  (23542 24846 467864 357000))
 ;;; Generated autoloads from irony-cdb-libclang.el
 
 (autoload 'irony-cdb-libclang "irony-cdb-libclang" "\
@@ -121,8 +121,8 @@ Select CDB that is most recently modified.
 
 ;;;***
 
-;;;### (autoloads nil "irony-completion" "irony-completion.el" (23536
-;;;;;;  64556 83992 733000))
+;;;### (autoloads nil "irony-completion" "irony-completion.el" (23542
+;;;;;;  24846 455864 316000))
 ;;; Generated autoloads from irony-completion.el
 
 (autoload 'irony-completion-at-point "irony-completion" "\
@@ -133,7 +133,7 @@ Select CDB that is most recently modified.
 ;;;***
 
 ;;;### (autoloads nil nil ("irony-diagnostics.el" "irony-iotask.el"
-;;;;;;  "irony-pkg.el" "irony-snippet.el") (23536 64556 91992 716000))
+;;;;;;  "irony-pkg.el" "irony-snippet.el") (23542 24846 463864 343000))
 
 ;;;***
 

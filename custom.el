@@ -11,7 +11,7 @@
  '(linum-format (quote dynamic))
  '(package-selected-packages
    (quote
-    (benchmark-init ivy pythonic anaconda-mode company-anaconda rjsx-mode async auto-complete company csharp-mode dash epl f ghub git-commit graphql helm helm-core let-alist magit-popup memoize pkg-info popup pos-tip s shut-up swiper treepy with-editor typescript-mode tide js2-mode smartparens all-the-icons neotree omnisharp c-eldoc irony-eldoc flycheck-irony flycheck company-irony company-irony-c-headers irony org magit yasnippet yasnippet-snippets helm-projectile projectile iedit ace-window avy swiper-helm rainbow-delimiters multiple-cursors multi-term hydra expand-region company-quickhelp cherry-blossom-theme))))
+    (company-web emmet-mode web-mode benchmark-init ivy pythonic anaconda-mode company-anaconda rjsx-mode async auto-complete company csharp-mode dash epl f ghub git-commit graphql helm helm-core let-alist magit-popup memoize pkg-info popup pos-tip s shut-up swiper treepy with-editor typescript-mode tide js2-mode smartparens all-the-icons neotree omnisharp c-eldoc irony-eldoc flycheck-irony flycheck company-irony company-irony-c-headers irony org magit yasnippet yasnippet-snippets helm-projectile projectile iedit ace-window avy swiper-helm rainbow-delimiters multiple-cursors multi-term hydra expand-region company-quickhelp cherry-blossom-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

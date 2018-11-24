@@ -4,5 +4,10 @@
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-x C-b") #'helm-mini)
 
+(add-to-list 'display-buffer-alist
+                    `(,(rx bos "*helm" (* not-newline) "*" eos)
+                         (display-buffer-in-side-window)
+                         (inhibit-same-window . t)
+                         (window-height . 0.3)))
 
 (provide 'init-helm)

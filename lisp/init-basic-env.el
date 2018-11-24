@@ -52,6 +52,7 @@
 ;; multi-term
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
+(defalias 'msh 'multi-term)
 
 ;; rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

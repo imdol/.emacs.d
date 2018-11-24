@@ -20,6 +20,7 @@
 (require 'init-clang)
 (require 'init-tide)
 (require 'init-omnisharp)
+(require 'init-web)
 (require 'init-avy)
 (require 'init-hydra)
 (require 'init-ace-window)

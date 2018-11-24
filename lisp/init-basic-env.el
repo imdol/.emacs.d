@@ -9,7 +9,7 @@
 (setq auto-save-default nil)
 
 ;; maximize screen on startup
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; turn off the annoying bell
 (setq visible-bell 1)

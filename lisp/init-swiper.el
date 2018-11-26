@@ -1,3 +1,3 @@
-(global-set-key "\C-s" 'swiper-helm)
+(global-set-key "\C-s" 'swiper)
 
 (provide 'init-swiper)

@@ -57,4 +57,15 @@
 ;; rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+;; doom mode-line
+(require 'doom-modeline)
+(doom-modeline-init)
+(display-time-mode 1)
+
+;; truncate path
+(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+
+;; no font caches during GC
+(setq inhibit-compacting-font-caches t)
+
 (provide 'init-basic-env)

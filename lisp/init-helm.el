@@ -5,10 +5,15 @@
 (global-set-key (kbd "C-x C-b") #'helm-buffers-list)
 (global-set-key (kbd "C-x b") #'helm-mini)
 
+;; some helm settings
+(setq helm-display-header-line nil)
+
+(set-face-attribute 'helm-source-header nil :height 0.1)
+
 (add-to-list 'display-buffer-alist
-                    `(,(rx bos "*helm" (* not-newline) "*" eos)
-                         (display-buffer-in-side-window)
-                         (inhibit-same-window . t)
-                         (window-height . 0.3)))
+	     `(,(rx bos "*helm" (* not-newline) "*" eos)
+	       (display-buffer-in-side-window)
+	       (inhibit-same-window . t)
+	       (window-height . 0.2)))
 
 (provide 'init-helm)

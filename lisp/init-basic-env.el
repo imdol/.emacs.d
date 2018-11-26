@@ -25,6 +25,10 @@
 (column-number-mode 1)
 (line-number-mode 1)
 
+;; show matching parens
+(show-paren-mode 1)
+(setq show-paren-style 'parenthesis)
+
 ;; disable extraneous bloat
 (menu-bar-mode -1)
 (tool-bar-mode -1)

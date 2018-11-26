@@ -12,8 +12,8 @@
 (load custom-file)
 
 ;; benchmarking startup
-;;(require 'benchmark-init)
-;;(add-hook 'ater-init-hook 'benchmark-init/deactivate)
+(require 'benchmark-init)
+(add-hook 'ater-init-hook 'benchmark-init/deactivate)
 
 ;; garbage collection thresholds
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
@@ -32,7 +32,7 @@
 (require 'init-anaconda)
 (require 'init-flycheck)
 (require 'init-magit)
-(require 'init-clang)
+(require 'init-irony)
 (require 'init-tide)
 (require 'init-omnisharp)
 (require 'init-web)

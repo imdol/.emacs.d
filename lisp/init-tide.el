@@ -60,6 +60,7 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
+  (setq js-indent-level 2)
   (company-mode +1))
 
 ;; aligns annotation to the right hand side

@@ -14,7 +14,7 @@
  '(linum-format (quote dynamic))
  '(package-selected-packages
    (quote
-    (cyberpunk-theme doom-modeline company-web emmet-mode web-mode benchmark-init ivy pythonic anaconda-mode company-anaconda rjsx-mode async auto-complete company csharp-mode dash epl f ghub git-commit graphql helm helm-core let-alist magit-popup memoize pkg-info popup pos-tip s shut-up swiper treepy with-editor typescript-mode tide js2-mode smartparens all-the-icons neotree omnisharp c-eldoc irony-eldoc flycheck-irony flycheck company-irony company-irony-c-headers irony org magit yasnippet yasnippet-snippets helm-projectile projectile iedit ace-window avy swiper-helm rainbow-delimiters multiple-cursors multi-term hydra expand-region company-quickhelp cherry-blossom-theme))))
+    (omnisharp doom-modeline eldoc-eval helm helm-core json-mode json-reformat json-snatcher magit shrink-path tide web-completion-data cyberpunk-theme company-web emmet-mode web-mode benchmark-init pythonic anaconda-mode company-anaconda rjsx-mode async auto-complete company csharp-mode dash epl f ghub git-commit graphql let-alist magit-popup memoize pkg-info popup pos-tip s shut-up swiper treepy with-editor typescript-mode js2-mode smartparens all-the-icons neotree c-eldoc irony-eldoc flycheck-irony flycheck company-irony company-irony-c-headers irony org yasnippet yasnippet-snippets helm-projectile projectile iedit ace-window avy rainbow-delimiters multiple-cursors multi-term hydra expand-region company-quickhelp cherry-blossom-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

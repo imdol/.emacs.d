@@ -1,7 +1,3 @@
-(eval-after-load
-  'company
-  '(add-to-list 'company-backends #'company-omnisharp))
-
 (defun my-csharp-mode-setup ()
   (omnisharp-mode)
   (company-mode)
@@ -13,6 +9,9 @@
   (setq c-basic-offset 4)
   (setq truncate-lines t)
   (setq tab-width 4)
+  (eval-after-load
+      'company
+    '(add-to-list 'company-backends #'company-omnisharp))
 
   (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
   (local-set-key (kbd "C-c C-c") 'recompile))

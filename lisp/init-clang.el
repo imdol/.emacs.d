@@ -1,22 +1,22 @@
-;; hook Clang modes to irony
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
+;; hook compile options and eldoc to irony mode
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-;; eldoc for c fams *already hooked with irony-eldoc
-;(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-;(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
-
-;; hook irony-eldoc
 (add-hook 'irony-mode-hook #'irony-eldoc)
 
-;; use company-irony and irony-c-headers
-(eval-after-load 'company
-  '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+;; define irony mode setup to hook up to C modes
+(defun irony-mode-setup ()
+  (flycheck-mode +1)
+  (company-mode +1)
+  (irony-mode +1)
 
-;; use flycheck irony
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  (eval-after-load 'company
+    '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+  (eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))  
+  )
+
+;; hook relevant c-modes to irony setup
+(add-hook 'c++-mode-hook 'irony-mode-setup)
+(add-hook 'c-mode-hook 'irony-mode-setup)
+(add-hook 'objc-mode-hook 'irony-mode-setup)
 
 (provide 'init-clang)

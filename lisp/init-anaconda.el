@@ -10,4 +10,6 @@
 
 (add-hook 'python-mode-hook #'anaconda-mode-setup)
 
+(setq doom-modeline-python-executable "python3")
+
 (provide 'init-anaconda)

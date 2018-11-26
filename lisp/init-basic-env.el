@@ -9,7 +9,7 @@
 (setq auto-save-default nil)
 
 ;; maximize screen on startup
-;(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; turn off the annoying bell
 (setq visible-bell 1)
@@ -56,6 +56,10 @@
 
 ;; rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; exec-path-from-shell
+;;(when (memq window-system '(mac ns))
+;;  (exec-path-from-shell-initialize))
 
 ;; doom mode-line
 (require 'doom-modeline)

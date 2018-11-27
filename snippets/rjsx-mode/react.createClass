@@ -3,6 +3,13 @@
 # key: cc
 # group: react
 # --
-React.createClass({
-  $0
-});
+class ${1:Component} extends Component {
+  state = {}
+  render() {
+    return (
+      $0
+    );
+  }
+};
+
+export default ${1:Component};

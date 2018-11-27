@@ -15,8 +15,8 @@
 
 ;; disable jshint because eslint > jshint prefer eslint checking
 (setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-	  '(javascript-jshint)))
+	      (append flycheck-disabled-checkers
+		      '(javascript-jshint)))
 
 ;; use local eslint from node_modules before global
 ;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
@@ -56,11 +56,15 @@
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
-  (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (setq js-indent-level 2)
+
+  (emmet-mode +1)
+  (setq emmet-expand-jsx-className? t)
+
+  (flycheck-mode +1)
   (company-mode +1))
 
 ;; aligns annotation to the right hand side

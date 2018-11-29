@@ -2,6 +2,7 @@
 # name: function
 # key: f
 # --
-${1:type} ${2:name}(${3:arg}){
-	  $0
+${1:type} ${2:name}(${3:arg})
+{
+    $0
 }

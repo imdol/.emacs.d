@@ -7,18 +7,17 @@
   (flycheck-mode +1)
   (company-mode +1)
   (irony-mode +1)
-
   (setq c-basic-offset 4)
 
   (eval-after-load 'company
     '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
   (eval-after-load 'flycheck
-    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))  
+    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
   )
 
 ;; hook relevant c-modes to irony setup
-(add-hook 'c++-mode-hook 'irony-mode-setup)
 (add-hook 'c-mode-hook 'irony-mode-setup)
+(add-hook 'c++-mode-hook 'irony-mode-setup)
 (add-hook 'objc-mode-hook 'irony-mode-setup)
 
 (provide 'init-irony)

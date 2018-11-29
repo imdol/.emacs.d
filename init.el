@@ -1,3 +1,13 @@
+;; 100MB garbage collection threshold
+(setq gc-cons-threshold 100000000)
+
+;; garbage collection thresholds
+;;(let ((normal-gc-cons-threshold (* 20 1024 1024))
+;;      (init-gc-cons-threshold (* 128 1024 1024)))
+;;  (setq gc-cons-threshold init-gc-cons-threshold)
+;;  (add-hook 'emacs-startup-hook
+;;            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
 ;; MELPA package
 (require 'package)
 ;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -14,13 +24,6 @@
 ;; benchmarking startup
 (require 'benchmark-init)
 (add-hook 'ater-init-hook 'benchmark-init/deactivate)
-
-;; garbage collection thresholds
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;; load configs
 (require 'init-basic-env)

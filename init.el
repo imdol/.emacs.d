@@ -33,6 +33,7 @@
 (require 'init-swiper)
 (require 'init-smartparens)
 (require 'init-anaconda)
+(require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-magit)
 (require 'init-irony)

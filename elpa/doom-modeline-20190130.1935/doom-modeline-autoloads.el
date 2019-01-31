@@ -60,7 +60,7 @@ Toggle doom-modeline on or off.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doom-modeline" '("doom-modeline--default-mode-line")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doom-modeline" '("doom-modeline--" "mu4e-alert-modeline-formatter")))
 
 ;;;***
 

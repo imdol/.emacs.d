@@ -4,7 +4,7 @@
 
 ;; Author: Vincent Zhang <seagle0128@gmail.com>
 ;; Homepage: https://github.com/seagle0128/doom-modeline
-;; Version: 1.6.2
+;; Version: 1.7.0
 ;; Package-Requires: ((emacs "25.1") (all-the-icons "1.0.0") (shrink-path "0.2.0") (eldoc-eval "0.1") (dash "2.11.0"))
 ;; Keywords: faces mode-line
 
@@ -54,6 +54,7 @@
 ;; - An indicator for debug state
 ;; - An indicator for LSP state
 ;; - An indicator for github notifications
+;; - An indicator for unread emails with mu4e-alert.
 ;; - An indicator for buffer position which is compatible with nyan-mode
 ;; - An indicator for party parrot
 ;; - An indicator for PDF page number
@@ -83,7 +84,7 @@
 
 (doom-modeline-def-modeline 'main
   '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
-  '(misc-info persp-name lsp github debug minor-modes input-method buffer-encoding major-mode process vcs checker))
+  '(misc-info persp-name lsp mu4e github debug minor-modes input-method buffer-encoding major-mode process vcs checker))
 
 (doom-modeline-def-modeline 'minimal
   '(bar matches " " buffer-info)
@@ -95,7 +96,7 @@
 
 (doom-modeline-def-modeline 'project
   '(bar " " buffer-default-directory)
-  '(misc-info github debug " " major-mode " "))
+  '(misc-info mu4e github debug " " major-mode " "))
 
 (doom-modeline-def-modeline 'media
   '(bar window-number buffer-size buffer-info)
@@ -154,6 +155,9 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
 
 (defvar doom-modeline--default-mode-line mode-line-format)
 
+(defvar mu4e-alert-modeline-formatter nil)
+(defvar doom-modeline--mu4e-alert-modeline-formatter mu4e-alert-modeline-formatter)
+
 ;;;###autoload
 (define-minor-mode doom-modeline-mode
   "Toggle doom-modeline on or off."
@@ -163,13 +167,15 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
   (if doom-modeline-mode
       (progn
         (doom-modeline-refresh-bars)    ; create bars
-        (doom-modeline-set-main-modeline t) ; set default mode-line.
+        (doom-modeline-set-main-modeline t) ; set default mode-line
         (unless after-init-time
           ;; These buffers are already created and don't get modelines. For the love
           ;; of Emacs, someone give the man a modeline!
           (dolist (bname '("*scratch*" "*Messages*"))
             (with-current-buffer bname
               (doom-modeline-set-main-modeline))))
+        ;; Set mu4e alert modeline
+        (if doom-modeline-mu4e (setq mu4e-alert-modeline-formatter #'identity))
         ;; Add hooks
         (add-hook 'dashboard-mode-hook #'doom-modeline-set-project-modeline)
         (add-hook 'image-mode-hook #'doom-modeline-set-media-modeline)
@@ -178,6 +184,7 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
     (progn
       ;; Restore mode-line
       (setq-default mode-line-format doom-modeline--default-mode-line)
+      (setq mu4e-alert-modeline-formatter doom-modeline--mu4e-alert-modeline-formatter)
       ;; Remove hooks
       (remove-hook 'dashboard-mode-hook #'doom-modeline-set-project-modeline)
       (remove-hook 'image-mode-hook #'doom-modeline-set-media-modeline)

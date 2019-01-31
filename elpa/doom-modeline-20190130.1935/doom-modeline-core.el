@@ -119,6 +119,9 @@ The icons may not be showed correctly in terminal and on Windows.")
 (defvar doom-modeline-version t
   "Whether display environment version or not.")
 
+(defvar doom-modeline-mu4e t
+  "Whether display mu4e notifications or not. Requires `mu4e-alert' package.")
+
 
 ;;
 ;; Custom faces
@@ -181,7 +184,10 @@ The icons may not be showed correctly in terminal and on Windows.")
   `((t (:inherit (error bold))))
   "Face for errors in the modeline. Used by `*flycheck'")
 
-;; Bar
+(defface doom-modeline-unread-number
+  `((t (:inherit italic)))
+  "Face for unread number in the modeline. Used by `github', `mu4e', etc.")
+
 (defface doom-modeline-bar '((t (:inherit highlight)))
   "The face used for the left-most bar on the mode-line of an active window.")
 
@@ -344,10 +350,16 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
 (eldoc-in-minibuffer-mode 1)
 
 ;; Keep `doom-modeline-current-window' up-to-date
-(defvar doom-modeline-current-window (frame-selected-window))
+(defun doom-modeline--get-current-window ()
+  "Get the current window but should exclude the child windows."
+  (if (and (fboundp 'frame-parent) (frame-parent))
+      (frame-selected-window (frame-parent))
+    (frame-selected-window)))
+
+(defvar doom-modeline-current-window (doom-modeline--get-current-window))
 (defun doom-modeline-set-selected-window (&rest _)
   "Set `doom-modeline-current-window' appropriately."
-  (when-let ((win (frame-selected-window)))
+  (when-let ((win (doom-modeline--get-current-window)))
     (unless (minibuffer-window-active-p win)
       (setq doom-modeline-current-window win)
       (force-mode-line-update))))

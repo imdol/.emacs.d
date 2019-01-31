@@ -70,6 +70,7 @@
 (defvar text-scale-mode-amount)
 (defvar winum-auto-setup-mode-line)
 (defvar xah-fly-insert-state-q)
+(defvar mu4e-alert-mode-line)
 
 (declare-function anzu--reset-status 'anzu)
 (declare-function anzu--where-is-here 'anzu)
@@ -1437,10 +1438,10 @@ Example:
                    (doom-modeline-icon-faicon "github"
                                               :v-adjust -0.0575
                                               :face 'doom-modeline-warning)
-                 (propertize "#" 'face '(:inherit (doom-modeline-warning italic))))
+                 (propertize "#" 'face '(:inherit (doom-modeline-warning doom-modeline-unread-number))))
                doom-modeline-vspc
                (propertize (number-to-string doom-modeline--github-notifications-number)
-                           'face '(:inherit (warning italic)))
+                           'face '(:inherit (warning doom-modeline-unread-number)))
                " ")
        'help-echo "Github Notifications
 mouse-1: Show notifications
@@ -1496,6 +1497,27 @@ mouse-1: Toggle Debug on Quit"
     (format "  P%d/%d "
             (eval `(pdf-view-current-page))
             (pdf-cache-number-of-pages))))
+
+
+;;
+;; mu4e-alert notifications
+;;
+
+(doom-modeline-def-segment mu4e
+  (when (and doom-modeline-mu4e
+             (doom-modeline--active)
+             (bound-and-true-p mu4e-alert-mode-line)
+             ;; we'll do our own formatting so just need to test for zero
+             (> mu4e-alert-mode-line 0))
+    ;; remove mu4e-alert's global modeline string setting
+    (setq global-mode-string (delete '(:eval mu4e-alert-mode-line)
+                                     global-mode-string))
+    (propertize
+     (concat " " (number-to-string mu4e-alert-mode-line) " ")
+     'face 'doom-modeline-unread-number
+     'help-echo (if (= mu4e-alert-mode-line 1)
+                    "You have an unread email"
+                  (format "You have %s unread emails" mu4e-alert-mode-line)))))
 
 (provide 'doom-modeline-segments)
 

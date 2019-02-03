@@ -66,7 +66,7 @@
 ;;  (exec-path-from-shell-initialize))
 
 ;; doom mode-line
-(require 'doom-modeline)
+;(require 'doom-modeline)
 (doom-modeline-init)
 (display-time-mode 1)
 

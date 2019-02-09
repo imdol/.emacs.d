@@ -1,4 +1,4 @@
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; disable flycheck for emacs lisp
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))

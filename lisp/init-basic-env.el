@@ -67,11 +67,11 @@
 
 ;; doom mode-line
 ;(require 'doom-modeline)
-;;(doom-modeline-init)
-;;(display-time-mode 1)
+(doom-modeline-init)
+(display-time-mode 1)
 
 ;; truncate path
-;;(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
 ;; no font caches during GC
 (setq inhibit-compacting-font-caches t)

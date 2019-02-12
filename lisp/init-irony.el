@@ -8,8 +8,6 @@
   (company-mode +1)
   (irony-mode +1)
   (setq c-basic-offset 4)
-  (define-key c-mode-base-map "\t" 'self-insert-command)
-  (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
 
   (eval-after-load 'company
     '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))

@@ -5,7 +5,7 @@
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; Maintainer: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/ace-window
-;; Package-Version: 20190208.1625
+;; Package-Version: 20190210.1648
 ;; Version: 0.9.0
 ;; Package-Requires: ((avy "0.2.0"))
 ;; Keywords: window, location
@@ -432,7 +432,7 @@ The new frame is set to the same size as the previous frame, offset by
               (avy-mouse-event-window char)))
         ((= char (aref (kbd "C-g") 0))
          (throw 'done 'exit))
-        ((= char aw-make-frame-char)
+        ((and aw-make-frame-char (= char aw-make-frame-char))
          ;; Make a new frame and perform any action on its window.
          (let ((start-win (selected-window))
                (end-win (frame-selected-window (aw-make-frame))))
@@ -766,7 +766,7 @@ Modify `aw-fair-aspect-ratio' to tweak behavior."
     (aw-flip-window)))
 
 (defun aw-execute-command-other-window (window)
-  "Exectute a command in WINDOW."
+  "Execute a command in WINDOW."
   (aw-switch-to-window window)
   (unwind-protect
       (funcall

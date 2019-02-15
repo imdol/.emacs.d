@@ -20,4 +20,6 @@
 (add-hook 'c++-mode-hook 'irony-mode-setup)
 (add-hook 'objc-mode-hook 'irony-mode-setup)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 (provide 'init-irony)

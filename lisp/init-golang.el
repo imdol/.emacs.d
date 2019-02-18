@@ -5,6 +5,7 @@
   (flycheck-mode +1)
   (company-mode +1)
   (smartparens-mode +1)
+  (yas-global-mode +1)
   (setq tab-width 4)
   (setq indent-tabs-mode 1)
 

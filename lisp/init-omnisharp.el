@@ -2,6 +2,7 @@
   (omnisharp-mode)
   (company-mode)
   (flycheck-mode)
+  (smartparens-mode +1)
 
   (setq indent-tabs-mode nil)
   (setq c-syntactic-indentation t)

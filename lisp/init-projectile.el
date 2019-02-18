@@ -1,5 +1,5 @@
 ;; hook projectile mode to programming modes
-					;(add-hook 'prog-mode-hook 'projectile-mode)
+;;(add-hook 'prog-mode-hook 'projectile-mode)
 
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)

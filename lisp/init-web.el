@@ -4,6 +4,7 @@
 (defun setup-css-mode ()
   (emmet-mode +1)
   (company-css +1)
+  (smartparens-mode +1)
   (setq css-indent-offset 2)
   )
 
@@ -14,6 +15,7 @@
   (eval-after-load "company"
     '(add-to-list 'company-backends 'company-web-html))
   (emmet-mode +1)
+  (smartparens-mode +1)
   )
 
 (add-hook 'web-mode-hook 'setup-web-mode)

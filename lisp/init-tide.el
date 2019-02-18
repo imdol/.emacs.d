@@ -2,9 +2,6 @@
 ;; JS SETTINGS 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; (add-to-list 'auto-mode-alist `(,(rx ".jsx" string-end) . js2-mode))
-
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
@@ -65,6 +62,8 @@
   (setq emmet-expand-jsx-className? t)
 
   (flycheck-mode +1)
+  (smartparens-mode +1)
+  (yas-global-mode +1)
   (company-mode +1))
 
 ;; aligns annotation to the right hand side

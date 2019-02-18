@@ -27,12 +27,12 @@
 
 ;; load configs
 (require 'init-basic-env)
-(require 'init-yasnippet)
 (require 'init-company)
 (require 'init-helm)
 (require 'init-swiper)
 (require 'init-smartparens)
 (require 'init-anaconda)
+(require 'init-elisp)
 ;;(require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-magit)

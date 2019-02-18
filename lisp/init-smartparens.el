@@ -1,5 +1,3 @@
-(smartparens-global-mode t)
-
 ;; electric return with specified modes
 (with-eval-after-load 'smartparens
   (sp-with-modes

@@ -4,11 +4,16 @@
 
 ;; define irony mode setup to hook up to C modes
 (defun irony-mode-setup ()
+  
+  (setq c-basic-offset 4)
+  (setq-default sp-escape-quotes-after-insert nil)
+
+  (irony-mode +1)
   (flycheck-mode +1)
   (company-mode +1)
-  (irony-mode +1)
-  (setq c-basic-offset 4)
-
+  (smartparens-mode +1)
+  (yas-global-mode +1)
+  
   (eval-after-load 'company
     '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
   (eval-after-load 'flycheck

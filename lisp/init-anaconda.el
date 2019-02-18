@@ -4,6 +4,8 @@
   (anaconda-eldoc-mode +1)
   (company-mode +1)
   (flycheck-mode +1)
+  (smartparens-mode +1)
+  (yas-global-mode +1)
   (setq flycheck-checker 'python-pylint
 	flycheck-python-pylint-executable "/usr/bin/python3"
 	flycheck-checker-error-threshold 900

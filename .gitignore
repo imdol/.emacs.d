@@ -62,4 +62,4 @@ session.*
 /transient/
 
 # irony
-/irony/
+/irony/bin/

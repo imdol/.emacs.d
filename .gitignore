@@ -57,3 +57,9 @@ session.*
 
 # var
 /var/
+
+# transient
+/transient/
+
+# irony
+/irony/

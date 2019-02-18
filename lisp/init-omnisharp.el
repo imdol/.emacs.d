@@ -1,8 +1,4 @@
 (defun my-csharp-mode-setup ()
-  (omnisharp-mode)
-  (company-mode)
-  (flycheck-mode)
-  (smartparens-mode +1)
 
   (setq indent-tabs-mode nil)
   (setq c-syntactic-indentation t)
@@ -10,6 +6,13 @@
   (setq c-basic-offset 4)
   (setq truncate-lines t)
   (setq tab-width 4)
+
+  (omnisharp-mode +1)
+  (company-mode +1)
+  (flycheck-mode +1)
+  (smartparens-mode +1)
+  (yas-global-mode +1)
+
   (eval-after-load
       'company
     '(add-to-list 'company-backends #'company-omnisharp))

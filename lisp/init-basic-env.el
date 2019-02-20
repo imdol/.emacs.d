@@ -53,8 +53,10 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
+;; eshell alias
+(defalias 'esh 'eshell)
+
 ;; multi-term
-(require 'multi-term)
 (setq multi-term-program "/bin/bash")
 (defalias 'msh 'multi-term)
 

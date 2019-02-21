@@ -22,6 +22,7 @@ recentf
 
 # elpa packages
 # /elpa/
+/elpa/*.txt
 
 # reftex files
 *.rel
@@ -63,3 +64,6 @@ session.*
 
 # irony
 /irony/bin/
+
+# games
+/games/

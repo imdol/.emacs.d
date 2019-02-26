@@ -53,6 +53,9 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
+;; ansi-term alias
+(defalias 'ans 'ansi-term)
+
 ;; eshell alias
 (defalias 'esh 'eshell)
 

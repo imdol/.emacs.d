@@ -15,7 +15,7 @@
 (setq visible-bell 1)
 
 ;; delete section default
-;;(delete-selection-mode 1)
+(delete-selection-mode 1)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
@@ -53,9 +53,6 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
-;; ansi-term alias
-(defalias 'ans 'ansi-term)
-
 ;; eshell alias
 (defalias 'esh 'eshell)
 
@@ -73,7 +70,7 @@
 ;; doom mode-line
 ;(require 'doom-modeline)
 (doom-modeline-init)
-(display-time-mode 1)
+;;(display-time-mode 1)
 
 ;; truncate path
 (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)

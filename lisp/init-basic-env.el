@@ -15,7 +15,7 @@
 (setq visible-bell 1)
 
 ;; delete section default
-(delete-selection-mode 1)
+;;(delete-selection-mode 1)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)

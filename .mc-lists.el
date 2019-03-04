@@ -3,9 +3,12 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	c-indent-line-or-region
+	yas-expand
 	))
 
 (setq mc/cmds-to-run-once
       '(
 	rjsx-delete-creates-full-tag
+	swiper
 	))

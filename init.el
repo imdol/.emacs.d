@@ -36,6 +36,7 @@
 ;;(require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-magit)
+(require 'init-pug)
 (require 'init-clang)
 (require 'init-tide)
 (require 'init-omnisharp)

@@ -9,6 +9,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	indent-for-tab-command
 	rjsx-delete-creates-full-tag
 	swiper
 	))

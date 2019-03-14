@@ -35,6 +35,7 @@
 (require 'init-elisp)
 ;;(require 'init-lsp)
 (require 'init-flycheck)
+(require 'init-restclient)
 (require 'init-magit)
 (require 'init-pug)
 (require 'init-clang)

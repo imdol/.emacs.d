@@ -10,7 +10,8 @@
 	css-mode
 	web-mode
 	json-mode
-	python-mode)
+	python-mode
+	restclient-mode)
 	(sp-local-pair "(" nil :post-handlers '(:add ("||\n[i]" "RET")))
 	(sp-local-pair "[" nil :post-handlers '(:add ("||\n[i]" "RET")))
 	(sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))))

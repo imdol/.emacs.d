@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
 	c-indent-line-or-region
+	rjsx-electric-gt
 	yas-expand
 	))
 

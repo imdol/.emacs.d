@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: forlet
+# key: forl
+# group: es6
+# --
+std::$0

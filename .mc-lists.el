@@ -4,13 +4,16 @@
 (setq mc/cmds-to-run-for-all
       '(
 	c-indent-line-or-region
+	emmet-expand-line
 	rjsx-electric-gt
+	rjsx-electric-lt
 	yas-expand
 	))
 
 (setq mc/cmds-to-run-once
       '(
 	indent-for-tab-command
+	mouse-set-region
 	rjsx-delete-creates-full-tag
 	swiper
 	))

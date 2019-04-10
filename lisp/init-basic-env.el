@@ -35,7 +35,7 @@
 (toggle-scroll-bar -1)
 
 ;; display line numbers
-(global-display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; refresh buffers when any file changes
 (global-auto-revert-mode t)

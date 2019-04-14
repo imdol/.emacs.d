@@ -23,7 +23,7 @@
 
 ;; benchmarking startup
 (require 'benchmark-init)
-(add-hook 'ater-init-hook 'benchmark-init/deactivate)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 ;; load configs
 (require 'init-basic-env)

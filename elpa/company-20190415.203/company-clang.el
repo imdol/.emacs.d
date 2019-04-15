@@ -1,6 +1,6 @@
 ;;; company-clang.el --- company-mode completion backend for Clang  -*- lexical-binding: t -*-
 
-;; Copyright (C) 2009, 2011, 2013-2017  Free Software Foundation, Inc.
+;; Copyright (C) 2009, 2011, 2013-2019  Free Software Foundation, Inc.
 
 ;; Author: Nikolaj Schumacher
 
@@ -111,7 +111,7 @@ or automatically through a custom `company-clang-prefix-guesser'."
 ;; TODO: Handle Pattern (syntactic hints would be neat).
 ;; Do we ever see OVERLOAD (or OVERRIDE)?
 (defconst company-clang--completion-pattern
-  "^COMPLETION: \\_<\\(%s[a-zA-Z0-9_:]*\\)\\(?: : \\(.*\\)$\\)?$")
+  "^COMPLETION: \\_<\\(%s[a-zA-Z0-9_:]*\\)\\(?:\\(?: (InBase)\\)? : \\(.*\\)$\\)?$")
 
 (defconst company-clang--error-buffer-name "*clang-error*")
 

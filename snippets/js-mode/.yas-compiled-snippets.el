@@ -28,6 +28,9 @@
 			nil "/home/slispe/.emacs.d/snippets/js-mode/let-require" nil nil)
 		       ("init" "initialize: function($1) {\n  $0\n}" "Constructor" nil nil nil "/home/slispe/.emacs.d/snippets/js-mode/init" nil nil)
 		       ("ifs" "if (${1:condition}) $0" "if.short" nil nil nil "/home/slispe/.emacs.d/snippets/js-mode/if-short" nil nil)
+		       ("forl" "for (let ${1:i} = ${2:0}; $1 < ${3:collection}.length; $1++) {\n  $0\n}" "forlet" nil
+			("es6")
+			nil "/home/slispe/.emacs.d/snippets/js-mode/forlet" nil nil)
 		       ("ccs" "constructor(${1:arg}) {\n  ${2:super(${3:arg});}\n  $0\n}" "constructor" nil
 			("es6")
 			nil "/home/slispe/.emacs.d/snippets/js-mode/constructor" nil nil)
@@ -54,4 +57,4 @@
 			nil "/home/slispe/.emacs.d/snippets/js-mode/arrow-function-short" nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb 25 23:13:18 2019
+;;; Do not edit! File generated at Sun Apr 14 17:10:33 2019

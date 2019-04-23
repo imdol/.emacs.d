@@ -5,6 +5,7 @@
   (setq standard-indent 4)
   (smartparens-mode +1)
   (company-mode +1)
+  (setq company-minimum-prefix-length 1)
   (add-to-list 'company-backends 'company-restclient)
   )
 

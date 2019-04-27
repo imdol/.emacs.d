@@ -6,6 +6,7 @@
 	c-mode
 	js-mode
 	js2-mode
+	rjsx-mode
 	typescript-mode
 	css-mode
 	web-mode

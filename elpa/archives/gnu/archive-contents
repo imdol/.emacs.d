@@ -534,7 +534,7 @@
 	      ((:url . "http://elpa.gnu.org/packages/frame-tabs.html")
 	       (:keywords "frames" "tabs"))])
  (frog-menu .
-	    [(0 2 7)
+	    [(0 2 8)
 	     ((emacs
 	       (26))
 	      (avy

@@ -6,7 +6,7 @@
 ;; Maintainer: Pavel Kurnosov <pashky@gmail.com>
 ;; Created: 01 Apr 2012
 ;; Keywords: http
-;; Package-Version: 20190405.2008
+;; Package-Version: 20190502.2214
 
 ;; This file is not part of GNU Emacs.
 ;; This file is public domain software. Do what you want.
@@ -315,6 +315,7 @@ The buffer contains the raw HTTP response sent by the server."
         (unless raw
           (restclient-prettify-response method url))
         (buffer-enable-undo)
+	(restclient-response-mode)
         (run-hooks 'restclient-response-loaded-hook)
         (if stay-in-window
             (display-buffer (current-buffer) t)
@@ -601,6 +602,15 @@ Optional argument STAY-IN-WINDOW do not move focus to response buffer if t."
       :keymap '(("\t" . restclient-toggle-body-visibility-or-indent)
                 ("\C-c\C-a" . restclient-toggle-body-visibility-or-indent))
       :group 'restclient)
+
+(define-minor-mode restclient-response-mode
+  "Minor mode to allow additional keybindings in restclient response buffer."
+  :init-value nil
+  :lighter nil
+  :keymap '(("q" . (lambda ()
+		     (interactive)
+		     (quit-window (get-buffer-window (current-buffer))))))
+  :group 'restclient)
 
 ;;;###autoload
 (define-derived-mode restclient-mode fundamental-mode "REST Client"

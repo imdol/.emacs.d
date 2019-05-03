@@ -7,6 +7,9 @@
 auto-save-list
 tramp
 recentf
+.mc-lists.el
+.init.el.swp
+/request/
 .\#*
 
 # Org-mode
@@ -76,3 +79,7 @@ smex-items
 
 # places
 .places
+
+# evil
+/.tutor/
+

@@ -18,9 +18,9 @@
 ;;this is to avoid errors for incompatible versions in different projects
 (defun my/use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (eslint (and root
+		(or (buffer-file-name) default-directory)
+		"node_modules"))
+	 (eslint (and root
                       (expand-file-name "node_modules/eslint/bin/eslint.js"
                                         root))))
     (when (and eslint (file-executable-p eslint))
@@ -34,10 +34,15 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  (setq js-indent-level 2)
+
+  (setq-default js2-basic-offset 2)
+  (setq tab-width 2)
+  (setq indent-tabs-mode nil)
 
   (emmet-mode +1)
   (setq emmet-expand-jsx-className? t)
+  ;; use tsfmt.json instead and add to .gitignore or do it manually here
+  ;;(setq tide-format-options '(:indentSize 2 :tabSize 2 :placeOpenBraceOnNewLineForFunctions nil))
 
   (flycheck-mode +1)
   (smartparens-mode +1)
@@ -53,6 +58,6 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; set up tide mode after js2 mode 
-(add-hook 'js2-mode-hook #'setup-tide-mode)
+(add-hook 'rjsx-mode-hook #'setup-tide-mode)
 
 (provide 'init-tide)

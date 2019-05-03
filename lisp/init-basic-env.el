@@ -56,6 +56,9 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
+;; set backspace char deletes to hungry
+(setq backward-delete-char-untabify-method 'hungry)
+
 ;; eshell alias
 (defalias 'esh 'eshell)
 

@@ -47,3 +47,4 @@
 (require 'init-ace-window)
 (require 'init-projectile)
 (require 'init-neotree)
+(require 'init-json)

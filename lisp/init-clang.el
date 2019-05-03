@@ -1,7 +1,8 @@
 ;; define irony mode setup to hook up to C/C++ modes
 (defun irony-mode-setup ()
-  
   (setq c-basic-offset 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default tab-width 4)
   (setq-default sp-escape-quotes-after-insert nil)
 
   (irony-mode +1)

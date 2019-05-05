@@ -43,13 +43,6 @@
 ;; faster y/n prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -74,7 +67,6 @@
 ;;  (exec-path-from-shell-initialize))
 
 ;; doom mode-line
-;(require 'doom-modeline)
 (doom-modeline-init)
 ;;(display-time-mode 1)
 

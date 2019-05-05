@@ -14,8 +14,6 @@
   ("q" nil "quit" :color blue))
 (global-set-key (kbd "C-f") #'hydra-move/forward-char)
 (global-set-key (kbd "C-b") #'hydra-move/backward-char)
-(global-set-key (kbd "C-n") #'hydra-move/next-line)
-(global-set-key (kbd "C-p") #'hydra-move/previous-line)
 
 ;; zooming
 (defhydra hydra-zoom ()

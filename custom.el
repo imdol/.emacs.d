@@ -5,16 +5,42 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
- '(custom-enabled-themes (quote (cherry-blossom)))
+ '(custom-enabled-themes (quote (doom-city-lights)))
  '(custom-safe-themes
    (quote
-    ("3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "d1cc05d755d5a21a31bced25bed40f85d8677e69c73ca365628ce8024827c9e3" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
+    ("43c808b039893c885bdeec885b4f7572141bd9392da7f0bd8d8346e02b2ec8da" "8aca557e9a17174d8f847fb02870cb2bb67f3b6e808e46c0e54a44e3e18e1020" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "93a0885d5f46d2aeac12bf6be1754faa7d5e28b27926b8aa812840fe7d0b7983" "75d3dde259ce79660bac8e9e237b55674b910b470f313cdf4b019230d01a982a" "d1b4990bd599f5e2186c3f75769a2c5334063e9e541e37514942c27975700370" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "d2e9c7e31e574bf38f4b0fb927aaff20c1e5f92f72001102758005e53d77b8c9" "a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "d1cc05d755d5a21a31bced25bed40f85d8677e69c73ca365628ce8024827c9e3" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
  '(fci-rule-color "#383838")
  '(fringe-mode 6 nil (fringe))
+ '(jdee-db-active-breakpoint-face-colors (cons "#10151C" "#5EC4FF"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#10151C" "#8BD49C"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#10151C" "#384551"))
  '(linum-format (quote dynamic))
+ '(objed-cursor-color "#D95468")
  '(package-selected-packages
    (quote
-    (restclient-helm know-your-http-well company-restclient pug-mode restclient yasnippet-snippets grandshell-theme ace-window all-the-icons avy company company-go doom-modeline flycheck go-mode helm helm-core hydra ivy lv magit org pythonic swiper tide transient web-mode exec-path-from-shell omnisharp eldoc-eval json-mode json-reformat json-snatcher shrink-path web-completion-data cyberpunk-theme company-web emmet-mode benchmark-init anaconda-mode company-anaconda rjsx-mode async auto-complete csharp-mode dash epl f ghub git-commit graphql let-alist magit-popup memoize pkg-info popup pos-tip s shut-up treepy with-editor typescript-mode js2-mode smartparens neotree c-eldoc irony-eldoc flycheck-irony company-irony company-irony-c-headers irony yasnippet helm-projectile projectile iedit rainbow-delimiters multiple-cursors multi-term expand-region company-quickhelp cherry-blossom-theme))))
+    (doom-themes restclient-helm know-your-http-well company-restclient pug-mode restclient yasnippet-snippets grandshell-theme ace-window all-the-icons avy company company-go doom-modeline flycheck go-mode helm helm-core hydra ivy lv magit org pythonic swiper tide transient web-mode exec-path-from-shell omnisharp eldoc-eval json-mode json-reformat json-snatcher shrink-path web-completion-data cyberpunk-theme company-web emmet-mode benchmark-init anaconda-mode company-anaconda rjsx-mode async auto-complete csharp-mode dash epl f ghub git-commit graphql let-alist magit-popup memoize pkg-info popup pos-tip s shut-up treepy with-editor typescript-mode js2-mode smartparens neotree c-eldoc irony-eldoc flycheck-irony company-irony company-irony-c-headers irony yasnippet helm-projectile projectile iedit rainbow-delimiters multiple-cursors multi-term expand-region company-quickhelp cherry-blossom-theme)))
+ '(vc-annotate-background "#1D252C")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#8BD49C")
+    (cons 40 "#abcd93")
+    (cons 60 "#cbc68b")
+    (cons 80 "#EBBF83")
+    (cons 100 "#e5ae6f")
+    (cons 120 "#df9e5b")
+    (cons 140 "#D98E48")
+    (cons 160 "#dc885f")
+    (cons 180 "#df8376")
+    (cons 200 "#E27E8D")
+    (cons 220 "#df7080")
+    (cons 240 "#dc6274")
+    (cons 260 "#D95468")
+    (cons 280 "#b05062")
+    (cons 300 "#884c5c")
+    (cons 320 "#604856")
+    (cons 340 "#56697A")
+    (cons 360 "#56697A")))
+ '(vc-annotate-very-old-color nil))
 
 ;; highlighting: background and foreground
 (set-face-attribute 'region nil :background "#FF1493" :foreground "#fff")
@@ -31,14 +57,7 @@
  '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
  '(neo-dir-link-face ((t (:foreground "#bd00ff" :slant normal :weight bold :height 100 :family "Fantasque Sans Mono"))))
- '(neo-file-link-face ((t (:foreground "White" :weight normal :height 90 :family "Fantasque Sans Mono")))))
-
-;; delimiters
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ '(neo-file-link-face ((t (:foreground "White" :weight normal :height 90 :family "Fantasque Sans Mono"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
@@ -47,3 +66,6 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+
+;; delimiters
+

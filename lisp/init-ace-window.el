@@ -2,7 +2,7 @@
 
 (defvar aw-dispatch-alist
   '((?x aw-delete-window "Delete Window")
-	(?m aw-swap-window "Swap Windows")
+	(?w aw-swap-window "Swap Windows")
 	(?M aw-move-window "Move Window")
 	(?j aw-switch-buffer-in-window "Select Buffer")
 	(?n aw-flip-window)

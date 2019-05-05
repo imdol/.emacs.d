@@ -127,7 +127,7 @@
 (declare-function flymake--backend-state-diags 'flymake)
 (declare-function flymake--diag-type 'flymake)
 (declare-function flymake--handle-report 'flymake)
-(declare-function flymake--severity 'flymake)
+(declare-function flymake--lookup-type-property 'flymake)
 (declare-function flymake-disabled-backends 'flymake)
 (declare-function flymake-goto-next-error 'flymake)
 (declare-function flymake-goto-prev-error 'flymake)
@@ -188,14 +188,14 @@ buffer where knowing the current project directory is important."
   (let ((face (if (doom-modeline--active)
                   'doom-modeline-buffer-path
                 'mode-line-inactive)))
-    (concat (if (display-graphic-p) " ")
+    (concat " "
             (doom-modeline-icon-octicon
              "file-directory"
              :face face
              :v-adjust -0.05
              :height 1.25)
-            (propertize (concat " " (abbreviate-file-name default-directory))
-                        'face face))))
+            (if (display-graphic-p) " ")
+            (propertize (abbreviate-file-name default-directory) 'face face))))
 
 ;;
 (defvar-local doom-modeline--buffer-file-icon nil)
@@ -779,7 +779,8 @@ wheel-up/wheel-down: Previous/next error"))
                          do (cl-loop
                              with diags = (flymake--backend-state-diags state)
                              for diag in diags do
-                             (let ((severity (flymake--severity (flymake--diag-type diag))))
+                             (let ((severity (flymake--lookup-type-property (flymake--diag-type diag) 'severity
+                                                                            (warning-numeric-level :error))))
                                (cond ((> severity warning-level) (cl-incf .error))
                                      ((> severity note-level)    (cl-incf .warning))
                                      (t                          (cl-incf .note))))))
@@ -842,7 +843,8 @@ mouse-2: Show help for minor mode"
                      (cl-loop
                       with diags = (flymake--backend-state-diags state)
                       for diag in diags do
-                      (let ((severity (flymake--severity (flymake--diag-type diag))))
+                      (let ((severity (flymake--lookup-type-property (flymake--diag-type diag) 'severity
+                                                                     (warning-numeric-level :error))))
                         (cond ((> severity warning-level) (cl-incf .error))
                               ((> severity note-level) (cl-incf .warning))
                               (t (cl-incf .note))))))
@@ -922,10 +924,7 @@ icons."
                                          :inherit
                                          mode-line-inactive)))
               (when (and doom-modeline-icon icon text) doom-modeline-inactive-vspc)
-              (when text (propertize text 'face 'mode-line-inactive))))
-           ;; Adjust the position of the last icon
-           (if (and (display-graphic-p) (bound-and-true-p fancy-battery-mode))
-               (propertize " " 'face (if active 'mode-line 'mode-line-inactive)))))
+              (when text (propertize text 'face 'mode-line-inactive))))))
       "")))
 
 
@@ -1876,7 +1875,7 @@ mouse-1: Toggle Debug on Quit"
           (concat
            (if doom-modeline-icon
                (concat
-                (doom-modeline-icon-material "mail"
+                (doom-modeline-icon-material "email"
                                              :height 1.1
                                              :v-adjust -0.225
                                              :face 'doom-modeline-warning)
@@ -1988,27 +1987,27 @@ we don't want to remove that so we just return the original."
                       (charging?
                        (if doom-modeline-icon
                            (doom-modeline-icon-alltheicon "battery-charging" :height 1.4 :v-adjust -0.1)
-                         (propertize "+" 'face face)))
+                         "+"))
                       ((> percentage-number 95)
                        (if doom-modeline-icon
                            (doom-modeline-icon-faicon "battery-full" :v-adjust -0.0575)
-                         (propertize "-" 'face face)))
+                         "-"))
                       ((> percentage-number 70)
                        (if doom-modeline-icon
                            (doom-modeline-icon-faicon "battery-three-quarters" :v-adjust -0.0575)
-                         (propertize "-" 'face face)))
+                         "-"))
                       ((> percentage-number 40)
                        (if doom-modeline-icon
                            (doom-modeline-icon-faicon "battery-half" :v-adjust -0.0575)
-                         (propertize "-" 'face face)))
+                         "-"))
                       ((> percentage-number 15)
                        (if doom-modeline-icon
                            (doom-modeline-icon-faicon "battery-quarter" :v-adjust -0.0575)
-                         (propertize "-" 'face face)))
+                         "-"))
                       (t
                        (if doom-modeline-icon
                            (doom-modeline-icon-faicon "battery-empty" :v-adjust -0.0575)
-                         (propertize "!" 'face face)))))
+                         "!"))))
                (percent-str (and percentage (concat percentage "%%")))
                (help-echo (if battery-echo-area-format
                               (battery-format battery-echo-area-format status)
@@ -2028,8 +2027,10 @@ we don't want to remove that so we just return the original."
                              'help-echo help-echo))
              ;; Battery status is not available
              (if doom-modeline-icon
-                 (doom-modeline-icon-material "battery_unknown" :height 1.1 :v-adjust -0.225 :face 'error)
-               (propertize "N/A" 'face 'error)))
+                 (doom-modeline-icon-faicon "battery-empty" :v-adjust -0.0575 :face 'error)
+               (propertize "N/A"
+                           'face 'error
+                           'help-echo "Battery status not available")))
            " "))))
 (add-hook 'fancy-battery-status-update-functions #'doom-modeline-update-battery-status)
 

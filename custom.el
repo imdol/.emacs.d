@@ -45,7 +45,7 @@
 ;; highlighting: background and foreground
 (set-face-attribute 'region nil :background "#FF1493" :foreground "#fff")
 
-;; company quickhelp
+;; company quickhelp and delimiters below
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -66,6 +66,3 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
-
-;; delimiters
-

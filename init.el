@@ -21,6 +21,10 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; load custom themes
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;(load-theme `tron t)
+
 ;; benchmarking startup
 (require 'benchmark-init)
 (add-hook 'after-init-hook 'benchmark-init/deactivate)

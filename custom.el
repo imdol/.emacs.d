@@ -8,7 +8,7 @@
  '(custom-enabled-themes (quote (doom-city-lights)))
  '(custom-safe-themes
    (quote
-    ("f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" "43c808b039893c885bdeec885b4f7572141bd9392da7f0bd8d8346e02b2ec8da" "8aca557e9a17174d8f847fb02870cb2bb67f3b6e808e46c0e54a44e3e18e1020" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "93a0885d5f46d2aeac12bf6be1754faa7d5e28b27926b8aa812840fe7d0b7983" "75d3dde259ce79660bac8e9e237b55674b910b470f313cdf4b019230d01a982a" "d1b4990bd599f5e2186c3f75769a2c5334063e9e541e37514942c27975700370" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "d2e9c7e31e574bf38f4b0fb927aaff20c1e5f92f72001102758005e53d77b8c9" "a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "d1cc05d755d5a21a31bced25bed40f85d8677e69c73ca365628ce8024827c9e3" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
+    ("725a0ac226fc6a7372074c8924c18394448bb011916c05a87518ad4563738668" "f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" "43c808b039893c885bdeec885b4f7572141bd9392da7f0bd8d8346e02b2ec8da" "8aca557e9a17174d8f847fb02870cb2bb67f3b6e808e46c0e54a44e3e18e1020" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "93a0885d5f46d2aeac12bf6be1754faa7d5e28b27926b8aa812840fe7d0b7983" "75d3dde259ce79660bac8e9e237b55674b910b470f313cdf4b019230d01a982a" "d1b4990bd599f5e2186c3f75769a2c5334063e9e541e37514942c27975700370" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "d2e9c7e31e574bf38f4b0fb927aaff20c1e5f92f72001102758005e53d77b8c9" "a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "d1cc05d755d5a21a31bced25bed40f85d8677e69c73ca365628ce8024827c9e3" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
  '(fci-rule-color "#383838")
  '(fringe-mode 6 nil (fringe))
  '(jdee-db-active-breakpoint-face-colors (cons "#10151C" "#5EC4FF"))
@@ -18,7 +18,7 @@
  '(objed-cursor-color "#D95468")
  '(package-selected-packages
    (quote
-    (doom-themes restclient-helm know-your-http-well company-restclient pug-mode restclient yasnippet-snippets grandshell-theme ace-window all-the-icons avy company company-go doom-modeline flycheck go-mode helm helm-core hydra ivy lv magit org pythonic swiper tide transient web-mode exec-path-from-shell omnisharp eldoc-eval json-mode json-reformat json-snatcher shrink-path web-completion-data cyberpunk-theme company-web emmet-mode benchmark-init anaconda-mode company-anaconda rjsx-mode async auto-complete csharp-mode dash epl f ghub git-commit graphql let-alist magit-popup memoize pkg-info popup pos-tip s shut-up treepy with-editor typescript-mode js2-mode smartparens neotree c-eldoc irony-eldoc flycheck-irony company-irony company-irony-c-headers irony yasnippet helm-projectile projectile iedit rainbow-delimiters multiple-cursors multi-term expand-region company-quickhelp cherry-blossom-theme)))
+    (gotham-theme yasnippet-snippets web-mode tide swiper smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup magit json-mode irony-eldoc iedit hydra helm-projectile grandshell-theme ghub flycheck-irony expand-region exec-path-from-shell emmet-mode eldoc-eval doom-themes doom-modeline cyberpunk-theme company-web company-restclient company-quickhelp company-irony-c-headers company-irony company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
  '(vc-annotate-background "#1D252C")
  '(vc-annotate-color-map
    (list
@@ -63,18 +63,4 @@
  '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1"))))
- )
-
-;; highlighting: background and foreground
-;; (set-face-attribute 'region nil :background "#FF1493" :foreground "#fff")
-
-;; delimiters saved for different themes
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "deep pink"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "dark orange"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))

@@ -1,3 +1,4 @@
+;; company quickhelp
 (company-quickhelp-mode)
 
 ;; company mappings

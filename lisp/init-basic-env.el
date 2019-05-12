@@ -62,10 +62,6 @@
 ;; rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-;; exec-path-from-shell
-;;(when (memq window-system '(mac ns))
-;;  (exec-path-from-shell-initialize))
-
 ;; doom mode-line
 (doom-modeline-init)
 ;;(display-time-mode 1)
@@ -75,5 +71,27 @@
 
 ;; no font caches during GC
 (setq inhibit-compacting-font-caches t)
+
+;; coin ticker
+(require 'coin-ticker)
+(setq coin-ticker-syms '("BTC" "ETH"))
+(coin-ticker-mode 1)
+
+;;;; OSX SETTINGS ;;;;
+
+;; for mac keyboards
+;; (setq mac-option-key-is-meta nil)
+;; (setq mac-command-key-is-meta t)
+;; (setq mac-command-modifier 'meta)
+;; (setq mac-option-modifier nil)
+
+;; set to zsh if you want
+;; (setq multi-term-program "/bin/zsh")
+
+;; exec-path-from-shell
+;; (when (memq window-system '(mac ns))
+;;  (exec-path-from-shell-initialize))
+
+;;;; OSX SETTINGS ;;;;
 
 (provide 'init-basic-env)

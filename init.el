@@ -46,6 +46,7 @@
   (require 'init-tide)
   (require 'init-omnisharp)
   (require 'init-web)
+  (require 'init-sh)
   (require 'init-avy)
   (require 'init-hydra)
   (require 'init-ace-window)

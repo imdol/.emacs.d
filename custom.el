@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (doom-city-lights)))
  '(custom-safe-themes
    (quote
@@ -19,6 +20,8 @@
  '(package-selected-packages
    (quote
     (all-the-icons anaconda-mode async auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql helm helm-core irony ivy js2-mode json-reformat json-snatcher know-your-http-well let-alist lv memoize pkg-info popup pos-tip projectile pythonic request restclient s shrink-path transient treepy typescript-mode web-completion-data with-editor yasnippet coin-ticker company-nginx nginx-mode gotham-theme yasnippet-snippets web-mode tide swiper smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup magit json-mode irony-eldoc iedit hydra helm-projectile grandshell-theme ghub flycheck-irony expand-region exec-path-from-shell emmet-mode eldoc-eval doom-themes doom-modeline cyberpunk-theme company-web company-restclient company-quickhelp company-irony-c-headers company-irony company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(vc-annotate-background "#1D252C")
  '(vc-annotate-color-map
    (list
@@ -51,6 +54,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Hack" :foundry "SRC" :slant normal :weight normal :height 145 :width normal))))
  '(company-scrollbar-bg ((t (:background "#199919991999"))))
  '(company-scrollbar-fg ((t (:background "#0ccc0ccc0ccc"))))
  '(company-tooltip ((t (:inherit default :background "#199919991999"))))

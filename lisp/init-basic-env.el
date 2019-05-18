@@ -49,6 +49,10 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
+;; macros
+(global-set-key (kbd "M-[") 'kmacro-start-macro)
+(global-set-key (kbd "M-]") 'kmacro-end-macro)
+
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 

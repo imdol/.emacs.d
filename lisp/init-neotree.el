@@ -11,6 +11,6 @@
 ;; in case for slower performance
 (setq inhibit-compacting-font-caches t)
 
-(setq neo-window-width 15)
+(setq neo-window-width 25)
 
 (provide 'init-neotree)

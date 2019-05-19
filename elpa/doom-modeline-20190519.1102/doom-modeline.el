@@ -45,7 +45,7 @@
 ;; - A workspace number segment for eyebrowse
 ;; - A perspective name segment for persp-mode
 ;; - A window number segment for winum and window-numbering
-;; - An indicator for modal editing state, including evil, god, ryo and
+;; - An indicator for modal editing state, including evil, overwrite, god, ryo and
 ;;   xah-fly-keys, etc.
 ;; - An indicator for remote host
 ;; - An indicator for current input method
@@ -90,7 +90,7 @@
   '(objed-state misc-info persp-name fancy-battery irc mu4e github debug lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker))
 
 (doom-modeline-def-modeline 'minimal
-  '(bar matches " " buffer-info)
+  '(bar matches buffer-info)
   '(media-info major-mode))
 
 (doom-modeline-def-modeline 'special
@@ -98,12 +98,12 @@
   '(objed-state misc-info fancy-battery irc-buffers debug lsp minor-modes input-method indent-info buffer-encoding major-mode process checker))
 
 (doom-modeline-def-modeline 'project
-  '(bar window-number " " buffer-default-directory)
-  '(misc-info fancy-battery mu4e github debug " " major-mode process))
+  '(bar window-number buffer-default-directory)
+  '(misc-info fancy-battery mu4e github debug major-mode process))
 
 (doom-modeline-def-modeline 'package
   '(bar window-number package)
-  '(misc-info " " major-mode process))
+  '(misc-info major-mode process))
 
 (doom-modeline-def-modeline 'info
   '(bar window-number buffer-info info-nodes buffer-position parrot selection-info)
@@ -115,7 +115,7 @@
 
 (doom-modeline-def-modeline 'pdf
   '(bar window-number buffer-size buffer-info pdf-pages)
-  '(misc-info " " major-mode process vcs))
+  '(misc-info major-mode process vcs))
 
 (doom-modeline-def-modeline 'helm
   '(bar helm-buffer-id helm-number helm-follow helm-prefix-argument)
@@ -204,6 +204,7 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
               (doom-modeline-set-main-modeline))))
         ;; Add hooks
         (add-hook 'Info-mode-hook #'doom-modeline-set-info-modeline)
+        (add-hook 'dired-mode-hook #'doom-modeline-set-project-modeline)
         (add-hook 'magit-mode-hook #'doom-modeline-set-project-modeline)
         (add-hook 'dashboard-mode-hook #'doom-modeline-set-project-modeline)
         (add-hook 'image-mode-hook #'doom-modeline-set-media-modeline)
@@ -217,6 +218,7 @@ If DEFAULT is non-nil, set the default mode-line for all buffers."
       (setq-default mode-line-format doom-modeline--default-mode-line)
       ;; Remove hooks
       (remove-hook 'Info-mode-hook #'doom-modeline-set-info-modeline)
+      (remove-hook 'dired-mode-hook #'doom-modeline-set-project-modeline)
       (remove-hook 'magit-mode-hook #'doom-modeline-set-project-modeline)
       (remove-hook 'dashboard-mode-hook #'doom-modeline-set-project-modeline)
       (remove-hook 'image-mode-hook #'doom-modeline-set-media-modeline)

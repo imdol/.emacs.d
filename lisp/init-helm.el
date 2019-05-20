@@ -10,7 +10,7 @@
 
 (set-face-attribute 'helm-source-header nil :height 0.1)
 
- (add-to-list 'display-buffer-alist
+(add-to-list 'display-buffer-alist
  	     `(,(rx bos "*helm" (* not-newline) "*" eos)
  	       (display-buffer-in-side-window)
  	       (inhibit-same-window . t)

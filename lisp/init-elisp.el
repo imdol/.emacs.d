@@ -7,5 +7,3 @@
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-setup)
 
 (provide 'init-elisp)
-
-

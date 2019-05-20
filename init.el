@@ -54,4 +54,5 @@
   (require 'init-neotree)
   (require 'init-nginx)
   (require 'init-json)
+  (require 'init-org)
   )

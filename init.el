@@ -20,10 +20,15 @@
   ;; load custom config
   (setq custom-file "~/.emacs.d/custom.el")
   (load custom-file)
-
-  ;; load custom themes
+  
+  ;; custom themes that are not available on MELPA
   ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
   ;;(load-theme `deep-thought t)
+
+  ;; install packages if they're missing
+  (unless package-archive-contents
+    (package-refresh-contents)
+    (package-install-selected-packages))
 
   ;; benchmarking startup
   (require 'benchmark-init)

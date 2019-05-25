@@ -26,9 +26,10 @@ eshell
 /eshell/lastdir
 
 # elpa packages
-/elpa/
+/elpa/*
 /elpa/*.txt
-/elpa/archives/melpa
+/elpa/archives
+/elpa/gnupg
 
 # reftex files
 *.rel

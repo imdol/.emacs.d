@@ -85,3 +85,5 @@ smex-items
 # evil
 /.tutor/
 
+# request
+/request/

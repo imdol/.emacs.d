@@ -7,6 +7,7 @@
 (setq make-backup-files nil)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 ;; maximize screen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -77,9 +78,9 @@
 (setq inhibit-compacting-font-caches t)
 
 ;; coin ticker
-(require 'coin-ticker)
-(setq coin-ticker-syms '("BTC" "ETH"))
-(coin-ticker-mode 1)
+;;(require 'coin-ticker)
+;;(setq coin-ticker-syms '("BTC" "ETH"))
+;;(coin-ticker-mode 1)
 
 ;;;; OSX SETTINGS ;;;;
 

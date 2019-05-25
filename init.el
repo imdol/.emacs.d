@@ -13,7 +13,7 @@
   ;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (package-initialize)
-
+  
   ;; extend load path for .el
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 

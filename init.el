@@ -60,4 +60,5 @@
   (require 'init-nginx)
   (require 'init-json)
   (require 'init-org)
+  (require 'init-md4rd)
   )

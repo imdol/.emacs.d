@@ -61,4 +61,5 @@
   (require 'init-json)
   (require 'init-org)
   (require 'init-md4rd)
+  (require 'init-lc)
   )

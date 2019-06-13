@@ -62,4 +62,5 @@
   (require 'init-org)
   (require 'init-md4rd)
   (require 'init-lc)
+  (require 'init-spotify)
   )

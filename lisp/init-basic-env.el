@@ -50,19 +50,11 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
-;; macros
-(global-set-key (kbd "M-[") 'kmacro-start-macro)
-(global-set-key (kbd "M-]") 'kmacro-end-macro)
-
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 
 ;; eshell alias
 (defalias 'esh 'eshell)
-
-;; multi-term
-(setq multi-term-program "/bin/bash")
-(defalias 'msh 'multi-term)
 
 ;; rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -89,9 +81,6 @@
 ;; (setq mac-command-key-is-meta t)
 ;; (setq mac-command-modifier 'meta)
 ;; (setq mac-option-modifier nil)
-
-;; set to zsh if you want
-;; (setq multi-term-program "/bin/zsh")
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))

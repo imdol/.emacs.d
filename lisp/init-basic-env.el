@@ -77,10 +77,10 @@
 ;;;; OSX SETTINGS ;;;;
 
 ;; for mac keyboards
-;; (setq mac-option-key-is-meta nil)
-;; (setq mac-command-key-is-meta t)
-;; (setq mac-command-modifier 'meta)
-;; (setq mac-option-modifier nil)
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))

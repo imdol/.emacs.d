@@ -35,7 +35,8 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
   ;; load configs
-  (require 'init-basic-env)
+  (require 'init-sys-env)
+  (require 'init-prog-env)
   (require 'init-company)
   (require 'init-helm)
   (require 'init-swiper)

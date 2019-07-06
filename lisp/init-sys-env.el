@@ -26,10 +26,6 @@
 (column-number-mode 1)
 (line-number-mode 1)
 
-;; show matching parens
-(show-paren-mode 1)
-(setq show-paren-style 'parenthesis)
-
 ;; disable extraneous bloat
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -43,21 +39,6 @@
 
 ;; faster y/n prompts
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; expand region keybinding
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; iedit
-(global-set-key (kbd "C-:") 'iedit-mode)
-
-;; set backspace char deletes to hungry
-(setq backward-delete-char-untabify-method 'hungry)
-
-;; eshell alias
-(defalias 'esh 'eshell)
-
-;; rainbow delimiters
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; doom mode-line
 (doom-modeline-init)
@@ -88,4 +69,4 @@
 
 ;;;; OSX SETTINGS ;;;;
 
-(provide 'init-basic-env)
+(provide 'init-sys-env)

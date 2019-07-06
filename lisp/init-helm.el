@@ -1,3 +1,4 @@
+;; some helm settings
 (helm-mode 1)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
@@ -6,7 +7,6 @@
 (global-set-key (kbd "C-x b") #'helm-mini)
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
 
-;; some helm settings
 (setq helm-display-header-line nil)
 
 (set-face-attribute 'helm-source-header nil :height 0.1)

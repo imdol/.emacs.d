@@ -22,7 +22,7 @@
   (interactive)
   (if (string-equal "*" (substring (buffer-name) 0 1))
       nil
-    (if (string-equal major-mode "prog-mode")
+    (if (string-equal major-mode "dired-mode")
         nil
       t
       )))

@@ -29,7 +29,14 @@
 ;; disable extraneous bloat
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+;; disable scroll and disable it on new frames too
 (toggle-scroll-bar -1)
+(defun my/disable-scroll-bars (frame)
+  (modify-frame-parameters frame
+                           '((vertical-scroll-bars . nil)
+                             (horizontal-scroll-bars . nil))))
+(add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
 ;; display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)

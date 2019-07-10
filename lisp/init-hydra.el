@@ -28,11 +28,9 @@
   "
      ^Up^            ^Down^        ^Miscellaneous^
 ----------------------------------------------
-[_p_]   Next    [_n_]   Next    [_l_] Edit lines
-[_P_]   Skip    [_N_]   Skip    [_a_] Mark all
-[_M-p_] Unmark  [_M-n_] Unmark  [_q_] Quit"
-  ("l" mc/edit-lines :exit t)
-  ("a" mc/mark-all-like-this :exit t)
+[_p_]   Next    [_n_]   Next     [_q_] Quit
+[_P_]   Skip    [_N_]   Skip   
+[_M-p_] Unmark  [_M-n_] Unmark"  
   ("n" mc/mark-next-like-this)
   ("N" mc/skip-to-next-like-this)
   ("M-n" mc/unmark-next-like-this)
@@ -41,5 +39,6 @@
   ("M-p" mc/unmark-previous-like-this)
   ("q" nil))
 (global-set-key (kbd "C->") #'hydra-multi-cursors/body)
+(global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
 
 (provide 'init-hydra)

@@ -5,9 +5,9 @@
 # --
 class ${1:Class} extends ${2:ParentClass} {
   ${3:constructor(${4:arg}) {
-    ${5:super(arg);}
-    $6
+    ${5:super(${6:arg})}
+    ${7:props}
   }}
 
-  $0
+  ${0:methods}
 }

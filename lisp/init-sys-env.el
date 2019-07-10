@@ -18,6 +18,9 @@
 ;; delete section default
 (delete-selection-mode 1)
 
+;; set kill ring buffer max
+(setq kill-ring-max 20)
+
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
 (global-set-key [f4] 'uncomment-region)

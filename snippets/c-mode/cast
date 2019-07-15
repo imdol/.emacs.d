@@ -2,4 +2,4 @@
 # name: cast
 # key: cas
 # --
-(${1:type} *) $0
+(${1:type}*)$0

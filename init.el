@@ -64,5 +64,6 @@
   (require 'init-md4rd)
   (require 'init-lc)
   (require 'init-msh)
+  (require 'init-centaur)
   ;;(require 'init-spotify)
   )

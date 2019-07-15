@@ -72,6 +72,7 @@
      (string-prefix-p "*Messages*" name)
      (string-prefix-p "*NeoTree*" name)
      (string-prefix-p "magit:" name)
+     (string-prefix-p "magit-" name)
      (and (string-prefix-p "magit" name)
 	  (not (file-name-extension name)))
      )))

@@ -29,15 +29,7 @@
     Other buffer group by `centaur-tabs-get-group-name' with project name."
   (list 
    (cond
-    ((or (string-equal "*" (substring (buffer-name) 0 1))
-	 (memq major-mode '(magit-process-mode
-			    magit-status-mode
-			    magit-diff-mode
-			    magit-log-mode
-			    magit-file-mode
-			    magit-blob-mode
-			    magit-blame-mode
-			    )))
+    (string-equal "*" (substring (buffer-name) 0 1)
      "Emacs")
     ((derived-mode-p 'prog-mode)
      "Editing")
@@ -57,6 +49,20 @@
 			org-agenda-log-mode
 			diary-mode))
      "OrgMode")
+    ((memq major-mode '(magit-process-mode
+		       magit-status-mode
+		       magit-diff-mode
+		       magit-log-mode
+		       magit-file-mode
+		       magit-blob-mode
+		       magit-blame-mode
+		       ))
+     "Magit")
+    ((memq major-mode '(term-mode
+			Eshell-mode
+			ansi-term-mode
+			))
+     "Shell")
     (t
      (centaur-tabs-get-group-name (current-buffer))))))
 

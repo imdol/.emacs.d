@@ -59,7 +59,7 @@
 		       ))
      "Magit")
     ((memq major-mode '(term-mode
-			Eshell-mode
+			eshell-mode
 			ansi-term-mode
 			))
      "Shell")
@@ -74,8 +74,6 @@
      (string-prefix-p "*helm" name)
      (string-prefix-p "*Compile-Log*" name)
      (string-prefix-p "*lsp" name)
-     (string-prefix-p "*scratch*" name)
-     (string-prefix-p "*Messages*" name)
      (string-prefix-p "*NeoTree*" name)
      (string-prefix-p "*tide-server*" name)
      (and (string-prefix-p "magit" name)

@@ -12,6 +12,7 @@
 	web-mode
 	json-mode
 	python-mode
+	graphql-mode
 	restclient-mode)
     (sp-local-pair "`" nil :post-handlers '(:add ("||\n[i]" "RET")))
     (sp-local-pair "(" nil :post-handlers '(:add ("||\n[i]" "RET")))

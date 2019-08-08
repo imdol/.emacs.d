@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/elpa/spotify.el")
+(add-to-list 'load-path "~/.emacs.d/tba_elpa/spotify.el")
 (require 'spotify)
 
 (setq spotify-oauth2-client-id "a11d5be9d5434021b68e8ea890bcbd33")

@@ -11,6 +11,7 @@ recentf
 .init.el.swp
 /request/
 /request/*
+url/
 .\#*
 
 # Org-mode

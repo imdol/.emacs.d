@@ -66,5 +66,5 @@
   (require 'init-msh)
   (require 'init-centaur)
   (require 'init-graphql)
-  ;;(require 'init-spotify)
+  (require 'init-spotify)
   )

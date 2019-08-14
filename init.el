@@ -37,6 +37,7 @@
   ;; load configs
   (require 'init-sys-env)
   (require 'init-prog-env)
+  ;;(require 'init-evil)
   (require 'init-company)
   (require 'init-helm)
   (require 'init-swiper)

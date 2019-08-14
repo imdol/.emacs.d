@@ -9,7 +9,6 @@
 
 ;; enable and inherit themes
 (centaur-tabs-mode t)
-(centaur-tabs-inherit-tabbar-faces)
 
 ;; set keys
 (global-set-key (kbd "M-[")  'centaur-tabs-backward)
@@ -77,6 +76,7 @@
      (string-prefix-p "*NeoTree*" name)
      (string-prefix-p "*tide-server*" name)
      (string-prefix-p "*GraphQL*" name)
+     (string-prefix-p "*spotify" name)
      (and (string-prefix-p "magit" name)
 	  (not (file-name-extension name)))
      )))

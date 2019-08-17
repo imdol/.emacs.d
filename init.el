@@ -1,3 +1,5 @@
+;; https://debbugs.gnu.org/34341 bug report...
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;; 100MB garbage collection threshold
 (setq gc-cons-threshold 100000000)
 ;; collection thresholds

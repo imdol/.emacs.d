@@ -1,5 +1,23 @@
 ;; define irony mode setup to hook up to C/C++ modes
-(defun irony-mode-setup ()
+(defun c-irony-mode-setup ()
+  (setq c-basic-offset 8)
+  (setq-default indent-tabs-mode t)
+  (setq-default tab-width 8)
+  (setq-default sp-escape-quotes-after-insert nil)
+
+  (irony-mode +1)
+  (flycheck-mode +1)
+  (company-mode +1)
+  (smartparens-mode +1)
+  (yas-global-mode +1)
+  
+  (eval-after-load 'company
+    '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+  (eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  )
+
+(defun cc-irony-mode-setup ()
   (setq c-basic-offset 4)
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
@@ -22,9 +40,9 @@
 (add-hook 'irony-mode-hook #'irony-eldoc)
 
 ;; hook relevant c-modes to irony setup
-(add-hook 'c-mode-hook 'irony-mode-setup)
-(add-hook 'c++-mode-hook 'irony-mode-setup)
-(add-hook 'objc-mode-hook 'irony-mode-setup)
+(add-hook 'c-mode-hook 'c-irony-mode-setup)
+(add-hook 'c++-mode-hook 'cc-irony-mode-setup)
+(add-hook 'objc-mode-hook 'cc-irony-mode-setup)
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 

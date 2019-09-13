@@ -14,4 +14,4 @@
 	(?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
 
-(provide 'init-ace-window)
+(provide 'init-window-frames)

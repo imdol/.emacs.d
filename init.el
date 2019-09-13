@@ -24,8 +24,8 @@
   (load custom-file)
   
   ;; custom themes that are not available on MELPA
-  ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-  ;;(load-theme `deep-thought t)
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (load-theme `tron t)
 
   ;; install packages if they're missing
   (unless package-archive-contents
@@ -60,7 +60,8 @@
   (require 'init-hydra)
   (require 'init-window-frames)
   (require 'init-projectile)
-  (require 'init-neotree)
+  ;;(require 'init-neotree)
+  (require 'init-treemacs)
   (require 'init-nginx)
   (require 'init-json)
   (require 'init-org)

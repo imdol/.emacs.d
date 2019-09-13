@@ -74,6 +74,7 @@
      (string-prefix-p "*Compile-Log*" name)
      (string-prefix-p "*lsp" name)
      (string-prefix-p "*NeoTree*" name)
+     (string-prefix-p "*Treemacs-FrameBuffer-1*" name)
      (string-prefix-p "*tide-server*" name)
      (string-prefix-p "*GraphQL*" name)
      (string-prefix-p "*spotify" name)

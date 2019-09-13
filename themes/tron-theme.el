@@ -36,7 +36,7 @@
 
 (custom-theme-set-faces
  `tron
- `(default ((t (:background "#000000" :foreground "#6A8397" ))))
+ `(default ((t (:background "#000000" :foreground "#CBEBFF" ))))
  `(cursor ((t (:background "#D7F0Ff"))))
  `(region ((t (:background "#3E5668"))))
  `(bold ((t (:weight normal :foreground "DarkGoldenrod2"))))
@@ -54,7 +54,7 @@
  `(font-lock-builtin-face ((t (:foreground "#5FC4FF"))))
  `(font-lock-doc-face ((t (:foreground "#828D9C" :italic t))))
  `(font-lock-comment-face ((t (
-                               :foreground "#CBEBFF"
+                               :foreground "#6A8397" 
                                :background nil
                                :italic t))))
  `(font-lock-string-face ((t (:foreground "#387AAA"))))

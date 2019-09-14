@@ -60,7 +60,6 @@
   (require 'init-hydra)
   (require 'init-window-frames)
   (require 'init-projectile)
-  ;;(require 'init-neotree)
   (require 'init-treemacs)
   (require 'init-nginx)
   (require 'init-json)

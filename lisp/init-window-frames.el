@@ -1,4 +1,4 @@
-(global-set-key (kbd "C-x o") 'ace-window)
+(global-set-key (kbd "C-c o") 'ace-window)
 
 (defvar aw-dispatch-alist
   '((?x aw-delete-window "Delete Window")

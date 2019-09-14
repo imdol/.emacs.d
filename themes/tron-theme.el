@@ -37,7 +37,7 @@
 (custom-theme-set-faces
  `tron
  `(default ((t (:background "#000000" :foreground "#CBEBFF" ))))
- `(cursor ((t (:background "#D7F0Ff"))))
+ `(cursor ((t (:background "#f535aa"))))
  `(region ((t (:background "#3E5668"))))
  `(bold ((t (:weight normal :foreground "DarkGoldenrod2"))))
  `(fringe ((t (:background "#000000"))))

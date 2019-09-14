@@ -15,14 +15,6 @@
 (global-set-key (kbd "C-f") #'hydra-move/forward-char)
 (global-set-key (kbd "C-b") #'hydra-move/backward-char)
 
-;; zooming
-(defhydra hydra-zoom ()
-  "zoom"
-  ("+" text-scale-increase "in")
-  ("-" text-scale-decrease "out")
-  ("0" (text-scale-adjust 0) "reset")
-  ("q" nil "quit" :color blue))
-
 ;; multi-cursors
 (defhydra hydra-multi-cursors (:hint nil)
   "
@@ -40,5 +32,16 @@
   ("q" nil))
 (global-set-key (kbd "C->") #'hydra-multi-cursors/body)
 (global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
+
+;; window switching and editing
+(defhydra hydra-window ()
+  ("o" other-window "switch")
+  ("0" delete-window "delete window")
+  ("1" delete-other-windows "single window")
+  ("2" split-window-below "split bottom")
+  ("3" split-window-right "split right")
+  ("q" nil "quit" :color red)
+  )
+(global-set-key (kbd "C-x o") #'hydra-window/other-window)
 
 (provide 'init-hydra)

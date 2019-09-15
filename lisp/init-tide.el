@@ -36,8 +36,9 @@
   (tide-hl-identifier-mode +1)
 
   (setq-default js2-basic-offset 2)
-  (setq tab-width 2)
-  (setq indent-tabs-mode nil)
+  (setq
+   tab-width 2
+   indent-tabs-mode nil)
 
   (emmet-mode +1)
   (setq emmet-expand-jsx-className? t)

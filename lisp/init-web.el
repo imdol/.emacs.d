@@ -11,9 +11,10 @@
   )
 
 (defun setup-web-mode ()
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-enable-current-element-highlight t)
+  (setq
+   web-mode-markup-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-enable-current-element-highlight t)
   (emmet-mode +1)
   (smartparens-mode +1)
   (flycheck-mode +1)

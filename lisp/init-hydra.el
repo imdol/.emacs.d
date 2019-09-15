@@ -1,3 +1,6 @@
+;; fixes hydra interaction with modeline and cursors
+(setq hydra--work-around-dedicated nil)
+
 ;; movement
 (defhydra hydra-move
   (:body-pre (next-line))
@@ -17,7 +20,7 @@
 
 ;; multi-cursors
 (defhydra hydra-multi-cursors (:hint nil)
-  "
+    "
      ^Up^            ^Down^        ^Miscellaneous^
 ----------------------------------------------
 [_p_]   Next    [_n_]   Next     [_q_] Quit

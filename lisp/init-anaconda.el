@@ -1,5 +1,10 @@
 ;; use company-anaconda
 (defun anaconda-mode-setup ()
+  (setq
+   indent-tabs-mode t
+   python-indent 4
+   tab-width 4)
+
   (anaconda-mode +1)
   (anaconda-eldoc-mode +1)
   (company-mode +1)

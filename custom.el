@@ -20,7 +20,7 @@
  '(objed-cursor-color "#D95468")
  '(package-selected-packages
    (quote
-    (aio autothemer goto-chg ht pfuture treemacs-projectile treemacs kaolin-themes polymode transpose-frame use-ttf zerodark-theme undo-tree evil ob-mongo powerline centaur-tabs leetcode 0blayout ir-black-theme yaml-mode docker-compose-mode org-beautify-theme org-bullets graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd nyx-theme wgrep helm-rg all-the-icons anaconda-mode async auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql helm helm-core irony ivy js2-mode json-reformat json-snatcher know-your-http-well let-alist lv memoize pkg-info popup pos-tip projectile pythonic request restclient s shrink-path transient treepy typescript-mode web-completion-data with-editor yasnippet coin-ticker company-nginx nginx-mode gotham-theme yasnippet-snippets web-mode tide swiper smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup magit json-mode irony-eldoc iedit hydra helm-projectile grandshell-theme ghub flycheck-irony expand-region exec-path-from-shell emmet-mode eldoc-eval doom-themes doom-modeline cyberpunk-theme company-web company-restclient company-quickhelp company-irony-c-headers company-irony company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
+    (beacon aio autothemer goto-chg ht pfuture treemacs-projectile treemacs kaolin-themes polymode transpose-frame use-ttf zerodark-theme undo-tree evil ob-mongo powerline centaur-tabs leetcode 0blayout ir-black-theme yaml-mode docker-compose-mode org-beautify-theme org-bullets graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd nyx-theme wgrep helm-rg all-the-icons anaconda-mode async auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql helm helm-core irony ivy js2-mode json-reformat json-snatcher know-your-http-well let-alist lv memoize pkg-info popup pos-tip projectile pythonic request restclient s shrink-path transient treepy typescript-mode web-completion-data with-editor yasnippet coin-ticker company-nginx nginx-mode gotham-theme yasnippet-snippets web-mode tide swiper smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup magit json-mode irony-eldoc iedit hydra helm-projectile grandshell-theme ghub flycheck-irony expand-region exec-path-from-shell emmet-mode eldoc-eval doom-themes doom-modeline cyberpunk-theme company-web company-restclient company-quickhelp company-irony-c-headers company-irony company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#1D252C")
@@ -60,13 +60,4 @@
  '(company-scrollbar-fg ((t (:background "#0ccc0ccc0ccc"))))
  '(company-tooltip ((t (:inherit default :background "#199919991999"))))
  '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "deep pink"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "dark orange"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1"))))
- )
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))

@@ -1,25 +1,34 @@
 ;; disable splash screen
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
+(setq-default
+ inhibit-splash-screen t
+ inhibit-startup-message t
+ initial-scratch-message nil)
 
 ;; don't store any backup files
-(setq make-backup-files nil)
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(setq create-lockfiles nil)
+(setq-default
+ make-backup-files nil
+ backup-inhibited t
+ auto-save-default nil
+ create-lockfiles nil)
 
 ;; maximize screen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; turn off the annoying bell
-(setq visible-bell 1)
+(setq-default visible-bell 1)
+
+;; cursor and  beacon-mode 
+(setq-default
+ blink-cursor-interval 0.5
+ beacon-color "#f535aa"
+ beacon-size 20)
+(add-hook 'prog-mode-hook 'beacon-mode)
 
 ;; delete section default
 (delete-selection-mode 1)
 
 ;; set kill ring buffer max
-(setq kill-ring-max 20)
+(setq-default kill-ring-max 20)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
@@ -55,10 +64,10 @@
 ;;(display-time-mode 1)
 
 ;; truncate path
-(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+(setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
 ;; no font caches during GC
-(setq inhibit-compacting-font-caches t)
+(setq-default inhibit-compacting-font-caches t)
 
 ;; coin ticker
 ;;(require 'coin-ticker)
@@ -68,10 +77,10 @@
 ;;;; OSX SETTINGS ;;;;
 
 ;; for mac keyboards
-(setq mac-option-key-is-meta nil)
-(setq mac-command-key-is-meta t)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
+(setq-default mac-option-key-is-meta nil
+ mac-command-key-is-meta t
+ mac-command-modifier 'meta
+ mac-option-modifier nil)
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))

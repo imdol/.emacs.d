@@ -1,11 +1,12 @@
 ;; basic settings
-(setq centaur-tabs-height 20)
-(setq centaur-tabs-style "bar")
-(setq centaur-tabs-set-bar 'over)
-(setq centaur-tabs-set-close-button nil)
-(setq centaur-tabs-set-modified-marker t)
-(setq centaur-tabs-modified-marker "!")
-(setq centaur-tabs-cycle-scope 'tabs)
+(setq-default
+ centaur-tabs-height 20
+ centaur-tabs-style "bar"
+ centaur-tabs-set-bar 'over
+ centaur-tabs-set-close-button nil
+ centaur-tabs-set-modified-marker t
+ centaur-tabs-modified-marker "!"
+ centaur-tabs-cycle-scope 'tabs)
 
 ;; enable and inherit themes
 (centaur-tabs-mode t)

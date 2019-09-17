@@ -21,8 +21,8 @@
 (setq-default
  blink-cursor-interval 0.5
  beacon-color "#980093"
- beacon-blink-duration 0.4
- beacon-size 15)
+ beacon-blink-duration 0.5
+ beacon-size 20)
 
 (add-hook 'prog-mode-hook 'beacon-mode)
 

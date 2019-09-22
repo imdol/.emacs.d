@@ -4,6 +4,11 @@
 ;; iedit
 (global-set-key (kbd "C-:") 'iedit-mode)
 
+;; hs folding
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+(global-set-key (kbd "C-c C-k") 'hs-toggle-hiding)
+(global-set-key (kbd "C-c C-l") 'hs-show-all)
+
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 

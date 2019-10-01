@@ -9,6 +9,9 @@
 (global-set-key (kbd "C-c C-k") 'hs-toggle-hiding)
 (global-set-key (kbd "C-c C-l") 'hs-show-all)
 
+;; set to mimic konsole switch window instead of hydra
+(global-set-key [C-tab] 'other-window)
+
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 

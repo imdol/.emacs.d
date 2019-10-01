@@ -20,7 +20,7 @@
 ;; cursor and  beacon-mode 
 (setq-default
  blink-cursor-interval 0.5
- beacon-color "#980093"
+ beacon-color "#FF69B4"
  beacon-blink-duration 0.5
  beacon-size 20)
 

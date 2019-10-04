@@ -49,6 +49,13 @@
   (smartparens-mode +1)
   (company-mode +1)
   (yas-global-mode +1)
+
+  ;; fence edit for graphql mode in rjsx
+  ;; eval only for js related mdoes
+  (add-to-list 'load-path "~/.emacs.d/tbr_elpa/fence-edit.el")
+  (require 'fence-edit)
+  (add-to-list 'fence-edit-blocks '("graphql[ \t\n]*(?`" "`" graphql))
+  (global-set-key (kbd "C-c '") 'fence-edit-dwim)
   )
 
 ;; aligns annotation to the right hand side

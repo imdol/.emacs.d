@@ -48,5 +48,6 @@
   ("q" nil "quit" :color red)
   )
 (global-set-key (kbd "C-x 3") #'hydra-set-window/split-window-right)
+(global-set-key (kbd "C-x 2") #'hydra-set-window/split-window-below)
 
 (provide 'init-hydra)

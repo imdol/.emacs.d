@@ -7,4 +7,4 @@
 		       ("d" "#define $0" "define" nil nil nil "/home/slispe/.emacs.d/snippets/c++-mode/define" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jul 12 01:38:29 2019
+;;; Do not edit! File generated at Sun Nov  3 01:21:03 2019

@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: render
-# key: ren
-# group: react
-# --
-React.render(
-  $1,
-  $0
-);

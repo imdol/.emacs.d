@@ -54,7 +54,23 @@
   ;; eval only for js related mdoes
   (add-to-list 'load-path "~/.emacs.d/tbr_elpa/fence-edit.el")
   (require 'fence-edit)
+
+b  ;; define regex for recognizing temp literals to use css
+  (modify-syntax-entry ?` "\"" js-mode-syntax-table)
+  (setq
+   styled-component-start
+   (rx-to-string '(: (1+ (and (+ word) (0+ "\.") (0+ "(" (+ alpha) ")"))) "`" eol)))
+  (setq
+   styled-component-end
+   (rx-to-string '(: "`;" eol)))
+  (setq
+   fence-edit-blocks `((,styled-component-start ,styled-component-end css)))
+  (setq fence-edit-default-mode 'css-mode)
+
+  ;; set for graphql
   (add-to-list 'fence-edit-blocks '("graphql[ \t\n]*(?`" "`" graphql))
+
+  ;; define key for fence-edit
   (global-set-key (kbd "C-c '") 'fence-edit-dwim)
   )
 

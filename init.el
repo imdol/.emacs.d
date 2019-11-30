@@ -1,5 +1,5 @@
 ;; https://debbugs.gnu.org/34341 bug report...
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;; 100MB garbage collection threshold
 (setq gc-cons-threshold 100000000)
 ;; collection thresholds
@@ -35,7 +35,7 @@
   ;; benchmarking startup
   (require 'benchmark-init)
   (add-hook 'after-init-hook 'benchmark-init/deactivate)
-
+  
   ;; load configs
   (require 'init-sys-env)
   (require 'init-prog-env)

@@ -1,13 +1,7 @@
-(add-to-list 'load-path "~/.emacs.d/tbr_elpa/spotify.el")
-(require 'spotify)
-
-(setq
- spotify-oauth2-client-id "a11d5be9d5434021b68e8ea890bcbd33"
- ;; enter secret client id here
- spotify-oauth2-client-secret ""
- spotify-api-search-limit 30
- spotify-mode-line-refresh-interval 1
- spotify-mode-line-truncate-length 15)
-(defalias 'spotify 'global-spotify-remote-mode)
+(global-set-key (kbd "C-c s s") 'helm-spotify-plus)  ;; s for SEARCH
+(global-set-key (kbd "C-c s f") 'helm-spotify-plus-next)
+(global-set-key (kbd "C-c s b") 'helm-spotify-plus-previous)
+(global-set-key (kbd "C-c s p") 'helm-spotify-plus-play) 
+(global-set-key (kbd "C-c s g") 'helm-spotify-plus-pause) ;; g cause you know.. C-g stop things :)
 
 (provide 'init-spotify)

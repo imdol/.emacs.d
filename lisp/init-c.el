@@ -3,7 +3,7 @@
    indent-tabs-mode t
    tab-width 8
    sp-escape-quotes-after-insert nil)
-
+  
   (yas-global-mode +1)
   (smartparens-mode +1)
   )

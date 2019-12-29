@@ -6,7 +6,6 @@
 
   (yas-global-mode +1)
   (smartparens-mode +1)
-  (flycheck-mode +1)
   )
 
 (add-hook 'c-mode-hook 'c-setup)

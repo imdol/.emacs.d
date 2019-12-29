@@ -90,3 +90,5 @@ smex-items
 # request
 /request/
 
+# lsp
+.lsp-session-*

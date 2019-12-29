@@ -11,5 +11,4 @@
 (add-hook 'c++-mode-hook 'pers-cc-setup)
 (add-hook 'c++-mode-hook 'lsp-deferred)
 
-
 (provide 'init-cc)

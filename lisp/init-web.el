@@ -7,7 +7,10 @@
   (company-mode +1)
   (setq company-minimum-prefix-length 1)
   (flycheck-mode +1)
-  (setq css-indent-offset 2)
+  (setq
+   indent-tabs-mode +1
+   tab-width 2
+   css-indent-offset 2)
   )
 
 (defun setup-web-mode ()

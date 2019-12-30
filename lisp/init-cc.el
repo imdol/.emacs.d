@@ -1,4 +1,4 @@
-(defun pers-cc-setup ()
+(defun cc-lsp-setup ()
   (setq c-basic-offset 4
    indent-tabs-mode t
    tab-width 4
@@ -8,7 +8,7 @@
   (yas-global-mode +1)
   )
 
-(add-hook 'c++-mode-hook 'pers-cc-setup)
+(add-hook 'c++-mode-hook 'cc-lsp-setup)
 (add-hook 'c++-mode-hook 'lsp-deferred)
 
 (provide 'init-cc)

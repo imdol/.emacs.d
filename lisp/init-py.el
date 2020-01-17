@@ -1,6 +1,6 @@
 (defun pyls-mode-setup()
   (setq
-   indent-tabs-mode t
+   indent-tabs-mode nil
    python-indent 4
    tab-width 4)
 

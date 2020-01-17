@@ -1,7 +1,7 @@
 (defun cc-lsp-setup ()
-  (setq c-basic-offset 4
-   indent-tabs-mode t
-   tab-width 4
+  (setq c-basic-offset 2
+   indent-tabs-mode nil
+   tab-width 2
    sp-escape-quotes-after-insert nil)
 
   (smartparens-mode +1)

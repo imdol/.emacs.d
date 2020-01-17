@@ -32,6 +32,7 @@
   (interactive)
   (tide-setup)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
 
@@ -55,7 +56,7 @@
   (add-to-list 'load-path "~/.emacs.d/tbr_elpa/fence-edit.el")
   (require 'fence-edit)
 
-b  ;; define regex for recognizing temp literals to use css
+  ;; define regex for recognizing temp literals to use css
   (modify-syntax-entry ?` "\"" js-mode-syntax-table)
   (setq
    styled-component-start

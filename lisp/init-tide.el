@@ -36,7 +36,9 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
 
-  (setq-default js2-basic-offset 2)
+  (setq-default
+   js2-basic-offset 2
+   js-indent-align-list-continuation nil)
   (setq
    tab-width 2
    indent-tabs-mode nil)

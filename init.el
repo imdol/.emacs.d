@@ -1,4 +1,3 @@
-
 ;; https://debbugs.gnu.org/34341 bug report...
 ;;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;; 100MB garbage collection threshold
@@ -69,7 +68,7 @@
   (require 'init-md4rd)
   (require 'init-lc)
   (require 'init-msh)
-  (require 'init-centaur)
+;;  (require 'init-centaur)
   (require 'init-graphql)
   (require 'init-spotify)
   )

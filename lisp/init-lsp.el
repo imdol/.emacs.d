@@ -9,7 +9,7 @@
  lsp-print-performance nil
  lsp-auto-guess-root nil
  lsp-eldoc-enable-hover t
- lsp-eldoc-render-all nil
+ lsp-eldoc-render-all t
  lsp-auto-configure t
  lsp-prefer-flymake nil
  lsp-response-timeout 4

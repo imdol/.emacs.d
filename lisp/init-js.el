@@ -87,4 +87,4 @@
 ;; set up tide mode after js2 mode 
 (add-hook 'rjsx-mode-hook #'setup-tide-mode)
 
-(provide 'init-tide)
+(provide 'init-js)

@@ -53,7 +53,7 @@
   (require 'init-pug)
   (require 'init-c)
   (require 'init-cc)
-  (require 'init-tide)
+  (require 'init-js)
   (require 'init-omnisharp)
   (require 'init-web)
   (require 'init-sh)

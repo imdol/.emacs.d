@@ -1,3 +1,18 @@
+;; which key
+;; Allow C-h to trigger which-key before it is done automatically
+;; make sure which-key doesn't show normally but refreshes quickly after it is
+;; triggered.
+(setq
+ which-key-show-early-on-C-h t
+ which-key-idle-delay 10000
+ which-key-idle-secondary-delay 0.05
+      )
+(which-key-mode)
+
+;; set macro custom macro key
+(global-set-key (kbd "C-.") 'start-kbd-macro)
+(global-set-key (kbd "C-,") 'end-kbd-macro)
+
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)
 

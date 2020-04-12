@@ -17,14 +17,13 @@
 ;; turn off the annoying bell
 (setq-default visible-bell 1)
 
-;; cursor and  beacon-mode 
+;; cursor and  beacon-mode
 (setq-default
  blink-cursor-interval 0.5
  beacon-color "#ffb6c1"
  beacon-blink-duration 0.5
  beacon-size 50)
-
-(add-hook 'prog-mode-hook 'beacon-mode)
+(beacon-mode)
 
 ;; delete section default
 (delete-selection-mode 1)
@@ -53,7 +52,7 @@
 (add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
 ;; display line numbers
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(global-display-line-numbers-mode)
 
 ;; refresh buffers when any file changes
 (global-auto-revert-mode t)
@@ -88,6 +87,5 @@
 ;; (when (memq window-system '(mac ns))
 ;;  (exec-path-from-shell-initialize))
 
-;;;; OSX SETTINGS ;;;;
 
 (provide 'init-sys-env)

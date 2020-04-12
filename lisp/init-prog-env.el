@@ -9,9 +9,12 @@
       )
 (which-key-mode)
 
+;; dotmode
+(global-dot-mode 1)
+
 ;; set macro custom macro key
-(global-set-key (kbd "C-.") 'start-kbd-macro)
-(global-set-key (kbd "C-,") 'end-kbd-macro)
+(global-set-key (kbd "M-]") 'start-kbd-macro)
+(global-set-key (kbd "M-[") 'end-kbd-macro)
 
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -41,37 +44,37 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; define user buffers
-(defun user-buffer-def ()
-  (interactive)
-  (if (string-equal "*" (substring (buffer-name) 0 1))
-      nil
-    (if (string-equal major-mode "dired-mode")
-        nil
-      t
-      )))
+;; (defun user-buffer-def ()
+;;   (interactive)
+;;   (if (string-equal "*" (substring (buffer-name) 0 1))
+;;       nil
+;;     (if (string-equal major-mode "dired-mode")
+;;         nil
+;;       t
+;;       )))
 
-(defun next-user-buffer ()
-  (interactive)
-  (next-buffer)
-  (let ((i 0))
-    (while (< i 20)
-      (if (not (user-buffer-def))
-          (progn (next-buffer)
-                 (setq i (1+ i)))
-        (progn (setq i 100))))))
+;; (defun next-user-buffer ()
+;;   (interactive)
+;;   (next-buffer)
+;;   (let ((i 0))
+;;     (while (< i 20)
+;;       (if (not (user-buffer-def))
+;;           (progn (next-buffer)
+;;                  (setq i (1+ i)))
+;;         (progn (setq i 100))))))
 
-(defun previous-user-buffer ()
-  (interactive)
-  (previous-buffer)
-  (let ((i 0))
-    (while (< i 20)
-      (if (not (user-buffer-def))
-          (progn (previous-buffer)
-                 (setq i (1+ i)))
-        (progn (setq i 100))))))
+;; (defun previous-user-buffer ()
+;;   (interactive)
+;;   (previous-buffer)
+;;   (let ((i 0))
+;;     (while (< i 20)
+;;       (if (not (user-buffer-def))
+;;           (progn (previous-buffer)
+;;                  (setq i (1+ i)))
+;;         (progn (setq i 100))))))
 
 ;; ;; set user buffer switches
-(global-set-key (kbd "M-[") 'previous-user-buffer)
-(global-set-key (kbd "M-]") 'next-user-buffer)
+;; (global-set-key (kbd "M-[") 'previous-user-buffer)
+;; (global-set-key (kbd "M-]") 'next-user-buffer)
 
 (provide 'init-prog-env)

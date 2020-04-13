@@ -9,7 +9,10 @@
 
 (setq helm-display-header-line nil)
 
-(set-face-attribute 'helm-source-header nil :height 0.1)
+(set-face-attribute 'helm-source-header nil
+		    :height 0.1
+		    :background "black"
+		    :foreground "black")
 
 (add-to-list 'display-buffer-alist
  	     `(,(rx bos "*helm" (* not-newline) "*" eos)

@@ -29,7 +29,7 @@
 (delete-selection-mode 1)
 
 ;; set kill ring buffer max
-(setq-default kill-ring-max 20)
+;;(setq-default kill-ring-max 20)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
@@ -45,11 +45,11 @@
 
 ;; disable scroll and disable it on new frames too
 (toggle-scroll-bar -1)
-(defun my/disable-scroll-bars (frame)
-  (modify-frame-parameters frame
-                           '((vertical-scroll-bars . nil)
-                             (horizontal-scroll-bars . nil))))
-(add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
+;; (defun my/disable-scroll-bars (frame)
+;;   (modify-frame-parameters frame
+;;                            '((vertical-scroll-bars . nil)
+;;                              (horizontal-scroll-bars . nil))))
+;; (add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
 ;; display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -62,30 +62,21 @@
 
 ;; doom mode-line
 (doom-modeline-init)
-;;(display-time-mode 1)
-
-;; truncate path
 (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
 ;; no font caches during GC
 (setq-default inhibit-compacting-font-caches t)
 
-;; coin ticker
-;;(require 'coin-ticker)
-;;(setq coin-ticker-syms '("BTC" "ETH"))
-;;(coin-ticker-mode 1)
-
 ;;;; OSX SETTINGS ;;;;
 
 ;; for mac keyboards
-(setq-default mac-option-key-is-meta nil
- mac-command-key-is-meta t
- mac-command-modifier 'meta
- mac-option-modifier nil)
+ (setq-default mac-option-key-is-meta nil
+  mac-command-key-is-meta t
+  mac-command-modifier 'meta
+  mac-option-modifier nil)
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))
 ;;  (exec-path-from-shell-initialize))
-
 
 (provide 'init-sys-env)

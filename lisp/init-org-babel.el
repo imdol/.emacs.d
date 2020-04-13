@@ -1,8 +1,3 @@
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (python . t)
- ))
 (defun org-babel-mode-setup ()
   (org-babel-do-load-languages
    'org-babel-load-languages

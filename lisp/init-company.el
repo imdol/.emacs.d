@@ -1,7 +1,6 @@
-;; company quickhelp
+;; company mappings
 (company-quickhelp-mode)
 
-;; company mappings
 (with-eval-after-load 'company
   (setq company-idle-delay 0.2)
   (define-key company-active-map (kbd "M-n") nil)

@@ -9,7 +9,7 @@
 (helm-projectile-on)
 
 ;; additional ignored directories to be added to projectile globally ignored directories
-(setq additional-ignored-directories '("node_modules" "elpa"
+(setq additional-ignored-directories '("node_modules" "elpa" ".next"
 				       ))
 (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
 

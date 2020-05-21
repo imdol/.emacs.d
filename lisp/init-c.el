@@ -4,7 +4,7 @@
    tab-width 8
    sp-escape-quotes-after-insert nil)
 
-  (yas-minor-mode +1)
+  (yas-global-mode +1)
   (smartparens-mode +1)
   )
 

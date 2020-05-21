@@ -9,6 +9,7 @@
      (perl . t)
      (js . t)
      (ditaa . t)
+     (restclient . t)
      ))
   (add-to-list
    'org-src-lang-modes

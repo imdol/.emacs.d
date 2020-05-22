@@ -23,8 +23,8 @@
   (load custom-file)
   
   ;; custom themes that are not available on MELPA
-;;  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;  (load-theme `tron t)
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (load-theme `tron-legacy t)
 
   ;; install packages if they're missing
   (unless package-archive-contents

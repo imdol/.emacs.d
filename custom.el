@@ -6,10 +6,10 @@
  '(ansi-color-names-vector
    ["#1D252C" "#D95468" "#8BD49C" "#EBBF83" "#5EC4FF" "#E27E8D" "#70E1E8" "#A0B3C5"])
  '(column-number-mode t)
- '(custom-enabled-themes (quote (cherry-blossom)))
+ '(custom-enabled-themes nil)
  '(custom-safe-themes
    (quote
-    ("04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
+    ("ed92c27d2d086496b232617213a4e4a28110bdc0730a9457edf74f81b782c5cf" "e7bbfd6408ade4f76365187dff1b94f236ceda5910f49272806480cf0972a464" "56911bd75304fdb19619c9cb4c7b0511214d93f18e566e5b954416756a20cc80" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
  '(fci-rule-color "#56697A")
  '(font-use-system-font t)
  '(fringe-mode 6 nil (fringe))
@@ -23,7 +23,7 @@
  '(objed-cursor-color "#D95468")
  '(package-selected-packages
    (quote
-    (leetcode htmlize ox-latex-subfigure ox-asciidoc org-bullets dot-mode which-key helm-ag dotenv-mode doom-themes gnu-elpa-keyring-update flymake company-lsp lsp-mode helm-spotify-plus magit async ess eval-in-repl helm helm-core ivy julia-mode matlab-mode memoize paredit restclient treemacs with-editor yasnippet swiper yasnippet-snippets centaur-tabs doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture treemacs-projectile polymode transpose-frame use-ttf undo-tree ob-mongo powerline 0blayout yaml-mode docker-compose-mode graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd wgrep helm-rg all-the-icons auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip projectile pythonic request s shrink-path treepy typescript-mode web-completion-data coin-ticker company-nginx nginx-mode web-mode tide smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup json-mode iedit hydra helm-projectile exec-path-from-shell emmet-mode eldoc-eval company-web company-restclient company-quickhelp company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
+    (helm-rg ob-restclient leetcode htmlize ox-latex-subfigure ox-asciidoc org-bullets dot-mode which-key helm-ag dotenv-mode doom-themes gnu-elpa-keyring-update flymake company-lsp lsp-mode helm-spotify-plus magit async ess eval-in-repl helm helm-core ivy julia-mode matlab-mode memoize paredit restclient treemacs with-editor yasnippet swiper yasnippet-snippets centaur-tabs doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture treemacs-projectile polymode transpose-frame use-ttf undo-tree ob-mongo powerline 0blayout yaml-mode docker-compose-mode graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd wgrep all-the-icons auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip projectile pythonic request s shrink-path treepy typescript-mode web-completion-data coin-ticker company-nginx nginx-mode web-mode tide smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup json-mode iedit hydra helm-projectile exec-path-from-shell emmet-mode eldoc-eval company-web company-restclient company-quickhelp company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
  '(pdf-view-midnight-colors (cons "#A0B3C5" "#1D252C"))
  '(rustic-ansi-faces
    ["#1D252C" "#D95468" "#8BD49C" "#EBBF83" "#5EC4FF" "#E27E8D" "#70E1E8" "#A0B3C5"])

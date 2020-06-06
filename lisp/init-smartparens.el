@@ -9,6 +9,7 @@
 	rjsx-mode
 	typescript-mode
 	css-mode
+	go-mode
 	web-mode
 	json-mode
 	python-mode

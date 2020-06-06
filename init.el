@@ -37,9 +37,8 @@
   
   ;; load configs
   (require 'init-sys-env)
-  (require 'init-prog-env)
-  (require 'init-lsp)
   ;;(require 'init-evil)
+  (require 'init-prog-env)
   (require 'init-company)
   (require 'init-helm)
   (require 'init-swiper)
@@ -52,6 +51,7 @@
   (require 'init-pug)
   (require 'init-c)
   (require 'init-cc)
+  (require 'init-go)
   (require 'init-js)
   (require 'init-omnisharp)
   (require 'init-web)
@@ -70,4 +70,5 @@
 ;;  (require 'init-centaur)
   (require 'init-graphql)
   (require 'init-spotify)
+  (require 'init-lsp)
   )

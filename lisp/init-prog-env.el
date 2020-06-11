@@ -12,6 +12,10 @@
 ;; dotmode
 (global-dot-mode 1)
 
+;; drags
+(global-set-key (kbd "M-p") #'drag-stuff-up)
+(global-set-key (kbd "M-n") #'drag-stuff-down)
+
 ;; set macro custom macro key
 (global-set-key (kbd "M-]") 'start-kbd-macro)
 (global-set-key (kbd "M-[") 'end-kbd-macro)

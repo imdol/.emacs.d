@@ -20,7 +20,6 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#10151C" "#8BD49C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#10151C" "#384551"))
  '(linum-format (quote dynamic))
- '(lsp-keymap-prefix "C-c l")
  '(objed-cursor-color "#D95468")
  '(package-selected-packages
    (quote

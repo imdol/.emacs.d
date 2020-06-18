@@ -4,8 +4,6 @@
    python-indent 4
    tab-width 4)
   
-  (require 'lsp-mode)
-  (company-lsp +1)
   (company-mode +1)
   
   (smartparens-mode +1)

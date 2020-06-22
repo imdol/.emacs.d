@@ -110,7 +110,8 @@
    `(line-number                              ((,class (:foreground ,line-num :background nil))))
    `(line-number-current-line                 ((,class (:foreground ,fg1 :background nil))))
 
-   `(mode-line                                ((,class (:bold nil :foreground ,fg3 :background ,mode-line-bg))))
+   ;; `(mode-line                                ((,class (:bold nil :foreground ,fg3 :background ,mode-line-bg))))
+   `(mode-line                                ((,class (:bold nil :foreground ,fg3 :background ,mode-line-bg-dark))))
    `(mode-line-inactive                       ((,class (:bold nil :foreground ,fg1 :background ,mode-line-bg-dark))))
    `(mode-line-buffer-id                      ((,class (:bold nil :foreground ,fg3 :background nil))))
    `(mode-line-highlight                      ((,class (:foreground ,keyword :box nil :weight normal))))

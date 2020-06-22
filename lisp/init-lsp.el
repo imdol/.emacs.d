@@ -1,5 +1,4 @@
 ;; LSP settings
-(require 'lsp-mode)
 (with-eval-after-load 'lsp-mode
   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
   (setq

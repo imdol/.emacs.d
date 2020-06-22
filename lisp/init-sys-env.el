@@ -60,12 +60,22 @@
 ;; faster y/n prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; mode lines
+;;(require 'diminish)
+
+;; nyan
+(nyan-mode 1)
+
 ;; doom mode-line
 (doom-modeline-init)
 (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
 ;; no font caches during GC
 (setq-default inhibit-compacting-font-caches t)
+
+;; zone/idle
+(require 'zone)
+(zone-when-idle 120)
 
 ;;;; OSX SETTINGS ;;;;
 

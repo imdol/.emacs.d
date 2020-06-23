@@ -64,7 +64,7 @@
 ;;(require 'diminish)
 
 ;; nyan
-(nyan-mode 1)
+;;(nyan-mode 1)
 
 ;; doom mode-line
 (doom-modeline-init)

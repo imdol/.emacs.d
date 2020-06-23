@@ -213,16 +213,16 @@
    `(undo-tree-visualizer-unmodified-face     ((,class :foreground ,var)))
    `(undo-tree-visualizer-register-face       ((,class :foreground ,type)))
 
-   `(rainbow-delimiters-depth-1-face          ((,class :foreground "gold")))
-   `(rainbow-delimiters-depth-2-face          ((,class :foreground "orchid")))
-   `(rainbow-delimiters-depth-3-face          ((,class :foreground "LightSkyBlue")))
+   `(rainbow-delimiters-depth-1-face          ((,class :foreground "cyan")))
+   `(rainbow-delimiters-depth-2-face          ((,class :foreground "deep pink")))
+   `(rainbow-delimiters-depth-3-face          ((,class :foreground "orchid")))
    `(rainbow-delimiters-depth-4-face          ((,class :foreground "gold")))
-   `(rainbow-delimiters-depth-5-face          ((,class :foreground "orchid")))
-   `(rainbow-delimiters-depth-6-face          ((,class :foreground "LightSkyBlue")))
+   `(rainbow-delimiters-depth-5-face          ((,class :foreground "cyan")))
+   `(rainbow-delimiters-depth-6-face          ((,class :foreground "deep pink")))
    `(rainbow-delimiters-depth-7-face          ((,class :foreground "gold")))
    `(rainbow-delimiters-depth-8-face          ((,class :foreground "orchid")))
-   `(rainbow-delimiters-depth-9-face          ((,class :foreground "LightSkyBlue")))
-   `(rainbow-delimiters-unmatched-face        ((,class :foreground ,warning)))
+   `(rainbow-delimiters-depth-9-face          ((,class :foreground "red")))
+  `(rainbow-delimiters-unmatched-face        ((,class :foreground ,warning)))
 
    ;;;;; Old magit faces
    ;; `(magit-item-highlight                     ((,class :background ,bg3)))

@@ -75,7 +75,7 @@
 
 ;; zone/idle
 (require 'zone)
-(zone-when-idle 120)
+(zone-when-idle 6000)
 
 ;;;; OSX SETTINGS ;;;;
 

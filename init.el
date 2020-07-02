@@ -18,7 +18,7 @@
   
   ;; extend load path for .el
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
+  
   ;; load custom config
   (setq custom-file "~/.emacs.d/custom.el")
   (load custom-file)
@@ -67,8 +67,9 @@
   (require 'init-org-babel)
   (require 'init-md4rd)
   (require 'init-lc)
-  (require 'init-msh)
-  ;; (require 'init-centaur)
+;;  (require 'init-msh)
+  (require 'init-vterm)
+;;  (require 'init-centaur)
   (require 'init-graphql)
   (require 'init-spotify)
   (require 'init-lsp)

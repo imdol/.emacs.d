@@ -11,18 +11,20 @@
    lsp-auto-guess-root nil
    lsp-response-timeout 4
    lsp-prefer-flymake nil
+   
    ;; help
    lsp-eldoc-render-all t
    lsp-eldoc-enable-hover t
-
+   
    ;; completion
+   lsp-prefer-capf t
    lsp-enable-snippet t
    lsp-enable-completion-at-point t
-
+   
    ;; jumping
-   lsp-enable-xref t)
-  ;; company LSP settings
-  (setq
-   company-lsp-enable-snippet t)
+   lsp-enable-xref t
+
+   ;; performance
+   lsp-print-performance t)
   )
 (provide 'init-lsp)

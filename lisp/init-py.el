@@ -8,6 +8,15 @@
   
   (smartparens-mode +1)
   (yas-global-mode +1)
+
+  (setq company-backends
+  	'(company-anaconda
+	  company-capf
+  	  company-semantic
+  	  company-files
+  	  company-keywords
+  	  company-dabbrev
+  	  company-oddmuse))
   )
 
 (add-hook 'python-mode-hook 'lsp-deferred)

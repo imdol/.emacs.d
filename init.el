@@ -20,11 +20,11 @@
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
   
   ;; load custom config
-  (setq custom-file "~/.emacs.d/custom.el")
+  (setq custom-file "~/.config/emacs/custom.el")
   (load custom-file)
   
   ;; custom themes that are not available on MELPA
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
   (load-theme `tron-legacy t)
 
   ;; install packages if they're missing

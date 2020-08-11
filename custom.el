@@ -8,22 +8,20 @@
  '(column-number-mode t)
  '(custom-enabled-themes nil)
  '(custom-safe-themes
-   (quote
-    ("34b3219ae11acd81b2bb7f3f360505019f17d7a486deb8bb9c1b6d13c6616d2e" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "d0aa1464d7e55d18ca1e0381627fac40229b9a24bca2a3c1db8446482ce8185e" "23c0dc923626f1186edf9ed406dad5358477434d635ea90012e93863531a97b3" "25f1b2ace87d23d803b42267fafdc38b31472e444c2aaa9069aa2c06be8955b2" "1afd504deabc8a2ecf5d63b969bf63a93bf717b509ffe0b2009542dbba49c953" "ed92c27d2d086496b232617213a4e4a28110bdc0730a9457edf74f81b782c5cf" "e7bbfd6408ade4f76365187dff1b94f236ceda5910f49272806480cf0972a464" "56911bd75304fdb19619c9cb4c7b0511214d93f18e566e5b954416756a20cc80" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default)))
+   '("34b3219ae11acd81b2bb7f3f360505019f17d7a486deb8bb9c1b6d13c6616d2e" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "d0aa1464d7e55d18ca1e0381627fac40229b9a24bca2a3c1db8446482ce8185e" "23c0dc923626f1186edf9ed406dad5358477434d635ea90012e93863531a97b3" "25f1b2ace87d23d803b42267fafdc38b31472e444c2aaa9069aa2c06be8955b2" "1afd504deabc8a2ecf5d63b969bf63a93bf717b509ffe0b2009542dbba49c953" "ed92c27d2d086496b232617213a4e4a28110bdc0730a9457edf74f81b782c5cf" "e7bbfd6408ade4f76365187dff1b94f236ceda5910f49272806480cf0972a464" "56911bd75304fdb19619c9cb4c7b0511214d93f18e566e5b954416756a20cc80" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default))
  '(fci-rule-color "#56697A")
  '(font-use-system-font t)
  '(fringe-mode 6 nil (fringe))
  '(helm-display-header-line nil)
- '(hl-paren-background-colors (quote ("#e8fce8" "#c1e7f8" "#f8e8e8")))
- '(hl-paren-colors (quote ("#40883f" "#0287c8" "#b85c57")))
+ '(hl-paren-background-colors '("#e8fce8" "#c1e7f8" "#f8e8e8"))
+ '(hl-paren-colors '("#40883f" "#0287c8" "#b85c57"))
  '(jdee-db-active-breakpoint-face-colors (cons "#10151C" "#5EC4FF"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#10151C" "#8BD49C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#10151C" "#384551"))
- '(linum-format (quote dynamic))
+ '(linum-format 'dynamic)
  '(objed-cursor-color "#D95468")
  '(package-selected-packages
-   (quote
-    (multi-vterm vterm dash-functional log4e markdown-mode multi transient projectile helm-projectile tramp anaconda-mode iy-go-to-char evil fireplace diminish nyan-mode tron-legacy-theme drag-stuff helm-ag ccls ob-restclient leetcode htmlize ox-latex-subfigure ox-asciidoc org-bullets dot-mode which-key dotenv-mode doom-themes gnu-elpa-keyring-update flymake lsp-mode helm-spotify-plus magit async ess eval-in-repl helm helm-core ivy julia-mode matlab-mode memoize paredit restclient treemacs with-editor yasnippet swiper yasnippet-snippets centaur-tabs doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture treemacs-projectile transpose-frame use-ttf undo-tree ob-mongo powerline 0blayout yaml-mode docker-compose-mode graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd wgrep all-the-icons auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip pythonic request s shrink-path treepy typescript-mode web-completion-data coin-ticker company-nginx nginx-mode web-mode tide smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup json-mode iedit hydra exec-path-from-shell emmet-mode eldoc-eval company-web company-restclient company-quickhelp company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window)))
+   '(multi-vterm vterm helm-rg dash-functional log4e markdown-mode multi transient projectile helm-projectile tramp anaconda-mode iy-go-to-char evil fireplace diminish nyan-mode tron-legacy-theme drag-stuff helm-ag ccls ob-restclient leetcode htmlize ox-latex-subfigure ox-asciidoc org-bullets dot-mode which-key dotenv-mode doom-themes gnu-elpa-keyring-update flymake lsp-mode helm-spotify-plus magit async ess eval-in-repl helm helm-core ivy julia-mode matlab-mode memoize paredit restclient treemacs with-editor yasnippet swiper yasnippet-snippets centaur-tabs doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture treemacs-projectile transpose-frame use-ttf undo-tree ob-mongo powerline 0blayout yaml-mode docker-compose-mode graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode md4rd wgrep all-the-icons auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip pythonic request s shrink-path treepy typescript-mode web-completion-data coin-ticker company-nginx nginx-mode web-mode tide smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup json-mode iedit hydra exec-path-from-shell emmet-mode eldoc-eval company-web company-restclient company-quickhelp company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window))
  '(pdf-view-midnight-colors (cons "#A0B3C5" "#1D252C"))
  '(rustic-ansi-faces
    ["#1D252C" "#D95468" "#8BD49C" "#EBBF83" "#5EC4FF" "#E27E8D" "#70E1E8" "#A0B3C5"])

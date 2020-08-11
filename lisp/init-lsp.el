@@ -13,11 +13,12 @@
    lsp-prefer-flymake nil
    
    ;; help
-   lsp-eldoc-render-all t
+   lsp-eldoc-render-all nil
    lsp-eldoc-enable-hover t
    
    ;; completion
    lsp-prefer-capf t
+   lsp-idle-delay 0.2
    lsp-enable-snippet t
    lsp-enable-completion-at-point t
    
@@ -27,4 +28,6 @@
    ;; performance
    lsp-print-performance t)
   )
+
+(setq eldoc-idle-delay 0)
 (provide 'init-lsp)

@@ -60,9 +60,6 @@
 ;; faster y/n prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; mode lines
-;;(require 'diminish)
-
 ;; nyan
 ;;(nyan-mode 1)
 
@@ -71,7 +68,7 @@
 (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
 ;; no font caches during GC
-(setq-default inhibit-compacting-font-caches t)
+;;(setq-default inhibit-compacting-font-caches t)
 
 ;; zone/idle
 (require 'zone)
@@ -80,10 +77,10 @@
 ;;;; OSX SETTINGS ;;;;
 
 ;; for mac keyboards
- (setq-default mac-option-key-is-meta nil
-  mac-command-key-is-meta t
-  mac-command-modifier 'meta
-  mac-option-modifier nil)
+ ;; (setq-default mac-option-key-is-meta nil
+ ;;  mac-command-key-is-meta t
+ ;;  mac-command-modifier 'meta
+ ;;  mac-option-modifier nil)
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))

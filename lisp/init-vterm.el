@@ -5,6 +5,5 @@
   (define-key vterm-mode-map (kbd "M-]") #'multi-vterm-next)
   (define-key vterm-mode-map (kbd "M-[") #'multi-vterm-prev)
   )
-
 (add-hook 'vterm-mode-hook 'vterm-setup-mode)
 (provide 'init-vterm)

@@ -1,7 +1,7 @@
 ;; hook projectile mode to programming modes
 ;;(add-hook 'prog-mode-hook 'projectile-mode)
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; use helm for projectile completion
@@ -9,7 +9,7 @@
 (helm-projectile-on)
 
 ;; additional ignored directories to be added to projectile globally ignored directories
-(setq additional-ignored-directories '("node_modules" "elpa" ".next"
+(setq additional-ignored-directories '("node_modules" "elpa" ".next" "python3.8"
 				       ))
 (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
 

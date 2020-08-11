@@ -2,7 +2,7 @@
 ;;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;; 100MB garbage collection threshold
 (setq gc-cons-threshold 100000000)
-(setq read-process-output-max (* 1024 1024)) 
+(setq read-process-output-max (* 1024 1024))
 ;; collection thresholds
 ;; (let ((normal-gc-cons-threshold (* 20 1024 1024))
 ;;       (init-gc-cons-threshold (* 128 1024 1024)))

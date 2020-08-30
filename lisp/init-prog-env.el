@@ -17,8 +17,8 @@
 (global-set-key (kbd "M-n") #'drag-stuff-down)
 
 ;; set macro custom macro key
-(global-set-key (kbd "M-]") 'start-kbd-macro)
-(global-set-key (kbd "M-[") 'end-kbd-macro)
+;; (global-set-key (kbd "M-]") 'start-kbd-macro)
+;; (global-set-key (kbd "M-[") 'end-kbd-macro)
 
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)

@@ -1,6 +1,6 @@
 ;; basic settings
 (setq-default
- centaur-tabs-height 20
+ centaur-tabs-height 25
  centaur-tabs-style "bar"
  centaur-tabs-set-bar 'over
  centaur-tabs-set-close-button nil
@@ -10,6 +10,8 @@
 
 ;; enable and inherit themes
 (centaur-tabs-mode t)
+(centaur-tabs-headline-match)
+(centaur-tabs-change-fonts "hack" 100)
 
 ;; set keys
 (global-set-key (kbd "M-[")  'centaur-tabs-backward)
@@ -19,6 +21,7 @@
 (add-hook 'dired-mode-hook 'centaur-tabs-local-mode)
 (add-hook 'org-agenda-mode-hook 'centaur-tabs-local-mode)
 (add-hook 'calendar-mode-hook 'centaur-tabs-local-mode)
+(add-hook 'treemacs-mode-hook 'centaur-tabs-local-mode)
 
 ;; def buffer groups
 (defun centaur-tabs-buffer-groups ()
@@ -75,7 +78,7 @@
      (string-prefix-p "*Compile-Log*" name)
      (string-prefix-p "*lsp" name)
      (string-prefix-p "*NeoTree*" name)
-     (string-prefix-p "*Treemacs-FrameBuffer-1*" name)
+     (string-prefix-p "*Treemacs-*" name)
      (string-prefix-p "*tide-server*" name)
      (string-prefix-p "*GraphQL*" name)
      (string-prefix-p "*spotify" name)
@@ -85,5 +88,7 @@
 
 ;; group by projectile projects
 (centaur-tabs-group-by-projectile-project)
+
+(setq centaur-tabs-background-color "#ff0000")
 
 (provide 'init-centaur)

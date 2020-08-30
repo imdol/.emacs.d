@@ -1,5 +1,5 @@
 (defun org-babel-mode-setup ()
-;;  (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0.11.jar")
+ (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0.11.jar")
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
   (org-babel-do-load-languages
    'org-babel-load-languages

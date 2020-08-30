@@ -69,7 +69,7 @@
   (require 'init-lc)
 ;;  (require 'init-msh)
   (require 'init-vterm)
-;;  (require 'init-centaur)
+  (require 'init-centaur)
   (require 'init-graphql)
   (require 'init-spotify)
   (require 'init-lsp)

@@ -73,4 +73,5 @@
   (require 'init-graphql)
   (require 'init-spotify)
   (require 'init-lsp)
+  (require 'init-docker)
   )

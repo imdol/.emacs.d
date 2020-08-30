@@ -53,13 +53,13 @@
 			diary-mode))
      "OrgMode")
     ((memq major-mode '(magit-process-mode
-		       magit-status-mode
-		       magit-diff-mode
-		       magit-log-mode
-		       magit-file-mode
-		       magit-blob-mode
-		       magit-blame-mode
-		       ))
+			magit-status-mode
+			magit-diff-mode
+			magit-log-mode
+			magit-file-mode
+			magit-blob-mode
+			magit-blame-mode
+			))
      "Magit")
     ((memq major-mode '(term-mode
 			eshell-mode
@@ -78,7 +78,7 @@
      (string-prefix-p "*Compile-Log*" name)
      (string-prefix-p "*lsp" name)
      (string-prefix-p "*NeoTree*" name)
-     (string-prefix-p "*Treemacs-*" name)
+     (string-prefix-p "COMMIT_EDITMSG" name)
      (string-prefix-p "*tide-server*" name)
      (string-prefix-p "*GraphQL*" name)
      (string-prefix-p "*spotify" name)

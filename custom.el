@@ -64,6 +64,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Hack" :foundry "SRC" :slant normal :weight normal :height 98 :width normal))))
+ '(centaur-tabs-active-bar-face ((t (:background "#B62D66" :box nil))))
  '(company-scrollbar-bg ((t (:background "#199919991999"))))
  '(company-scrollbar-fg ((t (:background "#0ccc0ccc0ccc"))))
  '(company-tooltip ((t (:inherit default :background "#199919991999"))))

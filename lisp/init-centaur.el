@@ -75,6 +75,7 @@
      (string-prefix-p "*GraphQL*" name)
      (string-prefix-p "*spotify" name)
      (string-prefix-p "*Messages*" name)
+     (string-prefix-p "*Packages*" name)
      (string-prefix-p "*scratch*" name)
      (and (string-prefix-p "magit" name)
 	  (not (file-name-extension name)))
@@ -83,6 +84,7 @@
 ;; group by projectile projects
 (centaur-tabs-group-by-projectile-project)
 
+;; set keys to rearrange
 (global-set-key (kbd "C-c t p") 'centaur-tabs-group-by-projectile-project)
 (global-set-key (kbd "C-c t o") 'centaur-tabs-group-buffer-groups)
 

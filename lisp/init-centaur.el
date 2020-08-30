@@ -1,5 +1,3 @@
-(centaur-tabs-mode t)
-
 ;; basic settings
 (setq-default
  centaur-tabs-height 25
@@ -9,6 +7,9 @@
  centaur-tabs-set-modified-marker t
  centaur-tabs-modified-marker "!"
  centaur-tabs-cycle-scope 'tabs)
+
+;; enable centaur tabs
+(centaur-tabs-mode t)
 
 ;; enable and inherit themes
 (centaur-tabs-headline-match)
@@ -80,7 +81,6 @@
      )))
 
 ;; group by projectile projects
-(centaur-tabs-group-buffer-groups)
 (centaur-tabs-group-by-projectile-project)
 
 (global-set-key (kbd "C-c t p") 'centaur-tabs-group-by-projectile-project)

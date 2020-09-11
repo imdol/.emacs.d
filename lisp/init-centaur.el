@@ -77,6 +77,12 @@
      (string-prefix-p "*Messages*" name)
      (string-prefix-p "*Packages*" name)
      (string-prefix-p "*scratch*" name)
+     (string-prefix-p "*ccls*" name)
+     (string-prefix-p "*ccls::stderr*" name)
+     (string-prefix-p "*leetcode-description*" name)
+     (string-prefix-p "*leetcode-testcase*" name)
+     (string-prefix-p "*leetcode-result*" name)
+     
      (and (string-prefix-p "magit" name)
 	  (not (file-name-extension name)))
      )))

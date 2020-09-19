@@ -16,6 +16,9 @@
 (global-set-key (kbd "M-p") #'drag-stuff-up)
 (global-set-key (kbd "M-n") #'drag-stuff-down)
 
+;; kill whole line
+(global-set-key (kbd "C-l") 'kill-whole-line)
+
 ;; set macro custom macro key
 ;; (global-set-key (kbd "M-]") 'start-kbd-macro)
 ;; (global-set-key (kbd "M-[") 'end-kbd-macro)

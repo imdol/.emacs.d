@@ -65,7 +65,7 @@
   (require 'init-nginx)
   (require 'init-json)
   (require 'init-org-babel)
-  (require 'init-md4rd)
+;;  (require 'init-md4rd)
   (require 'init-lc)
 ;;  (require 'init-msh)
   (require 'init-vterm)

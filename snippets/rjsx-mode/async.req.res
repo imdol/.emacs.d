@@ -3,6 +3,6 @@
 # key: rra
 # group: node
 # --
-async (req, res) => {
+async (req, res, next) => {
     $0
 }

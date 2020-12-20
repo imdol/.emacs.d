@@ -8,7 +8,6 @@ auto-save-list
 tramp
 recentf
 srecode-map.el
-.mc-lists.el
 .init.el.swp
 /request/
 /request/*

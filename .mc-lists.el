@@ -7,15 +7,11 @@
 
 (setq mc/cmds-to-run-once
       '(
-	cqql-multiple-cursors-hydra/mc/mark-all-like-this-and-exit
-	cqql-multiple-cursors-hydra/mc/mark-next-like-this
-	cqql-multiple-cursors-hydra/mc/mark-next-like-this-and-exit
-	cqql-multiple-cursors-hydra/mc/mark-previous-like-this
-	cqql-multiple-cursors-hydra/mc/skip-to-next-like-this
 	helm-M-x
+	hydra-multi-cursors/mc/mark-all-like-this
 	helm-confirm-and-exit-minibuffer
-	hydra-multi-cursors/mc/mark-all-like-this-and-exit
-	hydra-multi-cursors/mc/mark-next-like-this
-	hydra-multi-cursors/mc/mark-previous-like-this
-	hydra-multi-cursors/mc/skip-to-next-like-this
+	hydra-multi-cursors/mc-mark-next-like-this-then-cycle-forward
+	hydra-multi-cursors/mc-mark-previous-like-this-then-cycle-backward
+	hydra-multi-cursors/mc-skip-to-next-like-this-then-cycle-forward
+	hydra-multi-cursors/mc-skip-to-previous-like-this-then-cycle-backward
 	))

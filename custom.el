@@ -5,14 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#1D252C" "#D95468" "#8BD49C" "#EBBF83" "#5EC4FF" "#E27E8D" "#70E1E8" "#A0B3C5"])
- '(column-number-mode t)
  '(custom-enabled-themes nil)
- '(custom-safe-themes
-   '("34b3219ae11acd81b2bb7f3f360505019f17d7a486deb8bb9c1b6d13c6616d2e" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "d71aabbbd692b54b6263bfe016607f93553ea214bc1435d17de98894a5c3a086" "d0aa1464d7e55d18ca1e0381627fac40229b9a24bca2a3c1db8446482ce8185e" "23c0dc923626f1186edf9ed406dad5358477434d635ea90012e93863531a97b3" "25f1b2ace87d23d803b42267fafdc38b31472e444c2aaa9069aa2c06be8955b2" "1afd504deabc8a2ecf5d63b969bf63a93bf717b509ffe0b2009542dbba49c953" "ed92c27d2d086496b232617213a4e4a28110bdc0730a9457edf74f81b782c5cf" "e7bbfd6408ade4f76365187dff1b94f236ceda5910f49272806480cf0972a464" "56911bd75304fdb19619c9cb4c7b0511214d93f18e566e5b954416756a20cc80" "04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" default))
  '(fci-rule-color "#56697A")
  '(font-use-system-font t)
  '(fringe-mode 6 nil (fringe))
- '(helm-display-header-line nil)
  '(hl-paren-background-colors '("#e8fce8" "#c1e7f8" "#f8e8e8"))
  '(hl-paren-colors '("#40883f" "#0287c8" "#b85c57"))
  '(jdee-db-active-breakpoint-face-colors (cons "#10151C" "#5EC4FF"))
@@ -53,9 +49,6 @@
     (cons 340 "#56697A")
     (cons 360 "#56697A")))
  '(vc-annotate-very-old-color nil))
-
-;; highlighting: background and foreground
-(set-face-attribute 'region nil :background "#FF1493" :foreground "#fff")
 
 ;; company quickhelp and delimiters below
 (custom-set-faces

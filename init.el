@@ -1,5 +1,3 @@
-;; https://debbugs.gnu.org/34341 bug report...
-;;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;; 100MB garbage collection threshold
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
@@ -10,7 +8,11 @@
 ;;   (add-hook 'emacs-startup-hook
 ;; 	    (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
-(let ((file-name-handler-alist nil)) 
+;; benchmarking startup
+(require 'benchmark-init)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
+
+(let ((file-name-handler-alist nil))
   ;; MELPA package
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -31,10 +33,6 @@
   (unless package-archive-contents
     (package-refresh-contents)
     (package-install-selected-packages))
-
-  ;; benchmarking startup
-  (require 'benchmark-init)
-  (add-hook 'after-init-hook 'benchmark-init/deactivate)
   
   ;; load configs
   (require 'init-sys-env)
@@ -65,9 +63,9 @@
   (require 'init-nginx)
   (require 'init-json)
   (require 'init-org-babel)
-;;  (require 'init-md4rd)
+  ;;  (require 'init-md4rd)
   (require 'init-lc)
-;;  (require 'init-msh)
+  ;;  (require 'init-msh)
   (require 'init-vterm)
   (require 'init-centaur)
   (require 'init-graphql)

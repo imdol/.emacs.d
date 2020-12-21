@@ -18,6 +18,15 @@
 (setq-default visible-bell 1)
 
 ;; cursor and  beacon-mode
+;; (use-package beacon
+;;   :config
+;;   (setq-default
+;;    blink-cursor-interval 0.5
+;;    beacon-color "#ffb6c1"
+;;    beacon-blink-duration 0.5
+;;    beacon-size 50)
+;;   )
+
 (setq-default
  blink-cursor-interval 0.5
  beacon-color "#ffb6c1"
@@ -39,17 +48,9 @@
 (column-number-mode 1)
 (line-number-mode 1)
 
-;; disable extraneous bloat
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-
-;; disable scroll and disable it on new frames too
 (toggle-scroll-bar -1)
-;; (defun my/disable-scroll-bars (frame)
-;;   (modify-frame-parameters frame
-;;                            '((vertical-scroll-bars . nil)
-;;                              (horizontal-scroll-bars . nil))))
-;; (add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
 ;; display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -64,15 +65,21 @@
 ;;(nyan-mode 1)
 
 ;; doom mode-line
-(doom-modeline-init)
-(setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
+(use-package doom-modeline
+  :config
+  (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-mode)
+  )
 
 ;; no font caches during GC
 ;;(setq-default inhibit-compacting-font-caches t)
 
 ;; zone/idle
-(require 'zone)
-(zone-when-idle 6000)
+(use-package zone
+  :defer t
+  :config
+  (zone-when-idle 6000)
+  )
 
 ;;;; OSX SETTINGS ;;;;
 

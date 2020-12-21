@@ -8,10 +8,11 @@
 (setq mc/cmds-to-run-once
       '(
 	helm-M-x
-	hydra-multi-cursors/mc/mark-all-like-this
+	hydra-multi-cursors/mc/unmark-next-like-this
 	helm-confirm-and-exit-minibuffer
 	hydra-multi-cursors/mc-mark-next-like-this-then-cycle-forward
 	hydra-multi-cursors/mc-mark-previous-like-this-then-cycle-backward
 	hydra-multi-cursors/mc-skip-to-next-like-this-then-cycle-forward
 	hydra-multi-cursors/mc-skip-to-previous-like-this-then-cycle-backward
+	hydra-multi-cursors/mc/mark-all-like-this
 	))

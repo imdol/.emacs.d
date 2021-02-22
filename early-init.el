@@ -1,3 +1,65 @@
+;; disable splash screen
+(setq-default
+ inhibit-splash-screen t
+ inhibit-startup-message t
+ initial-scratch-message nil)
+
+;; don't store any backup files
+(setq-default
+ make-backup-files nil
+ backup-inhibited t
+ auto-save-default nil
+ create-lockfiles nil)
+
+;; maximize screen on startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; turn off the annoying bell
+;; (setq-default visible-bell 1)
+
+;; delete section default
+(delete-selection-mode 1)
+
+;; set kill ring buffer max
+;;(setq-default kill-ring-max 20)
+
+;; usefull shortcuts
+(global-set-key [f3] 'comment-region)
+(global-set-key [f4] 'uncomment-region)
+
+;; line and column numbering
+(column-number-mode 1)
+(line-number-mode 1)
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+
+;; display line numbers
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+
+;; refresh buffers when any file changes
+(global-auto-revert-mode t)
+
+;; faster y/n prompts
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; no font caches during GC
+;;(setq-default inhibit-compacting-font-caches t)
+
+;; OSX settings
+;; for mac keyboards
+ ;; (setq-default mac-option-key-is-meta nil
+ ;;  mac-command-key-is-meta t
+ ;;  mac-command-modifier 'meta
+ ;;  mac-option-modifier nil)
+
+;; exec-path-from-shell
+;; (when (memq window-system '(mac ns))
+;;  (exec-path-from-shell-initialize))
+
+
+;; custom.el block
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -10,6 +72,7 @@
  '(fringe-mode 6 nil (fringe))
  '(hl-paren-background-colors '("#e8fce8" "#c1e7f8" "#f8e8e8"))
  '(hl-paren-colors '("#40883f" "#0287c8" "#b85c57"))
+;; '(initial-major-mode 'fundamental-mode) 
  '(linum-format 'dynamic)
  '(package-selected-packages
    '(jump-char hybrid-reverse-theme use-package helm-spotify-plus docker multi-vterm vterm helm-rg dash-functional log4e markdown-mode multi transient projectile helm-projectile tramp anaconda-mode iy-go-to-char evil fireplace diminish nyan-mode tron-legacy-theme drag-stuff helm-ag ccls ob-restclient leetcode htmlize ox-latex-subfigure ox-asciidoc org-bullets dot-mode which-key dotenv-mode doom-themes gnu-elpa-keyring-update flymake lsp-mode magit async ess eval-in-repl helm helm-core ivy julia-mode matlab-mode memoize paredit restclient treemacs with-editor yasnippet swiper yasnippet-snippets centaur-tabs doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture treemacs-projectile transpose-frame use-ttf undo-tree ob-mongo powerline 0blayout yaml-mode docker-compose-mode graphql-mode dockerfile-mode deferred hierarchy request-deferred spinner tree-mode wgrep all-the-icons auto-complete avy company csharp-mode dash epl f flycheck git-commit go-mode graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip pythonic request s shrink-path treepy typescript-mode web-completion-data coin-ticker company-nginx nginx-mode web-mode tide smartparens shut-up rjsx-mode restclient-helm rainbow-delimiters pug-mode org omnisharp neotree multiple-cursors multi-term magit-popup json-mode iedit hydra exec-path-from-shell emmet-mode eldoc-eval company-web company-restclient company-quickhelp company-go company-anaconda cherry-blossom-theme c-eldoc benchmark-init ace-window))
@@ -35,3 +98,7 @@
  '(helm-prefarg ((t (:foreground "deep pink"))))
  '(helm-rg-preview-line-highlight ((t (:background "#009081" :foreground "white smoke"))))
  '(helm-selection ((t (:background "#009081" :distant-foreground "black")))))
+
+;; theme block
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(load-theme `killme t)

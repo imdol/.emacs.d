@@ -9,8 +9,8 @@
 ;; 	    (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;; benchmarking startup
-;; (require 'benchmark-init)
-;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
+(require 'benchmark-init)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 (let ((file-name-handler-alist nil))
   ;; MELPA package
@@ -21,14 +21,6 @@
   ;; extend load path for .el
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
   
-  ;; load custom config
-  (setq custom-file "~/.config/emacs/custom.el")
-  (load custom-file)
-  
-  ;; custom themes that are not available on MELPA
-  (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
-  (load-theme `tron-legacy t)
-
   ;; install packages if they're missing
   (unless package-archive-contents
     (package-refresh-contents)
@@ -36,7 +28,6 @@
   
   ;; load configs
   (require 'init-sys-env)
-  ;;(require 'init-evil)
   (require 'init-prog-env)
   (require 'init-company)
   (require 'init-helm)
@@ -63,13 +54,15 @@
   (require 'init-nginx)
   (require 'init-json)
   (require 'init-org-babel)
-  ;;  (require 'init-md4rd)
   (require 'init-lc)
-  ;;  (require 'init-msh)
   (require 'init-vterm)
   (require 'init-centaur)
   (require 'init-graphql)
   (require 'init-spotify)
   (require 'init-lsp)
   (require 'init-docker)
+  ;; (require 'init-evil)
+  ;; (require 'init-js2)
+  ;; (require 'init-msh)
+  ;; (require 'init-md4rd)
   )

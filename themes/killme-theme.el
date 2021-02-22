@@ -1,46 +1,21 @@
-;;; tron-legacy-theme.el --- A complete port of the Tron Legacy theme for Emacs
-
-;; Copyright (C) 2018-2020 Ian Y.E. Pan
-
-;; Author: Ian Y.E. Pan
-
-;; This program is free software: you can redistribute it and/or modify
-;; it under the tertron of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-;; This file is not part of Emacs.
-
-;;; Commentary:
-
-;;; Code:
-
-(defcustom tron-legacy-dark-fg-bright-comments nil
+(defcustom killme-dark-fg-bright-comments nil
   "If non-nil, default foreground will be dimmed and comments will be boosted to be brighter than the normal foreground."
   :type 'boolean)
 
-(deftheme tron-legacy)
+(deftheme killme)
 (let ((class '((class color) (min-colors 89)))
       (fg0               "#5A7387")
-      (fg1               (if tron-legacy-dark-fg-bright-comments "#5A7387" "#d1e4f0")) ; default fg
+      (fg1               (if killme-dark-fg-bright-comments "#5A7387" "#d1e4f0")) ;; default fg
       (fg2               "#8BaCbF")
       (fg3               "#bBECeF")
       (fg4               "#CBECFF")
       (bg00              "#000000")
       (bg0               "#000000")
-      (bg1               "#000000") ; default bg
+      (bg1               "#000000") ;; default bg
       (bg2               "#021222")
       (bg3               "#213141")
       (bg4               "#2b4255")
-      (bg-hl             "#1b3245") ; region, selection
+      (bg-hl             "#1b3245") ;; region, selection
       (tw-r              "#B62D66")
       (tw-g              "#4BB5BE")
       (tw-b              "#387AAA")
@@ -53,7 +28,7 @@
       (builtin           "#8Fd4FF")
       (keyword           "#8Fd4FF")
       (const             "#B62D66")
-      (comment           (if tron-legacy-dark-fg-bright-comments "#d1e4f0" "#5A7387"))
+      (comment           (if killme-dark-fg-bright-comments "#d1e4f0" "#5A7387"))
       (doc               "#6a8397")
       (type              "#e01ba5")
       (str               "#387AAA")
@@ -62,19 +37,18 @@
       (warning           "#880000")
 
       ;; standardized palette
-      (tron-yellow         "#DEB45B")
-      (tron-bluegreen      "#4BB5BE")
-      (tron-magenta        "#B62D66")
-      (tron-lightblue      "#B0CCDC")
-;;      (tron-orange         "#DEB45B")
-      (tron-orange         "#B62D66")
-      (tron-red            "#B62D66")
-      (tron-blue           "#5EC4FF")
-      (tron-lightgreen     "#B0CCDC")
-      (tron-green          "#4BB5BE")
+      (killme-yellow         "#DEB45B")
+      (killme-bluegreen      "#4BB5BE")
+      (killme-magenta        "#B62D66")
+      (killme-lightblue      "#B0CCDC")
+      (killme-orange         "#B62D66")
+      (killme-red            "#B62D66")
+      (killme-blue           "#5EC4FF")
+      (killme-lightgreen     "#B0CCDC")
+      (killme-green          "#4BB5BE")
       )
   (custom-theme-set-faces
-   'tron-legacy
+   'killme
    `(default                                  ((,class (:background ,bg1 :foreground ,fg1))))
 
    `(font-lock-builtin-face                   ((,class (:foreground ,builtin))))
@@ -100,17 +74,16 @@
    `(show-paren-mismatch                      ((t (:background ,warning))))
    `(isearch                                  ((,class (:bold nil :foreground ,accent :background ,bg4))))
    `(vertical-border                          ((,class (:foreground ,bg3))))
-   `(minibuffer-prompt                        ((,class (:foreground ,tron-bluegreen :weight normal))))
+   `(minibuffer-prompt                        ((,class (:foreground ,killme-bluegreen :weight normal))))
    `(default-italic                           ((,class (:italic t))))
    `(link                                     ((,class (:foreground ,const :underline t))))
-   `(error                                    ((,class (:foreground ,tron-orange))))
-   `(warning                                  ((,class (:foreground ,tron-magenta))))
-   `(success                                  ((,class (:foreground ,tron-bluegreen))))
+   `(error                                    ((,class (:foreground ,killme-orange))))
+   `(warning                                  ((,class (:foreground ,killme-magenta))))
+   `(success                                  ((,class (:foreground ,killme-bluegreen))))
    `(dired-directory                          ((t (:inherit (font-lock-keyword-face)))))
    `(line-number                              ((,class (:foreground ,line-num :background nil))))
    `(line-number-current-line                 ((,class (:foreground ,fg1 :background nil))))
 
-   ;; `(mode-line                                ((,class (:bold nil :foreground ,fg3 :background ,mode-line-bg))))
    `(mode-line                                ((,class (:bold nil :foreground ,fg3 :background ,mode-line-bg-dark))))
    `(mode-line-inactive                       ((,class (:bold nil :foreground ,fg1 :background ,mode-line-bg-dark))))
    `(mode-line-buffer-id                      ((,class (:bold nil :foreground ,fg3 :background nil))))
@@ -121,21 +94,21 @@
    `(company-scrollbar-bg                     ((t (:background ,bg2))))
    `(company-scrollbar-fg                     ((t (:background ,bg3))))
    `(company-tooltip                          ((t (:inherit default :background ,bg2))))
-   `(company-tooltip-common                   ((t (:foreground ,tron-blue :bold t))))
+   `(company-tooltip-common                   ((t (:foreground ,killme-blue :bold t))))
    `(company-tooltip-selection                ((t (:background ,bg-hl))))
-   `(company-tooltip-annotation               ((t (:foreground ,doc)))) ; parameter hints etc.
+   `(company-tooltip-annotation               ((t (:foreground ,doc)))) ;; parameter hints etc.
 
    `(org-document-title                       ((,class (:foreground ,type :height 1.2 :bold t))))
-   `(org-level-1                              ((,class (:bold nil :foreground ,tron-bluegreen :height 1.1))))
-   `(org-level-2                              ((,class (:bold nil :foreground ,tron-yellow))))
-   `(org-level-3                              ((,class (:bold nil :foreground ,tron-blue))))
-   `(org-level-4                              ((,class (:bold nil :foreground ,tron-bluegreen))))
+   `(org-level-1                              ((,class (:bold nil :foreground ,killme-bluegreen :height 1.1))))
+   `(org-level-2                              ((,class (:bold nil :foreground ,killme-yellow))))
+   `(org-level-3                              ((,class (:bold nil :foreground ,killme-blue))))
+   `(org-level-4                              ((,class (:bold nil :foreground ,killme-bluegreen))))
    `(org-code                                 ((,class (:foreground ,fg2))))
    `(org-hide                                 ((,class (:foreground ,fg4))))
    `(org-date                                 ((,class (:underline t :foreground ,var) )))
    `(org-footnote                             ((,class (:underline t :foreground ,fg4))))
    `(org-link                                 ((,class (:underline t :foreground ,type ))))
-   `(org-special-keyword                      ((,class (:foreground ,tron-green))))
+   `(org-special-keyword                      ((,class (:foreground ,killme-green))))
    `(org-block                                ((,class (:foreground ,fg2 :background ,bg0 :extend t))))
    `(org-quote                                ((,class (:inherit org-block :slant italic))))
    `(org-verse                                ((,class (:inherit org-block :slant italic))))
@@ -151,7 +124,7 @@
    `(org-scheduled-today                      ((,class (:foreground ,func :weight normal :height 1.2))))
    `(org-ellipsis                             ((,class (:foreground ,builtin))))
    `(org-verbatim                             ((,class (:foreground ,fg4))))
-   `(org-document-info-keyword                ((,class (:foreground ,tron-green))))
+   `(org-document-info-keyword                ((,class (:foreground ,killme-green))))
    `(org-sexp-date                            ((,class (:foreground ,fg4))))
 
    `(font-latex-bold-face                     ((,class (:foreground ,type))))
@@ -224,89 +197,59 @@
    `(rainbow-delimiters-depth-9-face          ((,class :foreground "red")))
   `(rainbow-delimiters-unmatched-face        ((,class :foreground ,warning)))
 
-   ;;;;; Old magit faces
-   ;; `(magit-item-highlight                     ((,class :background ,bg3)))
-   ;; `(magit-section-heading                    ((,class (:foreground ,keyword :weight normal))))
-   ;; `(magit-hunk-heading                       ((,class (:background ,bg3))))
-   ;; `(magit-section-highlight                  ((,class (:background ,bg3))))
-   ;; `(magit-hunk-heading-highlight             ((,class (:background ,bg3))))
-   ;; `(magit-diff-context-highlight             ((,class (:background ,bg3 :foreground ,fg3))))
-   ;; `(magit-diffstat-added                     ((,class (:foreground ,type))))
-   ;; `(magit-diffstat-removed                   ((,class (:foreground ,var))))
-   ;; `(magit-process-ok                         ((,class (:foreground ,func :weight normal))))
-   ;; `(magit-process-ng                         ((,class (:foreground ,warning :weight normal))))
-   ;; `(magit-branch                             ((,class (:foreground ,const :weight normal))))
-   ;; `(magit-log-author                         ((,class (:foreground ,fg3))))
-   ;; `(magit-hash                               ((,class (:foreground ,fg2))))
-   ;; `(magit-diff-file-header                   ((,class (:foreground ,fg2 :background ,bg3))))
-
-   ;;;;; New magit faces (adpated from sanityinc-tomorrow themes)
+   ;; New magit faces (adpated from sanityinc-tomorrow themes)
    `(magit-item-highlight                     ((,class :background ,bg3)))
    `(magit-hunk-heading                       ((,class (:background ,bg3))))
    `(magit-hunk-heading-highlight             ((,class (:background ,bg3))))
-   `(magit-bisect-bad                         ((t (:foreground ,tron-red))))
-   `(magit-bisect-good                        ((t (:foreground ,tron-green))))
-   `(magit-bisect-skip                        ((t (:foreground ,tron-orange))))
-   `(magit-blame-date                         ((t (:foreground ,tron-red))))
-   `(magit-blame-heading                      ((t (:foreground ,tron-orange :background ,bg3 :extend t))))
-   `(magit-branch                             ((,class (:foreground ,tron-blue :weight normal))))
-   `(magit-branch-current                     ((t (:foreground ,tron-blue))))
-   `(magit-branch-local                       ((t (:foreground ,tron-bluegreen))))
-   `(magit-branch-remote                      ((t (:foreground ,tron-green))))
-   `(magit-cherry-equivalent                  ((t (:foreground ,tron-magenta))))
-   `(magit-cherry-unmatched                   ((t (:foreground ,tron-bluegreen))))
-   ;; `(magit-diff-added                         ((t (:foreground ,tron-green :extend t))))
-   ;; `(magit-diff-added-highlight               ((t (:foreground ,tron-green :background ,bg3 :extend t))))
-   ;; `(magit-diff-base                          ((t (:foreground ,bg1 :background ,tron-orange :extend t))))
-   ;; `(magit-diff-base-highlight                ((t (:foreground ,tron-orange :background ,bg3 :extend t))))
-   ;; `(magit-diff-context                       ((t (:foreground ,comment :extend t))))
-   ;; `(magit-diff-file-header                   ((,class (:foreground ,fg2 :background ,bg3))))
-   ;; `(magit-diff-file-heading                  ((t (:foreground ,fg1 :extend t))))
-   ;; `(magit-diff-file-heading-highlight        ((t (:background ,bg3 :extend t))))
-   ;; `(magit-diff-file-heading-selection        ((t (:foreground ,tron-orange :background ,bg3 :extend t))))
-   ;; `(magit-diff-hunk-heading                  ((t (:foreground ,fg1 :background ,bg3 :extend t))))
-   ;; `(magit-diff-hunk-heading-highlight        ((t (:background ,bg3 :extend t))))
-   ;; `(magit-diff-lines-heading                 ((t (:foreground ,tron-yellow :background ,tron-red :extend t))))
-   ;; `(magit-diff-removed                       ((t (:foreground ,tron-orange :extend t))))
-   ;; `(magit-diff-removed-highlight             ((t (:foreground ,tron-orange :background ,bg3 :extend t))))
+   `(magit-bisect-bad                         ((t (:foreground ,killme-red))))
+   `(magit-bisect-good                        ((t (:foreground ,killme-green))))
+   `(magit-bisect-skip                        ((t (:foreground ,killme-orange))))
+   `(magit-blame-date                         ((t (:foreground ,killme-red))))
+   `(magit-blame-heading                      ((t (:foreground ,killme-orange :background ,bg3 :extend t))))
+   `(magit-branch                             ((,class (:foreground ,killme-blue :weight normal))))
+   `(magit-branch-current                     ((t (:foreground ,killme-blue))))
+   `(magit-branch-local                       ((t (:foreground ,killme-bluegreen))))
+   `(magit-branch-remote                      ((t (:foreground ,killme-green))))
+   `(magit-cherry-equivalent                  ((t (:foreground ,killme-magenta))))
+   `(magit-cherry-unmatched                   ((t (:foreground ,killme-bluegreen))))
    `(magit-diff-context-highlight             ((,class (:background ,bg3 :foreground ,fg3))))
-   `(magit-diffstat-added                     ((t (:foreground ,tron-green))))
-   `(magit-diffstat-removed                   ((t (:foreground ,tron-orange))))
+   `(magit-diffstat-added                     ((t (:foreground ,killme-green))))
+   `(magit-diffstat-removed                   ((t (:foreground ,killme-orange))))
    `(magit-dimmed                             ((t (:foreground ,comment))))
-   `(magit-filename                           ((t (:foreground ,tron-magenta))))
+   `(magit-filename                           ((t (:foreground ,killme-magenta))))
    `(magit-hash                               ((t (:foreground ,comment))))
    `(magit-header-line                        ((t (:inherit nil))))
-   `(magit-log-author                         ((t (:foreground ,tron-orange))))
-   `(magit-log-date                           ((t (:foreground ,tron-blue))))
+   `(magit-log-author                         ((t (:foreground ,killme-orange))))
+   `(magit-log-date                           ((t (:foreground ,killme-blue))))
    `(magit-log-graph                          ((t (:foreground ,comment))))
-   `(magit-mode-line-process                  ((t (:foreground ,tron-red))))
-   `(magit-mode-line-process-error            ((t (:foreground ,tron-red))))
+   `(magit-mode-line-process                  ((t (:foreground ,killme-red))))
+   `(magit-mode-line-process-error            ((t (:foreground ,killme-red))))
    `(magit-process-ok                         ((t (:inherit success))))
    `(magit-process-ng                         ((t (:inherit error))))
-   `(magit-reflog-amend                       ((t (:foreground ,tron-magenta))))
-   `(magit-reflog-checkout                    ((t (:foreground ,tron-blue))))
-   `(magit-reflog-cherry-pick                 ((t (:foreground ,tron-green))))
-   `(magit-reflog-commit                      ((t (:foreground ,tron-green))))
-   `(magit-reflog-merge                       ((t (:foreground ,tron-green))))
-   `(magit-reflog-other                       ((t (:foreground ,tron-bluegreen))))
-   `(magit-reflog-rebase                      ((t (:foreground ,tron-magenta))))
-   `(magit-reflog-remote                      ((t (:foreground ,tron-bluegreen))))
+   `(magit-reflog-amend                       ((t (:foreground ,killme-magenta))))
+   `(magit-reflog-checkout                    ((t (:foreground ,killme-blue))))
+   `(magit-reflog-cherry-pick                 ((t (:foreground ,killme-green))))
+   `(magit-reflog-commit                      ((t (:foreground ,killme-green))))
+   `(magit-reflog-merge                       ((t (:foreground ,killme-green))))
+   `(magit-reflog-other                       ((t (:foreground ,killme-bluegreen))))
+   `(magit-reflog-rebase                      ((t (:foreground ,killme-magenta))))
+   `(magit-reflog-remote                      ((t (:foreground ,killme-bluegreen))))
    `(magit-reflog-reset                       ((t (:inherit error))))
    `(magit-refname                            ((t (:foreground ,comment))))
-   `(magit-section-heading                    ((t (:foreground ,tron-yellow))))
-   `(magit-section-heading-selection          ((t (:foreground ,tron-orange :extend t))))
+   `(magit-section-heading                    ((t (:foreground ,killme-yellow))))
+   `(magit-section-heading-selection          ((t (:foreground ,killme-orange :extend t))))
    `(magit-section-highlight                  ((t (:background ,bg3 :extend t))))
-   `(magit-sequence-drop                      ((t (:foreground ,tron-red))))
-   `(magit-sequence-head                      ((t (:foreground ,tron-blue))))
-   `(magit-sequence-part                      ((t (:foreground ,tron-orange))))
-   `(magit-sequence-stop                      ((t (:foreground ,tron-green))))
+   `(magit-sequence-drop                      ((t (:foreground ,killme-red))))
+   `(magit-sequence-head                      ((t (:foreground ,killme-blue))))
+   `(magit-sequence-part                      ((t (:foreground ,killme-orange))))
+   `(magit-sequence-stop                      ((t (:foreground ,killme-green))))
    `(magit-signature-bad                      ((t (:inherit error))))
    `(magit-signature-error                    ((t (:inherit error))))
-   `(magit-signature-expitron-red               ((t (:foreground ,tron-orange))))
+   `(magit-signature-expikillme-red               ((t (:foreground ,killme-orange))))
    `(magit-signature-good                     ((t (:inherit success))))
-   `(magit-signature-revoked                  ((t (:foreground ,tron-magenta))))
-   `(magit-signature-untrusted                ((t (:foreground ,tron-bluegreen))))
-   `(magit-tag                                ((t (:foreground ,tron-yellow))))
+   `(magit-signature-revoked                  ((t (:foreground ,killme-magenta))))
+   `(magit-signature-untrusted                ((t (:foreground ,killme-bluegreen))))
+   `(magit-tag                                ((t (:foreground ,killme-yellow))))
 
    `(term                                     ((,class (:foreground ,fg1 :background ,bg1))))
    `(term-color-black                         ((,class (:foreground ,bg3 :background ,bg3))))
@@ -405,7 +348,7 @@
    `(ivy-current-match                        ((t (:background ,bg-hl :extend t))))
    `(ivy-highlight-face                       ((t (:inherit font-lock-builtin-face))))
    `(ivy-match-required-face                  ((t (:inherit minibuffer-prompt :foreground ,warning))))
-   `(ivy-minibuffer-match-face-1              ((t (:foreground ,tron-lightblue))))
+   `(ivy-minibuffer-match-face-1              ((t (:foreground ,killme-lightblue))))
    `(ivy-minibuffer-match-face-2              ((t (:inherit ivy-minibuffer-match-face-1))))
    `(ivy-minibuffer-match-face-3              ((t (:inherit ivy-minibuffer-match-face-2))))
    `(ivy-minibuffer-match-face-4              ((t (:inherit ivy-minibuffer-match-face-2))))
@@ -447,14 +390,12 @@
    `(sml/modes                                ((t (:foreground ,fg1 :weight normal))))
 
    `(evil-ex-substitute-matches               ((t (:foreground ,warning :weight normal :strike-through t))))
-   `(evil-ex-substitute-replacement           ((t (:foreground ,tron-bluegreen :weight normal))))
+   `(evil-ex-substitute-replacement           ((t (:foreground ,killme-bluegreen :weight normal))))
 
    `(hl-todo                                  ((t (:inverse-video t))))
-   `(highlight-numbers-number                 ((t (:foreground ,tron-red))))
+   `(highlight-numbers-number                 ((t (:foreground ,killme-red))))
    `(highlight-operators-face                 ((t (:inherit default))))
    `(highlight-symbol-face                    ((t (:background "#343a40"))))
    ))
 
-(provide-theme 'tron-legacy)
-
-;;; tron-legacy-theme.el ends here
+(provide-theme 'killme)

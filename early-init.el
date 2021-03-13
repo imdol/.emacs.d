@@ -100,5 +100,5 @@
  '(helm-selection ((t (:background "#009081" :distant-foreground "black")))))
 
 ;; theme block
-(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme `killme t)

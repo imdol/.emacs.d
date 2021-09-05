@@ -2,7 +2,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 
 ;; disable js2 mode errors, we have eslint
 (setq js2-mode-show-parse-errors nil)
@@ -79,10 +78,6 @@
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-;;(add-hook 'before-save-hook 'tide-format-before-save)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; set up tide mode after js2 mode 
 (add-hook 'rjsx-mode-hook #'setup-tide-mode)

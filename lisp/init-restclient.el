@@ -1,4 +1,5 @@
 (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))
+(add-hook 'restclient-mode-hook 'so-long-enable);
 
 (defun setup-restclient-mode ()
   (setq tab-width 4)

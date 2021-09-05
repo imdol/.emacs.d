@@ -43,6 +43,7 @@
   (require 'init-cc)
   (require 'init-go)
   (require 'init-js)
+  (require 'init-ts)
   (require 'init-omnisharp)
   (require 'init-web)
   (require 'init-sh)

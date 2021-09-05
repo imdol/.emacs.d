@@ -1,3 +1,7 @@
+(setq-default bidi-paragraph-direction 'left-to-right)
+(global-so-long-mode 1)
+(setq bidi-inhibit-bpa t)
+
 ;; beacon mode
 (setq-default
  blink-cursor-interval 0.5

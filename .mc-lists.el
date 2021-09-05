@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	hydra-move/forward-char
 	rjsx-delete-creates-full-tag
 	))
 

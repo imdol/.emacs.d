@@ -22,7 +22,7 @@
 (global-set-key (kbd "M-n") #'drag-stuff-down)
 
 ;; kill whole line
-(global-set-key (kbd "C-l") 'kill-whole-line)
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
 
 ;; expand region keybinding
 (global-set-key (kbd "C-=") 'er/expand-region)

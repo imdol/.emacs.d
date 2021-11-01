@@ -2,7 +2,10 @@
 (setq-default
  inhibit-splash-screen t
  inhibit-startup-message t
- initial-scratch-message nil)
+ initial-scratch-message nil
+ )
+;; (setq-default initial-scratch-message
+;; 	      (concat ";; happy hacking " user-login-name ""))
 
 ;; don't store any backup files
 (setq-default

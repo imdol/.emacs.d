@@ -1,6 +1,8 @@
 (defun setup-json-mode ()
   (setq-local js-indent-level 2)
-  (setq-local tab-width 2)
+  (setq-local
+   tab-width 2
+   indent-tabs-mode nil)
   (smartparens-mode +1)
   )
 

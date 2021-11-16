@@ -13,7 +13,9 @@
   (lsp-response-timeout 4)
   (lsp-prefer-flymake nil)
   (lsp-enable-xref t)
+  (lsp-lens-enable nil)
   )
+(use-package helm-lsp)
 
 ;; (with-eval-after-load 'lsp-mode
 ;;   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)

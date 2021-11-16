@@ -16,6 +16,8 @@
   	  company-dabbrev
   	  company-oddmuse
   	  ))
+  (define-key c-mode-map (kbd "M-e") 'forward-sentence)
+  (define-key c-mode-map (kbd "M-a") 'backward-sentence)
   )
 (add-hook 'c-mode-hook 'c-lsp-setup)
 (add-hook 'c-mode-hook 'lsp-deferred)

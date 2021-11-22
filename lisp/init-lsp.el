@@ -3,7 +3,6 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
-;;  :bind (("M-." . lsp-find-definition))
   :config
   (lsp-enable-which-key-integration t)
   :custom
@@ -15,7 +14,10 @@
   (lsp-enable-xref t)
   (lsp-lens-enable nil)
   )
-(use-package helm-lsp)
+
+(use-package helm-lsp
+  :after (lsp)
+  )
 
 ;; (with-eval-after-load 'lsp-mode
 ;;   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)

@@ -18,6 +18,7 @@
   (smartparens-mode +1)
   (company-mode +1)
   (yas-global-mode +1)
+  (hungry-delete-mode +1)
   )
 
 ;; aligns annotation to the right hand side

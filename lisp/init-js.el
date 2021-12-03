@@ -52,6 +52,8 @@
   (company-mode +1)
   (yas-global-mode +1)
 
+  (hungry-delete-mode +1)
+  
   ;; fence edit for graphql mode in rjsx
   ;; eval only for js related mdoes
   (add-to-list 'load-path "~/.emacs.d/tbr_elpa/fence-edit.el")

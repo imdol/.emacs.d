@@ -1,6 +1,7 @@
 ;; 100MB garbage collection threshold
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
+(setq byte-compile-warnings '(cl-functions))
 ;; collection thresholds
 ;; (let ((normal-gc-cons-threshold (* 20 1024 1024))
 ;;       (init-gc-cons-threshold (* 128 1024 1024)))
@@ -9,8 +10,8 @@
 ;; 	    (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;; benchmarking startup
-;; (require 'benchmark-init)
-;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
+(require 'benchmark-init)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 (let ((file-name-handler-alist nil))
   ;; MELPA package

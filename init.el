@@ -10,8 +10,8 @@
 ;; 	    (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;; benchmarking startup
-(require 'benchmark-init)
-(add-hook 'after-init-hook 'benchmark-init/deactivate)
+;; (require 'benchmark-init)
+;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 (let ((file-name-handler-alist nil))
   ;; MELPA package

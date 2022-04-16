@@ -4,7 +4,10 @@
 (setq mc/cmds-to-run-for-all
       '(
 	hungry-delete-backward
+	hydra-move/backward-char
 	hydra-move/forward-char
+	kill-region
+	org-self-insert-command
 	rjsx-delete-creates-full-tag
 	))
 

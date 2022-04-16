@@ -20,6 +20,8 @@
   ;; define mode map keys
   (define-key c++-mode-map (kbd "M-e") 'forward-sentence)
   (define-key c++-mode-map (kbd "M-a") 'backward-sentence)
+  (define-key c++-mode-map (kbd "C-c c-k") 'hs-toggle-hiding)
+  (define-key c++-mode-map (kbd "C-c c-l") 'hs-show-all)
   )
 (add-hook 'c++-mode-hook 'cc-lsp-setup)
 (add-hook 'c++-mode-hook 'lsp-deferred)

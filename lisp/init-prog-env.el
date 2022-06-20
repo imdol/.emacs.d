@@ -19,7 +19,8 @@
 (global-dot-mode 1)
 
 ;; set to mimic konsole switch window instead of hydra
-(global-set-key [C-tab] 'other-window)
+;; (global-set-key [C-o] 'other-window)
+(global-set-key (kbd "C-o") #'other-window)
 
 ;; drags
 (global-set-key (kbd "M-p") #'drag-stuff-up)

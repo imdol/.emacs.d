@@ -3,4 +3,4 @@
 # key: cr
 # group: node
 # --
-const ${0:module} = require('$1');
+const ${1:module} = require('$0');

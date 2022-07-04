@@ -9,6 +9,8 @@
 	kill-region
 	org-self-insert-command
 	rjsx-delete-creates-full-tag
+	yaml-electric-backspace
+	yaml-electric-dash-and-dot
 	))
 
 (setq mc/cmds-to-run-once

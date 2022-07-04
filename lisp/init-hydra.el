@@ -62,7 +62,7 @@
 
 ;; window switching and editing
 (defhydra hydra-set-window ()
-  ("o" other-window "switch")
+  ("<tab>" other-window "switch")
   ("p" other-frame "other frame")
   ("0" delete-window "delete window")
   ("1" delete-other-windows "single window")

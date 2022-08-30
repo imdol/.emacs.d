@@ -24,7 +24,7 @@
 (use-package zone
   :defer t
   :config
-  (zone-when-idle 6000)
+  (zone-when-idle 600)
   )
 
 ;; fortune cookie

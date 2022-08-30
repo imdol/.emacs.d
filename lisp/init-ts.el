@@ -8,6 +8,7 @@
   (yas-global-mode +1)
   (hungry-delete-mode +1)
   (flycheck-mode +1)
+  (smartparens-mode +1)
 
   ;; dap-mode
   (dap-mode 1)

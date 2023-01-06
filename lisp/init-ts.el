@@ -21,5 +21,8 @@
 ;; formats the buffer before saving
 (add-hook 'typescript-mode-hook 'ts-lsp-setup)
 (add-hook 'typescript-mode-hook 'lsp-deferred)
+  ;; tree sitter
+(add-hook 'typescript-mode-hook #'tree-sitter-mode)
+(add-hook 'typescript-mode-hook #'tree-sitter-hl-mode)
 
 (provide 'init-ts)

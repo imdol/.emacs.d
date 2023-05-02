@@ -15,10 +15,10 @@
 
 ;; doom mode-line
 (use-package doom-modeline
-  :config
-  (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
-  (doom-modeline-mode)
-  )
+ :config
+ (setq-default doom-modeline-buffer-file-name-style 'truncate-upto-project)
+ (doom-modeline-mode)
+ )
 
 ;; zone/idle
 (use-package zone

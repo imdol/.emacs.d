@@ -3,12 +3,15 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	dap-tooltip-mouse-motion
 	hungry-delete-backward
 	hydra-move/backward-char
 	hydra-move/forward-char
 	kill-region
 	org-self-insert-command
 	rjsx-delete-creates-full-tag
+	wdired--self-insert
+	wdired-finish-edit
 	yaml-electric-backspace
 	yaml-electric-dash-and-dot
 	))

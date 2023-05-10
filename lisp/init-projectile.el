@@ -6,14 +6,15 @@
   :config
   (setq projectile-completion-system 'helm)
   (helm-projectile-on)
-  (setq additional-ignored-directories '("node_modules" "elpa" ".next" "python3.8"))
+  (setq additional-ignored-directories '("node_modules" "elpa" ".next" "python3.8" "dist"))
   (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
   (setq additional-ignored-files '("*.png" "*.jpg" "*.md"
 				 "polyfills.js" "package.json" "package-lock.json"
                                  "*.dll" "*.targets" "*.props" "*.pdb" "*.deps.json" "*.exe"
                                  "*.linux-x86_64" "*.gz"
-				 ".gitignore"))
+				 ))
   (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'alien)
   (projectile-mode +1)
   )
 

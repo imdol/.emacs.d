@@ -1,7 +1,7 @@
-;; hook relevant modes
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 
-(defun ts-lsp-setup ()
+(defun ts-setup ()
   (setq-default typescript-indent-level 2)
   (setq indent-tabs-mode nil)
   
@@ -15,14 +15,24 @@
   (require 'dap-node)
   )
 
+(defun tsx-setup ()
+  (setq-default typescript-indent-level 2)
+  (setq indent-tabs-mode nil)
+  
+  (yas-global-mode +1)
+  (hungry-delete-mode +1)
+  (flycheck-mode +1)
+  (smartparens-mode +1)
+  (emmet-mode +1)
+  )
+
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-;; formats the buffer before saving
-(add-hook 'typescript-mode-hook 'ts-lsp-setup)
-(add-hook 'typescript-mode-hook 'lsp-deferred)
-  ;; tree sitter
-(add-hook 'typescript-mode-hook #'tree-sitter-mode)
-(add-hook 'typescript-mode-hook #'tree-sitter-hl-mode)
+(add-hook 'typescript-ts-mode-hook 'ts-setup)
+(add-hook 'typescript-ts-mode-hook 'lsp-deferred)
+
+(add-hook 'tsx-ts-mode-hook 'tsx-setup)
+(add-hook 'tsx-ts-mode-hook 'lsp-deferred)
 
 (provide 'init-ts)

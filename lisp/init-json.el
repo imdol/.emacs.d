@@ -1,3 +1,5 @@
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode))
+
 (defun setup-json-mode ()
   (setq-local js-indent-level 2)
   (setq-local
@@ -6,6 +8,6 @@
   (smartparens-mode +1)
   )
 
-(add-hook 'json-mode-hook 'setup-json-mode)
+(add-hook 'json-ts-mode-hook 'setup-json-mode)
 
 (provide 'init-json)

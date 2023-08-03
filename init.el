@@ -14,6 +14,10 @@
 ;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 (let ((file-name-handler-alist nil))
+  (setq custom-file (concat user-emacs-directory "custom.el"))
+  (when (file-exists-p custom-file)
+    (load custom-file))
+  
   ;; MELPA package
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -30,6 +34,7 @@
   ;; load configs
   (require 'init-sys-env)
   (require 'init-prog-env)
+  (require 'init-treesitter)
   (require 'init-company)
   (require 'init-helm)
   (require 'init-swiper)
@@ -66,7 +71,6 @@
   ;; (require 'init-centaur)
   ;; (require 'init-graphql)
   ;; (require 'init-evil)
-  ;; (require 'init-js2)
   ;; (require 'init-msh)
   ;; (require 'init-md4rd)
   )

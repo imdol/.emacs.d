@@ -5,7 +5,7 @@
 ;; beacon mode
 (setq-default
  blink-cursor-interval 0.5
- beacon-color "#ffb6c1"
+ beacon-color "#87CEEB"
  beacon-blink-duration 0.5
  beacon-size 50)
 (beacon-mode)

@@ -15,9 +15,4 @@
      (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
      (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
-(advice-add 'helm-projectile-find-file :around
-            (lambda (oldfun &rest args)
-              (let ((helm-display-header-line nil))
-                (apply oldfun args))))
-
 (provide 'init-treesitter)

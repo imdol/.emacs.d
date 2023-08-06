@@ -15,4 +15,6 @@
      (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
      (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
+(setq treesit-font-lock-level 4)
+
 (provide 'init-treesitter)

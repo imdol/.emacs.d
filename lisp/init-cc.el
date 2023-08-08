@@ -1,4 +1,7 @@
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cc\\'" . c++-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-ts-mode))
+
 (defun cc-lsp-setup ()
   (setq c-basic-offset 2
    indent-tabs-mode nil
@@ -23,7 +26,7 @@
   (define-key c++-mode-map (kbd "C-c c-k") 'hs-toggle-hiding)
   (define-key c++-mode-map (kbd "C-c c-l") 'hs-show-all)
   )
-(add-hook 'c++-mode-hook 'cc-lsp-setup)
-(add-hook 'c++-mode-hook 'lsp-deferred)
+(add-hook 'c++-ts-mode-hook 'cc-lsp-setup)
+(add-hook 'c++-ts-mode-hook 'lsp-deferred)
 
 (provide 'init-cc)

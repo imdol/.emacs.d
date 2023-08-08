@@ -10,7 +10,9 @@
     (define-key company-active-map (kbd ".") 'company--my-insert-dot)
     (define-key company-active-map (kbd "C-d") #'company-abort)
     (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+    (define-key company-active-map (kbd "C-p") #'company-select-previous)
+    (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
+    (define-key company-mode-map (kbd "C-c c") 'company-complete))
   )
 
 (provide 'init-company)

@@ -67,7 +67,7 @@
   (require 'init-lsp)
   (require 'init-docker)
   (require 'init-dotenv)
-  ;; (require 'init-web)
+  (require 'init-web)
   ;; (require 'init-centaur)
   ;; (require 'init-graphql)
   ;; (require 'init-evil)

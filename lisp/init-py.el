@@ -1,6 +1,6 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-ts-mode))
 
-(defun pyls-mode-setup()
+(defun py-mode-setup()
   (setq
    indent-tabs-mode nil
    python-indent 4
@@ -20,14 +20,9 @@
   	  company-oddmuse))
 
   (setq lsp-pyls-plugins-jefi-hover-enabled nil)
-
-  (define-key python-ts-mode-map (kbd "M-e") 'forward-sentence)
-  (define-key python-ts-mode-map (kbd "M-a") 'backward-sentence)
   )
 
 (add-hook 'python-ts-mode-hook 'lsp-deferred)
-(add-hook 'python-ts-mode-hook #'pyls-mode-setup)
-
-
+(add-hook 'python-ts-mode-hook #'py-mode-setup)
 
 (provide 'init-py)

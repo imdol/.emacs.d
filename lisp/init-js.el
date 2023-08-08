@@ -1,7 +1,5 @@
 ;; hook relevant modes
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
 
 (defun js-lsp-setup ()
   (setq-default
@@ -20,7 +18,6 @@
 
   ;; dap-mode
   (dap-mode 1)
-  (require 'dap-chrome)
   (require 'dap-node)
 
   (define-key js-mode-map (kbd "M-.") nil)
@@ -31,7 +28,7 @@
 
 ;; set up tide mode after js2 mode 
 ;;(add-hook 'rjsx-mode-hook #'setup-tide-mode)
-(add-hook 'rjsx-mode-hook 'js-lsp-setup)
-(add-hook 'rjsx-mode-hook 'lsp-deferred)
+(add-hook 'js-ts-mode-hook 'js-lsp-setup)
+(add-hook 'js-ts-mode-hook 'lsp-deferred)
 
 (provide 'init-js)

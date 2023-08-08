@@ -39,7 +39,7 @@
 (toggle-scroll-bar -1)
 
 ;; display line numbers
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (setq display-line-numbers-type 'relative)
 
 ;; refresh buffers when any file changes

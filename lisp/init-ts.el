@@ -15,9 +15,11 @@
   (dap-mode 1)
   (require 'dap-node)
   )
+(add-hook 'typescript-ts-mode-hook 'ts-setup)
+(add-hook 'typescript-ts-mode-hook 'lsp-deferred)
 
 (defun tsx-setup ()
-  (setq-default typescript-indent-level 2)
+  (setq-local standard-indent 2)
   (setq indent-tabs-mode nil)
   
   (yas-global-mode +1)
@@ -26,14 +28,10 @@
   (smartparens-mode +1)
   (emmet-mode +1)
   )
+(add-hook 'tsx-ts-mode-hook 'tsx-setup)
+(add-hook 'tsx-ts-mode-hook 'lsp-deferred)
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
-
-(add-hook 'typescript-ts-mode-hook 'ts-setup)
-(add-hook 'typescript-ts-mode-hook 'lsp-deferred)
-
-(add-hook 'tsx-ts-mode-hook 'tsx-setup)
-(add-hook 'tsx-ts-mode-hook 'lsp-deferred)
 
 (provide 'init-ts)

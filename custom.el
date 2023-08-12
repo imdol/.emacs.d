@@ -24,9 +24,6 @@
  '(warning-suppress-log-types '(((tar link))))
  '(warning-suppress-types '((lsp-mode))))
 
-;; theme block
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme `killme t)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

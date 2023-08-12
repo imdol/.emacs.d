@@ -28,9 +28,9 @@
   )
 
 ;; fortune cookie
-(use-package fortune-cookie
-  :config
-  (fortune-cookie-mode))
+;; (use-package fortune-cookie
+;;   :config
+;;   (fortune-cookie-mode))
 
 ;; no font caches during GC
 ;;(setq-default inhibit-compacting-font-caches t)

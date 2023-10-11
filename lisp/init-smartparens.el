@@ -15,6 +15,13 @@
 	python-mode
 	graphql-mode
 	sh-mode
+	typescript-ts-mode
+	tsx-ts-mode
+	python-ts-mode
+	c-ts-mode
+	c++-ts-mode
+	go-ts-mode
+	css-ts-mode
 	restclient-mode)
     (sp-local-pair "`" nil :post-handlers '(:add ("||\n[i]" "RET")))
     (sp-local-pair "(" nil :post-handlers '(:add ("||\n[i]" "RET")))

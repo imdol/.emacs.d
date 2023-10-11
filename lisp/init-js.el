@@ -2,6 +2,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
 
 (defun js-lsp-setup ()
+  (setq-local standard-indent 2)
   (setq-default
    js2-basic-offset 2
    js-indent-align-list-continuation nil)

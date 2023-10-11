@@ -5,6 +5,7 @@
       '(
 	dap-tooltip-mouse-motion
 	hungry-delete-backward
+	hungry-delete-forward
 	hydra-move/backward-char
 	hydra-move/forward-char
 	kill-region
@@ -27,4 +28,5 @@
 	hydra-multi-cursors/mc/mark-all-like-this
 	hydra-multi-cursors/mc/unmark-next-like-this
 	hydra-multi-cursors/mc/unmark-previous-like-this
+	iedit-switch-to-mc-mode
 	))

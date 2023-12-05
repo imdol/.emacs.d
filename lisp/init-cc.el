@@ -1,6 +1,8 @@
 (add-to-list 'auto-mode-alist '("\\.cc\\'" . c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-ts-mode))
+;;(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-ts-mode))
+;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (defun cc-lsp-setup ()
   (setq c-basic-offset 2
@@ -28,5 +30,7 @@
   )
 (add-hook 'c++-ts-mode-hook 'cc-lsp-setup)
 (add-hook 'c++-ts-mode-hook 'lsp-deferred)
+(add-hook 'c++-mode-hook 'cc-lsp-setup)
+(add-hook 'c++-mode-hook 'lsp-deferred)
 
 (provide 'init-cc)

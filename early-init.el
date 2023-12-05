@@ -24,7 +24,7 @@
 (delete-selection-mode 1)
 
 ;; set kill ring buffer max
-;;(setq-default kill-ring-max 20)
+(setq-default kill-ring-max 20)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
@@ -39,7 +39,7 @@
 (toggle-scroll-bar -1)
 
 ;; display line numbers
-;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (setq display-line-numbers-type 'relative)
 
 ;; refresh buffers when any file changes

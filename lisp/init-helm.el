@@ -9,6 +9,7 @@
 	 :map helm-map
 	 ([tab] . helm-maybe-exit-minibuffer))
   :config
+  (setq helm-move-to-line-cycle-in-source nil)
   (helm-mode 1)
   (add-to-list 'display-buffer-alist
  	       `(,(rx bos "*helm" (* not-newline) "*" eos)

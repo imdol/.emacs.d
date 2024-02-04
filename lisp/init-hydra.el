@@ -1,23 +1,6 @@
 ;; fixes hydra interaction with modeline and cursors
 (setq hydra--work-around-dedicated nil)
 
-;; movement
-;; (defhydra hydra-move
-;;   (:body-pre (next-line))
-;;   "move"
-;;   ("n" next-line)
-;;   ("p" previous-line)
-;;   ("f" forward-char)
-;;   ("b" backward-char)
-;;   ("a" beginning-of-line)
-;;   ("e" move-end-of-line)
-;;   ("v" scroll-up-command)
-;;   ("V" scroll-down-command)
-;;   ("l" recenter-top-bottom)
-;;   ("q" nil "quit" :color blue))
-;; (global-set-key (kbd "C-f") #'hydra-move/forward-char)
-;; (global-set-key (kbd "C-b") #'hydra-move/backward-char)
-
 (defun mc-mark-next-like-this-then-cycle-forward (arg)
   (interactive "p")
   (call-interactively 'mc/mark-next-like-this)

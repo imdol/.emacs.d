@@ -50,4 +50,15 @@
   :config
   (require 'shrface))
 
+;; which key
+;; Allow C-h to trigger which-key before it is done automatically
+;; make sure which-key doesn't show normally but refreshes quickly after it is
+;; triggered.
+(setq
+ which-key-show-early-on-C-h t
+ which-key-idle-delay 1
+ which-key-idle-secondary-delay 0.05)
+(which-key-mode)
+
+
 (provide 'init-sys-env)

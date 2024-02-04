@@ -66,6 +66,7 @@
   (require 'init-docker)
   (require 'init-dotenv)
   (require 'init-web)
+  (require 'init-project)
   ;; (require 'init-swiper)
   ;; (require 'init-helm)
   ;; (require 'init-projectile)

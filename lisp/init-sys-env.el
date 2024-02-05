@@ -60,5 +60,4 @@
  which-key-idle-secondary-delay 0.05)
 (which-key-mode)
 
-
 (provide 'init-sys-env)

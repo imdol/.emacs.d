@@ -4,6 +4,7 @@
  inhibit-startup-message t
  initial-scratch-message nil
  )
+
 (setq-default initial-scratch-message
 	      (concat ";; happy hacking " user-login-name ""))
 

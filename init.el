@@ -72,6 +72,7 @@
   ;; integrations
   (require 'init-lc)
   (require 'init-restclient)
+  (require 'init-spotify)
   ;; (require 'init-evil)
 
   )

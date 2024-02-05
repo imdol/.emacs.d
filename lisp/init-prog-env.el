@@ -1,10 +1,6 @@
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 
-;; set key to delete entire buffer
-(put 'erase-buffer 'disabled nil)
-(global-set-key (kbd "C-x C-x") 'erase-buffer)
-
 ;; dotmode
 (global-dot-mode 1)
 

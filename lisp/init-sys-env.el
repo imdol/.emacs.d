@@ -2,13 +2,12 @@
 (global-so-long-mode 1)
 (setq bidi-inhibit-bpa t)
 
-;; beacon mode
-(setq-default
- blink-cursor-interval 0.5
- beacon-color "#87CEEB"
- beacon-blink-duration 0.5
- beacon-size 50)
-(beacon-mode)
+(use-package beacon
+  :custom
+  (beacon-color "#87CEEB")
+  :hook
+  (after-init . beacon-mode)
+  )
 
 ;; toggle scroll bar here
 (toggle-scroll-bar -1)
@@ -43,6 +42,7 @@
   (shrface-default-keybindings) ; setup default keybindings
   (setq shrface-href-versatile t))
 
+;; eww browser
 (use-package eww
   :defer t
   :init
@@ -51,13 +51,8 @@
   (require 'shrface))
 
 ;; which key
-;; Allow C-h to trigger which-key before it is done automatically
-;; make sure which-key doesn't show normally but refreshes quickly after it is
-;; triggered.
-(setq
- which-key-show-early-on-C-h t
- which-key-idle-delay 1
- which-key-idle-secondary-delay 0.05)
-(which-key-mode)
+(use-package which-key
+  :diminish which-key-mode
+  :hook (after-init . which-key-mode))
 
 (provide 'init-sys-env)

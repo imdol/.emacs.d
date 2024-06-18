@@ -1,5 +1,4 @@
 (defun elisp-mode-setup ()
-  (smartparens-mode +1)
   (yas-minor-mode)
   )
 

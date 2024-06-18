@@ -5,11 +5,6 @@
    tab-width 8
    sp-escape-quotes-after-insert nil)
   (yas-global-mode +1)
-  (smartparens-mode +1)
-  ;; (setq company-backends
-  ;; 	'(company-capf
-  ;; 	  company-semantic
-  ;; 	  ))
   (define-key c-mode-map (kbd "M-e") 'forward-sentence)
   (define-key c-mode-map (kbd "M-a") 'backward-sentence)
   )

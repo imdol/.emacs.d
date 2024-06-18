@@ -8,14 +8,8 @@
   (setq tab-width 4)
 
   (omnisharp-mode +1)
-  (company-mode +1)
-  (flycheck-mode +1)
-  (smartparens-mode +1)
+  (flymake-mode +1)
   (yas-global-mode +1)
-
-  (eval-after-load
-      'company
-    '(add-to-list 'company-backends #'company-omnisharp))
 
   (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
   (local-set-key (kbd "C-c C-c") 'recompile))

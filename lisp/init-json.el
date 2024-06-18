@@ -5,7 +5,6 @@
   (setq-local
    tab-width 2
    indent-tabs-mode nil)
-  (smartparens-mode +1)
   )
 
 (add-hook 'json-ts-mode-hook 'setup-json-mode)

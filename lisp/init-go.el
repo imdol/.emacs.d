@@ -7,9 +7,7 @@
    tab-width 4
    sp-escape-quotes-after-insert nil)
 
-  (company-mode 1)
   (yas-minor-mode +1)  
-  (smartparens-mode +1)
   (hungry-delete-mode +1)
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t)  

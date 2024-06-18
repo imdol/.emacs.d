@@ -9,7 +9,6 @@
   (yas-global-mode +1)
   (hungry-delete-mode +1)
   (flymake-mode +1)
-  (smartparens-mode +1)
 
   ;; dap-mode
   (dap-mode 1)
@@ -26,13 +25,9 @@
   (yas-global-mode +1)
   (hungry-delete-mode +1)
   (flymake-mode +1)
-  (smartparens-mode +1)
   (emmet-mode +1)
   )
 (add-hook 'tsx-ts-mode-hook 'tsx-setup)
 (add-hook 'tsx-ts-mode-hook 'lsp-deferred)
-
-;; aligns annotation to the right hand side
-;; (setq company-tooltip-align-annotations t)
 
 (provide 'init-ts)

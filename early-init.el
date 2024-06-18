@@ -6,14 +6,16 @@
  )
 
 (setq-default initial-scratch-message
-	      (concat ";; happy hacking " user-login-name ""))
+	      (concat ";; stay for a while " user-login-name ""))
 
 ;; don't store any backup files
 (setq-default
  make-backup-files nil
  backup-inhibited t
  auto-save-default nil
- create-lockfiles nil)
+ create-lockfiles nil
+ bookmark-fringe-mark nil
+ )
 
 ;; maximize screen on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -34,7 +36,6 @@
 ;; line and column numbering
 (column-number-mode 1)
 (line-number-mode 1)
-
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)

@@ -1,12 +1,8 @@
 ;; set backspace char deletes to hungry
 (setq backward-delete-char-untabify-method 'hungry)
 
-;; dotmode
-(global-dot-mode 1)
-
 ;; set to mimic konsole switch window instead of hydra
 (global-set-key [C-tab] 'other-window)
-;; (global-set-key (kbd "C-o") #'other-window)
 
 ;; drags
 (global-set-key (kbd "M-p") #'drag-stuff-up)
@@ -35,10 +31,10 @@
 (show-paren-mode 1)
 (setq show-paren-style 'parenthesis)
 
-;; eshell alias
-(defalias 'esh 'eshell)
-
 ;; rainbow delimiters
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode-hook . rainbow-delimiters-mode))
 
 (provide 'init-prog-env)

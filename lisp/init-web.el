@@ -6,7 +6,6 @@
   (emmet-mode +1)
   (smartparens-mode +1)
   (flycheck-mode +1)
-  (company-mode +1)
   )
 (add-hook 'html-mode-hook 'html-setup)
 (add-hook 'html-mode-hook 'lsp-deferred)
@@ -16,8 +15,6 @@
 (defun css-setup ()
   (smartparens-mode +1)
   (emmet-mode +1)
-  (company-mode +1)
-  (setq company-minimum-prefix-length 1)
   (flycheck-mode +1)
   (setq
    indent-tabs-mode nil

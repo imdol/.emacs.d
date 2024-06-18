@@ -11,16 +11,11 @@
    sp-escape-quotes-after-insert nil)
   (yas-minor-mode +1)
   (smartparens-mode +1)
-  (setq company-backends
-  	'(company-capf
-  	  company-semantic
-  	  company-cmake
-  	  company-clang
-  	  company-xcode
-  	  company-files
-  	  company-keywords
-  	  company-dabbrev
-  	  company-oddmuse))
+  ;; (setq company-backends
+  ;; 	'(company-capf
+  ;; 	  company-cmake
+  ;; 	  company-clang
+  ;; 	  company-oddmuse))
 
   ;; define mode map keys
   (define-key c++-mode-map (kbd "M-e") 'forward-sentence)

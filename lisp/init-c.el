@@ -1,5 +1,4 @@
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c-ts-mode))
-
 (defun c-lsp-setup ()
   (setq c-basic-offset 8
    indent-tabs-mode t
@@ -7,17 +6,10 @@
    sp-escape-quotes-after-insert nil)
   (yas-global-mode +1)
   (smartparens-mode +1)
-  (setq company-backends
-  	'(company-capf
-  	  company-semantic
-  	  company-cmake
-  	  company-clang
-  	  company-xcode
-  	  company-files
-  	  company-keywords
-  	  company-dabbrev
-  	  company-oddmuse
-  	  ))
+  ;; (setq company-backends
+  ;; 	'(company-capf
+  ;; 	  company-semantic
+  ;; 	  ))
   (define-key c-mode-map (kbd "M-e") 'forward-sentence)
   (define-key c-mode-map (kbd "M-a") 'backward-sentence)
   )

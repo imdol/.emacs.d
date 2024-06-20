@@ -18,8 +18,7 @@
  '(hl-paren-colors '("#40883f" "#0287c8" "#b85c57"))
  '(linum-format 'dynamic)
  '(package-selected-packages
-   '(corfu espotify consult-spotify consult marginalia orderless vertico dired-preview leetcode pyenv-mode shrface lsp-tailwindcss dap-mode kaolin-themes hyperspace xkcd lsp-docker terraform-mode hungry-delete csv csv-mode fortune-cookie protobuf-mode snow jump-char use-package docker multi-vterm vterm dash-functional log4e markdown-mode multi transient tramp iy-go-to-char evil fireplace diminish nyan-mode drag-stuff ccls ob-restclient htmlize ox-latex-subfigure ox-asciidoc org-bullets which-key dotenv-mode doom-themes gnu-elpa-keyring-update flymake lsp-mode magit async ess eval-in-repl ivy memoize paredit restclient with-editor yasnippet yasnippet-snippets doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture transpose-frame use-ttf undo-tree ob-mongo docker-compose-mode graphql-mode deferred hierarchy request-deferred spinner tree-mode wgrep all-the-icons dash epl f git-commit graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip request s shrink-path treepy nginx-mode smartparens shut-up rainbow-delimiters org multiple-cursors magit-popup json-mode iedit hydra exec-path-from-shell emmet-mode eldoc-eval c-eldoc benchmark-init ace-window))
- '(safe-local-variable-values '((eval when (fboundp 'rainbow-mode) (rainbow-mode 1))))
+   '(embark-consult embark corfu espotify consult-spotify consult marginalia orderless vertico dired-preview leetcode pyenv-mode shrface lsp-tailwindcss dap-mode kaolin-themes hyperspace xkcd lsp-docker terraform-mode hungry-delete csv csv-mode fortune-cookie protobuf-mode snow jump-char use-package docker multi-vterm vterm dash-functional log4e markdown-mode multi transient tramp iy-go-to-char evil fireplace diminish nyan-mode drag-stuff ccls ob-restclient htmlize ox-latex-subfigure ox-asciidoc org-bullets which-key dotenv-mode doom-themes gnu-elpa-keyring-update flymake lsp-mode magit async ess eval-in-repl ivy memoize paredit restclient with-editor yasnippet yasnippet-snippets doom-modeline org-babel-eval-in-repl expand-region beacon aio autothemer goto-chg ht pfuture transpose-frame use-ttf undo-tree ob-mongo docker-compose-mode graphql-mode deferred hierarchy request-deferred spinner tree-mode wgrep all-the-icons dash epl f git-commit graphql js2-mode json-reformat json-snatcher know-your-http-well let-alist lv pkg-info popup pos-tip request s shrink-path treepy nginx-mode smartparens shut-up rainbow-delimiters org multiple-cursors magit-popup json-mode iedit hydra exec-path-from-shell emmet-mode eldoc-eval c-eldoc benchmark-init ace-window))
  '(show-paren-mode t)
  '(sml/active-background-color "#98ece8")
  '(sml/active-foreground-color "#424242")
@@ -27,7 +26,6 @@
  '(sml/inactive-foreground-color "#424242")
  '(warning-suppress-log-types '(((tar link))))
  '(warning-suppress-types '((lsp-mode))))
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

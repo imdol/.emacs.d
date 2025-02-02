@@ -1,10 +1,11 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . tsx-ts-mode))
 
 (defun ts-setup ()
-  (setq-default typescript-indent-level 2)
-  (setq indent-tabs-mode nil)
+;;  (setq-default typescript-indent-level 2)
+;;  (setq indent-tabs-mode nil)
   
   (yas-global-mode +1)
   (hungry-delete-mode +1)
@@ -19,8 +20,8 @@
 (add-hook 'typescript-ts-mode-hook 'lsp-deferred)
 
 (defun tsx-setup ()
-  (setq-local standard-indent 2)
-  (setq indent-tabs-mode nil)
+;;  (setq-local standard-indent 2)
+;;  (setq indent-tabs-mode nil)
   
   (yas-global-mode +1)
   (hungry-delete-mode +1)

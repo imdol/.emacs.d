@@ -29,11 +29,12 @@
 
    ;;completion
    lsp-enable-snippet t
-   lsp-idle-delay 0.3
+   lsp-idle-delay 0.2
    lsp-completion-enable t
    lsp-completion-show-detail t
-   
    )
+  
+  ;; (setq lsp-disabled-clients '(tailwindcss))
 
   )
 (provide 'init-lsp)

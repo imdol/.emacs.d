@@ -1,6 +1,7 @@
 (setq-default bidi-paragraph-direction 'left-to-right)
 (global-so-long-mode 1)
 (setq bidi-inhibit-bpa t)
+(setf dired-kill-when-opening-new-dired-buffer t)
 
 (use-package beacon
   :custom

@@ -9,6 +9,9 @@
 ;;   (add-hook 'emacs-startup-hook
 ;; 	    (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+;;dbg on error
+;; (setq debug-on-error t)
+
 ;; benchmarking startup
 (require 'benchmark-init)
 (add-hook 'after-init-hook 'benchmark-init/deactivate)
@@ -76,7 +79,7 @@
   (require 'init-cc)
   (require 'init-py)
   (require 'init-go)
-  (require 'init-js)
+  ;; (require 'init-js)
   (require 'init-ts)
   (require 'init-protobuf)
   (require 'init-omnisharp)

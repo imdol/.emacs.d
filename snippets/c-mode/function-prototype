@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: function-prototype
-# key: fp
-# --
-${1} ${2}(${3});$0

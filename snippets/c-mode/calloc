@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: calloc
-# key: cal
-# --
-calloc(sizeof($1)${2:, ${3:size}});
-$0

@@ -29,4 +29,5 @@
 	hydra-multi-cursors/mc/unmark-next-like-this
 	hydra-multi-cursors/mc/unmark-previous-like-this
 	iedit-switch-to-mc-mode
+	ignore-preserving-kill-region
 	))

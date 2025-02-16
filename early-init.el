@@ -1,64 +1,36 @@
-;; disable splash screen
-(setq-default
- inhibit-splash-screen t
- inhibit-startup-message t
- initial-scratch-message nil
- )
+(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
+      gc-cons-percentage 0.6)
 
-(setq-default initial-scratch-message
-	      (concat ";; stay for a while " user-login-name ""))
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 16 1024 1024) ; 16mb
+                  gc-cons-percentage 0.1)))
 
-;; don't store any backup files
-(setq-default
- make-backup-files nil
- backup-inhibited t
- auto-save-default nil
- create-lockfiles nil
- bookmark-fringe-mark nil
- )
+(setq-default inhibit-splash-screen t)
+(setq-default initial-scratch-message (concat ";; if you stay long enough, you can do anything " user-login-name ""))
 
-;; maximize screen on startup
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; turn off the annoying bell
-;; (setq-default visible-bell 1)
-
-;; delete section default
-(delete-selection-mode 1)
-
-;; set kill ring buffer max
-(setq-default kill-ring-max 20)
-
-;; usefull shortcuts
-(global-set-key [f3] 'comment-region)
-(global-set-key [f4] 'uncomment-region)
-
-;; line and column numbering
-(column-number-mode 1)
-(line-number-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(toggle-scroll-bar -1)
+(when (fboundp 'set-scroll-bar-mode)
+  (set-scroll-bar-mode nil))
 
-;; display line numbers
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
-;; (setq display-line-numbers-type 'relative)
-
-;; refresh buffers when any file changes
-(global-auto-revert-mode t)
-
-;; faster y/n prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; no font caches during GC
-;;(setq-default inhibit-compacting-font-caches t)
+(delete-selection-mode 1)
 
+(setenv "LSP_USE_PLISTS" "true")
+
+(global-display-line-numbers-mode t)
+(global-auto-revert-mode t)
+
+(global-set-key [f3] 'comment-region)
+(global-set-key [f4] 'uncomment-region)
 ;; OSX settings
 ;; for mac keyboards
- ;; (setq-default mac-option-key-is-meta nil
- ;;  mac-command-key-is-meta t
- ;;  mac-command-modifier 'meta
- ;;  mac-option-modifier nil)
+;; (setq-default mac-option-key-is-meta nil
+;;  mac-command-key-is-meta t
+;;  mac-command-modifier 'meta
+;;  mac-option-modifier nil)
 
 ;; exec-path-from-shell
 ;; (when (memq window-system '(mac ns))

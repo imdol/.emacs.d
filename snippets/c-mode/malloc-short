@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: malloc
-# key: ma
-# --
-malloc(sizeof($1)${2: * ${3:size}});
-$0

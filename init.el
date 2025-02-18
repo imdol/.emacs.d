@@ -60,13 +60,13 @@
   (after-init . which-key-mode)
   )
 
-(use-package mood-line
+(use-package doom-modeline
   :ensure t
-  :config
-  (mood-line-mode)
-  ;; Use pretty Fira Code-compatible glyphs
+  :defer t
   :custom
-  (mood-line-glyph-alist mood-line-glyphs-fira-code)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  :hook
+  (after-init . doom-modeline-mode)
   )
 
 (use-package drag-stuff

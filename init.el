@@ -340,6 +340,13 @@
   :mode ("\\.html\\'")
   )
 
+(use-package json-ts-mode
+  :defer t
+  :mode ("\\.json\\'")
+  :custom
+  (json-ts-mode-indent-offset 2)
+  )
+
 (use-package emmet-mode
   :ensure t
   :defer t

@@ -369,6 +369,14 @@
   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")
   )
 
+(use-package restclient
+  :ensure t
+  :defer t
+  :mode "\\.rest\\'"
+  :hook
+  (restclient-mode . so-long-enabled)
+  )
+
 (use-package pyvenv
   :ensure t
   :defer t

@@ -276,6 +276,8 @@
   ("C-c f l" . flymake-show-buffer-diagnostics)
   ("C-c f n" . flymake-goto-next-error)
   ("C-c f p" . flymake-goto-prev-error)
+  :config
+  (setq flymake-no-changes-timeout nil)
   )
 
 (use-package treesit

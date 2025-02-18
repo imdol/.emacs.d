@@ -20,6 +20,8 @@
   ("C-c C-l" . hs-show-all)
   ("C-S-k" . kill-whole-line)
   ([C-tab] . other-window)
+  :config
+  (setq sentence-end-double-space nil)
   )
 
 ;; decos
@@ -100,12 +102,12 @@
   :defer t
   :custom
   (vertico-count 20)
-  :init
-  (vertico-mode))
+  :hook
+  (after-init . vertico-mode)
+  )
 
 (use-package orderless
   :ensure t
-  :defer t
   :init
   (setq completion-styles '(orderless basic))
   (setq completion-category-overrides '((file (styles basic partial-completion))))
@@ -452,8 +454,8 @@
   :after orderless
   :ensure t
   :defer t
-  :init
-  (global-corfu-mode t)
+  ;; :init
+  ;; (global-corfu-mode t)
   :config
   (corfu-popupinfo-mode t)
   (setq corfu-auto t)
@@ -465,6 +467,8 @@
   (setq corfu-quit-no-match t)
   (setq corfu-popupinfo-delay 0.1)
   (setq tab-always-indent 'complete)
+  :hook
+  (after-init . global-corfu-mode)
   ;; :hook
   ;; (python-ts-mode . corfu-mode)
   ;; (typescript-ts-mode . corfu-mode)
@@ -552,7 +556,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi))
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(ace-window beacon corfu doom-modeline drag-stuff eglot
+		embark-consult emmet-mode expand-region hydra iedit
+		lsp-mode magit marginalia mood-line multiple-cursors
+		orderless poetry pos-tip rainbow-delimiters restclient
+		smartparens typescript-mode vertico yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

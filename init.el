@@ -402,106 +402,6 @@
   (pyvenv-mode +1)
   )
 
-;; (use-package company-quickhelp
-;;   :ensure t
-;;   :defer t
-;;   :after company
-;;   :custom
-;;   (company-quickhelp-color-background "#000000")
-;;   (company-quickhelp-color-foreground "#66B2B2")
-;;   (company-quickhelp-delay 0.1)
-;;   :hook
-;;   (company-mode . company-quickhelp-mode)
-;;   )
-
-;; (use-package company
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (setq company-idle-delay 0.2)
-;;   (setq company-minimum-prefix-length 3)
-;;   (define-key company-active-map (kbd "M-n") nil)
-;;   (define-key company-active-map (kbd "M-p") nil)
-;;   (define-key company-active-map (kbd ".") 'company--my-insert-dot)
-;;   (define-key company-active-map (kbd "C-d") #'company-abort)
-;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
-;;   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-;;   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
-;;   (define-key company-mode-map (kbd "C-c c") 'company-complete)
-;;   :hook
-;;   (after-init-hook . global-company-mode)
-;;  )
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c l")
-;;   :config
-;;   (setq lsp-before-save-edits nil)
-;;   (setq lsp-headerline-breadcrumb-enable nil)
-;;   (setq lsp-auto-guess-root nil)
-;;   (setq lsp-prefer-capf t)
-;;   (setq lsp-completion-provider :capf)
-;;   (setq lsp-auto-configure t)
-;;   (setq lsp-auto-execute-action nil)
-  
-;;   (setq lsp-completion-default-behaviour :insert)
-  
-;;   (setq lsp-enable-indentation nil)
-;;   (setq lsp-enable-folding t)
-;;   (setq lsp-enable-snippet t)
-;;   (setq lsp-diagnostics-provider :flymake)
-;;   :hook
-;;   ((c-ts-mode . lsp-deferred)
-;;    (c++-ts-mode . lsp-deferred)
-;;    (typescript-ts-mode . lsp-deferred)
-;;    (tsx-ts-mode . lsp-deferred)
-;;    (html-ts-mode . lsp-deferred)
-;;    (python-ts-mode . lsp-deferred)
-;;    (lsp-mode . lsp-enable-which-key-integration))
-;;   :commands
-;;   (lsp lsp-deferred)
-;;   )
-
-(use-package corfu
-  :after orderless
-  :ensure t
-  :defer t
-  ;; :init
-  ;; (global-corfu-mode t)
-  :config
-  (corfu-popupinfo-mode t)
-  (setq corfu-auto t)
-  (setq corfu-on-exact-match nil)
-  (setq corfu-cycle nil)
-  (setq corfu-auto-delay 0.2)
-  (setq corfu-auto-prefix 3)
-  (setq corfu-quit-at-boundary t)
-  (setq corfu-quit-no-match t)
-  (setq corfu-popupinfo-delay 0.1)
-  (setq tab-always-indent 'complete)
-  :hook
-  (after-init . global-corfu-mode)
-  ;; :hook
-  ;; (python-ts-mode . corfu-mode)
-  ;; (typescript-ts-mode . corfu-mode)
-  ;; (tsx-ts-mode . corfu-mode)
-  ;; (c-ts-mode . corfu-mode)
-  ;; (c++-ts-mode . corfu-mode)
-  )
-
-(use-package eglot
-  :ensure t
-  :hook
-  ((c-ts-mode . eglot-ensure)
-   (c++-ts-mode . eglot-ensure)
-   (html-ts-mode . eglot-ensure)
-   (python-ts-mode . eglot-ensure)
-   (js-ts-mode . eglot-ensure)
-   (typescript-ts-mode . eglot-ensure)
-   (tsx-ts-mode . eglot-ensure))
-  )
-
 (use-package multiple-cursors
   :ensure t
   :defer t
@@ -564,6 +464,106 @@
   ("C-x 2" . hydra-set-window/split-window-below)
   )
 
+(use-package corfu
+  :after orderless
+  :ensure t
+  :defer t
+  ;; :init
+  ;; (global-corfu-mode t)
+  :config
+  (corfu-popupinfo-mode t)
+  (setq corfu-auto t)
+  (setq corfu-on-exact-match nil)
+  (setq corfu-cycle nil)
+  (setq corfu-auto-delay 0.2)
+  (setq corfu-auto-prefix 3)
+  (setq corfu-quit-at-boundary t)
+  (setq corfu-quit-no-match t)
+  (setq corfu-popupinfo-delay 0.1)
+  (setq tab-always-indent 'complete)
+  :hook
+  (after-init . global-corfu-mode)
+  ;; :hook
+  ;; (python-ts-mode . corfu-mode)
+  ;; (typescript-ts-mode . corfu-mode)
+  ;; (tsx-ts-mode . corfu-mode)
+  ;; (c-ts-mode . corfu-mode)
+  ;; (c++-ts-mode . corfu-mode)
+  )
+
+(use-package eglot
+  :ensure t
+  :hook
+  ((c-ts-mode . eglot-ensure)
+   (c++-ts-mode . eglot-ensure)
+   (html-ts-mode . eglot-ensure)
+   (python-ts-mode . eglot-ensure)
+   (js-ts-mode . eglot-ensure)
+   (typescript-ts-mode . eglot-ensure)
+   (tsx-ts-mode . eglot-ensure))
+  )
+
+;; (use-package company-quickhelp
+;;   :ensure t
+;;   :defer t
+;;   :after company
+;;   :custom
+;;   (company-quickhelp-color-background "#000000")
+;;   (company-quickhelp-color-foreground "#66B2B2")
+;;   (company-quickhelp-delay 0.1)
+;;   :hook
+;;   (company-mode . company-quickhelp-mode)
+;;   )
+
+;; (use-package company
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq company-idle-delay 0.2)
+;;   (setq company-minimum-prefix-length 3)
+;;   (define-key company-active-map (kbd "M-n") nil)
+;;   (define-key company-active-map (kbd "M-p") nil)
+;;   (define-key company-active-map (kbd ".") 'company--my-insert-dot)
+;;   (define-key company-active-map (kbd "C-d") #'company-abort)
+;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
+;;   (define-key company-active-map (kbd "C-p") #'company-select-previous)
+;;   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
+;;   (define-key company-mode-map (kbd "C-c c") 'company-complete)
+;;   :hook
+;;   (after-init-hook . global-company-mode)
+;;  )
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :config
+;;   (setq lsp-before-save-edits nil)
+;;   (setq lsp-headerline-breadcrumb-enable nil)
+;;   (setq lsp-auto-guess-root nil)
+;;   (setq lsp-prefer-capf t)
+;;   (setq lsp-completion-provider :capf)
+;;   (setq lsp-auto-configure t)
+;;   (setq lsp-auto-execute-action nil)
+  
+;;   (setq lsp-completion-default-behaviour :insert)
+  
+;;   (setq lsp-enable-indentation nil)
+;;   (setq lsp-enable-folding t)
+;;   (setq lsp-enable-snippet t)
+;;   (setq lsp-diagnostics-provider :flymake)
+;;   :hook
+;;   ((c-ts-mode . lsp-deferred)
+;;    (c++-ts-mode . lsp-deferred)
+;;    (typescript-ts-mode . lsp-deferred)
+;;    (tsx-ts-mode . lsp-deferred)
+;;    (html-ts-mode . lsp-deferred)
+;;    (python-ts-mode . lsp-deferred)
+;;    (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands
+;;   (lsp lsp-deferred)
+;;   )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -582,3 +582,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+

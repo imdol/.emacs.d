@@ -311,9 +311,22 @@
   (c-ts-mode . c-start)
   )
 
+(use-package js-ts-mode
+  :defer t
+  :mode ("\\.js\\'")
+  :preface
+  (defun js-start()
+    (setq js-indent-level 2)
+    (setq indent-tabs-mode nil)
+    )
+  :hook
+  (js-ts-mode . js-start)
+  (js-ts-mode . flymake-mode)
+  )
+
 (use-package typescript-ts-mode
   :defer t
-  :mode ("\\.ts\\'" "\\.js\\'")
+  :mode ("\\.ts\\'")
   :preface
   (defun ts-start()
     (setq typescript-ts-mode-indent-offset 2)

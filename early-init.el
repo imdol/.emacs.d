@@ -7,7 +7,8 @@
                   gc-cons-percentage 0.1)))
 
 (setq-default inhibit-splash-screen t)
-(setq-default initial-scratch-message (concat ";; if you stay long enough, you can do anything " user-login-name ""))
+(setq-default initial-scratch-message
+	      (concat ";; if you stay long enough, you can do anything " user-login-name ""))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -33,6 +34,7 @@
   kept-new-versions 20   ; how many of the newest versions to keep
   kept-old-versions 5    ; and how many of the old
   )
+
 ;; OSX settings
 ;; for mac keyboards
 ;; (setq-default mac-option-key-is-meta nil

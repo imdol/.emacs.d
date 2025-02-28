@@ -387,9 +387,9 @@
 (use-package restclient
   :ensure t
   :defer t
-  :mode "\\.rest\\'"
-  :hook
-  (restclient-mode . so-long-enabled)
+  :mode (("\\.rest\\'" . restclient-mode))
+  :bind (:map restclient-mode-map
+	      ("C-c C-f" . json-mode-beautify))
   )
 
 (use-package pyvenv

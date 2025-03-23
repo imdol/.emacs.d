@@ -22,6 +22,7 @@
 (setenv "LSP_USE_PLISTS" "true")
 
 (global-display-line-numbers-mode t)
+(column-number-mode t)
 (global-auto-revert-mode t)
 
 (global-set-key [f3] 'comment-region)

@@ -27,6 +27,7 @@
 
 (global-set-key [f3] 'comment-region)
 (global-set-key [f4] 'uncomment-region)
+(global-set-key (kbd "M-e") 'forward-paragraph)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
   backup-by-copying t    ; Don't delink hardlinks

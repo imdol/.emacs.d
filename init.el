@@ -11,24 +11,38 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(use-package benchmark-init
-  :ensure t
-  :config
-  ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+;; (use-package benchmark-init
+;;   :ensure t
+;;   :config
+;;   ;; To disable collection of benchmark data after init is done.
+;;   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
+;; (setq debug-on-message "Package cl is deprecated") 
 
 (use-package emacs
   :hook
   (prog-mode-hook . hs-minor-mode)
   :bind
-  ("C-c C-k" . hs-toggle-hiding)
-  ("C-c C-j" . hs-hide-all)
-  ("C-c C-l" . hs-show-all)
+  ;; ("C-c C-k" . hs-toggle-hiding)
+  ;; ("C-c C-j" . hs-hide-all)
+  ;; ("C-c C-l" . hs-show-all)
   ("C-S-k" . kill-whole-line)
   ([C-tab] . other-window)
   :config
   (setq sentence-end-double-space nil)
+  (setq dired-kill-when-opening-new-dired-buffer t)
   )
+
+(use-package origami
+  :ensure t
+  :defer t
+  :hook (prog-mode)
+  :bind
+  ("C-c C-k" . origami-toggle-node)
+  ("C-c C-j" . origami-close-all-nodes)
+  ("C-c C-l" . origami-open-all-nodes)
+)
+
 
 ;; decos
 (use-package zone
@@ -136,6 +150,26 @@
   :bind-keymap
   ("C-c p" . project-prefix-map)
   )
+
+;; (use-package projectile
+;;   :ensure t
+;;   :defer t
+;;   :bind-keymap
+;;   ("C-c p" . projectile-command-map)
+;;   :config
+;; ;;  (setq projectile-completion-system 'helm)
+;; ;;  (helm-projectile-on)
+;;   (setq additional-ignored-directories '("node_modules" "elpa" ".next" "python3.8" "dist" "misc" ))
+;;   (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
+;;   (setq additional-ignored-files '("*.png" "*.jpg" "*.md"
+;; 				 "polyfills.js" "package.json" "package-lock.json"
+;;                                  "*.dll" "*.targets" "*.props" "*.pdb" "*.deps.json" "*.exe"
+;;                                  "*.linux-x86_64" "*.gz"
+;; 				 ))
+;;   (setq projectile-enable-caching t)
+;;   (setq projectile-indexing-method 'alien)
+;;   (projectile-mode +1)
+;;   )
 
 (use-package yasnippet
   :ensure t
@@ -288,11 +322,82 @@
   (setq flymake-no-changes-timeout nil)
   )
 
-(use-package treesit
-  :defer t
-  :config
-  (setq treesit-font-lock-level 4)
+(use-package sideline-flymake
+  :ensure t
+  :hook (flymake-mode . sideline-mode)
+  :init
+  (setq sideline-flymake-display-mode 'point)
+  (setq sideline-backends-right '(sideline-flymake))
   )
+
+;; (use-package flycheck
+;;   :ensure t
+;;   :defer t
+;;   :bind
+;;   ("C-c f l" . flycheck-list-errors)
+;;   ("C-c f n" . flycheck-next-error)
+;;   ("C-c f p" . flycheck-previous-error)
+;;   )
+
+(use-package treesit
+  :config 
+  (setq treesit-font-lock-level 4)
+  :preface
+  (defun os/setup-install-grammars ()
+    "Install Tree-sitter grammars if they are absent."
+    (interactive)
+    (dolist (grammar
+             '((css . ("https://github.com/tree-sitter/tree-sitter-css" "v0.23.2"))
+               (bash "https://github.com/tree-sitter/tree-sitter-bash")
+               (html . ("https://github.com/tree-sitter/tree-sitter-html" "v0.23.2"))
+               (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.25.0" "src"))
+               (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.24.8"))
+               (python . ("https://github.com/tree-sitter/tree-sitter-python" "v0.23.6"))
+               (go "https://github.com/tree-sitter/tree-sitter-go" "v0.25.0")
+               (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+               (make "https://github.com/alemuller/tree-sitter-make")
+               (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+               (cmake "https://github.com/uyha/tree-sitter-cmake")
+               (c "https://github.com/tree-sitter/tree-sitter-c")
+               (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+               (toml "https://github.com/tree-sitter/tree-sitter-toml")
+               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "tsx/src"))
+               (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "typescript/src"))
+               (yaml . ("https://github.com/ikatyang/tree-sitter-yaml" "v0.5.0"))
+               (prisma "https://github.com/victorhqc/tree-sitter-prisma")))
+      (add-to-list 'treesit-language-source-alist grammar)
+      ;; Only install `grammar' if we don't already have it
+      ;; installed. However, if you want to *update* a grammar then
+      ;; this obviously prevents that from happening.
+      (unless (treesit-language-available-p (car grammar))
+        (treesit-install-language-grammar (car grammar)))))
+
+  ;; Optional, but recommended. Tree-sitter enabled major modes are
+  ;; distinct from their ordinary counterparts.
+  ;;
+  ;; You can remap major modes with `major-mode-remap-alist'. Note
+  ;; that this does *not* extend to hooks! Make sure you migrate them
+  ;; also
+  (dolist (mapping
+           '((python-mode . python-ts-mode)
+             (css-mode . css-ts-mode)
+             (typescript-mode . typescript-ts-mode)
+             (js-mode . typescript-ts-mode)
+             (js2-mode . typescript-ts-mode)
+             (c-mode . c-ts-mode)
+             (c++-mode . c++-ts-mode)
+             (c-or-c++-mode . c-or-c++-ts-mode)
+             (bash-mode . bash-ts-mode)
+             (css-mode . css-ts-mode)
+             (json-mode . json-ts-mode)
+             (js-json-mode . json-ts-mode)
+             (sh-mode . bash-ts-mode)
+             (sh-base-mode . bash-ts-mode)))
+    (add-to-list 'major-mode-remap-alist mapping))
+  :config
+  (os/setup-install-grammars)
+  )
+
 
 (use-package c++-ts-mode
   :defer t
@@ -317,22 +422,9 @@
   (c-ts-mode . c-start)
   )
 
-(use-package js-ts-mode
-  :defer t
-  :mode ("\\.js\\'")
-  :preface
-  (defun js-start()
-    (setq js-indent-level 2)
-    (setq indent-tabs-mode nil)
-    )
-  :hook
-  (js-ts-mode . js-start)
-  (js-ts-mode . flymake-mode)
-  )
-
 (use-package typescript-ts-mode
   :defer t
-  :mode ("\\.ts\\'")
+  :mode ("\\.ts\\'" "\\.js\\'" "\\.mjs\\'" "\\.cjs\\'" "\\.mts\\'")
   :preface
   (defun ts-start()
     (setq typescript-ts-mode-indent-offset 2)
@@ -489,101 +581,143 @@
   (setq tab-always-indent 'complete)
   :hook
   (after-init . global-corfu-mode)
-  ;; :hook
-  ;; (python-ts-mode . corfu-mode)
-  ;; (typescript-ts-mode . corfu-mode)
-  ;; (tsx-ts-mode . corfu-mode)
-  ;; (c-ts-mode . corfu-mode)
-  ;; (c++-ts-mode . corfu-mode)
   )
 
-(use-package eglot
+;; (use-package eglot
+;;   :ensure t
+;;   :hook
+;;   ((c-ts-mode . eglot-ensure)
+;;    (c++-ts-mode . eglot-ensure)
+;;    (html-ts-mode . eglot-ensure)
+;;    (python-ts-mode . eglot-ensure)
+;;    (js-ts-mode . eglot-ensure)
+;;    (typescript-ts-mode . eglot-ensure)
+;;    (tsx-ts-mode . eglot-ensure))
+;;   )
+
+(use-package lsp-mode
   :ensure t
+  :preface
+  (defun lsp-booster--advice-json-parse (old-fn &rest args)
+    "Try to parse bytecode instead of json."
+    (or
+     (when (equal (following-char) ?#)
+       (let ((bytecode (read (current-buffer))))
+         (when (byte-code-function-p bytecode)
+           (funcall bytecode))))
+     (apply old-fn args)))
+  (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+    "Prepend emacs-lsp-booster command to lsp CMD."
+    (let ((orig-result (funcall old-fn cmd test?)))
+      (if (and (not test?)                             ;; for check lsp-server-present?
+               (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+               lsp-use-plists
+               (not (functionp 'json-rpc-connection))  ;; native json-rpc
+               (executable-find "emacs-lsp-booster"))
+          (progn
+            (message "Using emacs-lsp-booster for %s!" orig-result)
+            (cons "emacs-lsp-booster" orig-result))
+        orig-result)))
   :hook
-  ((c-ts-mode . eglot-ensure)
-   (c++-ts-mode . eglot-ensure)
-   (html-ts-mode . eglot-ensure)
-   (python-ts-mode . eglot-ensure)
-   (js-ts-mode . eglot-ensure)
-   (typescript-ts-mode . eglot-ensure)
-   (tsx-ts-mode . eglot-ensure))
+  (
+   (c-ts-mode . lsp-deferred)
+   (c++-ts-mode . lsp-deferred)
+   (js-ts-mode . lsp-deferred)
+   (typescript-ts-mode . lsp-deferred)
+   (tsx-ts-mode . lsp-deferred)
+   (html-ts-mode . lsp-deferred)
+   (python-ts-mode . lsp-deferred)
+   (lsp-mode . lsp-enable-which-key-integration)
+   )
+  :custom
+  (lsp-auto-configure t)
+  :config
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-completion-provider :none)
+  (setq lsp-completion-enable t)
+  (setq lsp-completion-default-behaviour :insert)
+  
+  (setq lsp-diagnostics-provider :flymake)
+  (setq lsp-prefer-capf t)
+  (setq lsp-log-io nil)
+  (setq lsp-before-save-edits nil)
+  (setq lsp-eldoc-enable-hover t)
+  
+  (setq lsp-enable-xref t)
+  (setq lsp-enable-dap-auto-configure t)
+  (setq lsp-enable-file-watchers nil)
+  (setq lsp-enable-folding t)
+  (setq lsp-enable-indentation nil)
+  (setq lsp-enable-snippet t)
+  (setq lsp-enable-symbol-highlighting t)
+  (setq lsp-enable-suggest-server-download t)
+  (setq lsp-enable-text-document-color nil)
+  
+  (setq lsp-auto-guess-root nil)
+  (setq lsp-auto-execute-action nil)
+  
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :init
+  (setq lsp-use-plists t)
+  (advice-add (if (progn (require 'json)
+                         (fboundp 'json-parse-buffer))
+                  'json-parse-buffer
+                'json-read)
+              :around
+              #'lsp-booster--advice-json-parse)
+  (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+  :commands
+  (lsp lsp-deferred)
   )
 
-;; (use-package company-quickhelp
-;;   :ensure t
-;;   :defer t
-;;   :after company
-;;   :custom
-;;   (company-quickhelp-color-background "#000000")
-;;   (company-quickhelp-color-foreground "#66B2B2")
-;;   (company-quickhelp-delay 0.1)
-;;   :hook
-;;   (company-mode . company-quickhelp-mode)
-;;   )
+;; (use-package lsp-eslint
+;;   :demand t
+;;   :after lsp-mode)
 
-;; (use-package company
-;;   :ensure t
-;;   :defer t
+;; (use-package lsp-tailwindcss
+;;   :straight '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss")
+;;   :init (setq lsp-tailwindcss-add-on-mode t)
 ;;   :config
-;;   (setq company-idle-delay 0.2)
-;;   (setq company-minimum-prefix-length 3)
-;;   (define-key company-active-map (kbd "M-n") nil)
-;;   (define-key company-active-map (kbd "M-p") nil)
-;;   (define-key company-active-map (kbd ".") 'company--my-insert-dot)
-;;   (define-key company-active-map (kbd "C-d") #'company-abort)
-;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
-;;   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-;;   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
-;;   (define-key company-mode-map (kbd "C-c c") 'company-complete)
-;;   :hook
-;;   (after-init-hook . global-company-mode)
-;;  )
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c l")
-;;   :config
-;;   (setq lsp-before-save-edits nil)
-;;   (setq lsp-headerline-breadcrumb-enable nil)
-;;   (setq lsp-auto-guess-root nil)
-;;   (setq lsp-prefer-capf t)
-;;   (setq lsp-completion-provider :capf)
-;;   (setq lsp-auto-configure t)
-;;   (setq lsp-auto-execute-action nil)
-  
-;;   (setq lsp-completion-default-behaviour :insert)
-  
-;;   (setq lsp-enable-indentation nil)
-;;   (setq lsp-enable-folding t)
-;;   (setq lsp-enable-snippet t)
-;;   (setq lsp-diagnostics-provider :flymake)
-;;   :hook
-;;   ((c-ts-mode . lsp-deferred)
-;;    (c++-ts-mode . lsp-deferred)
-;;    (typescript-ts-mode . lsp-deferred)
-;;    (tsx-ts-mode . lsp-deferred)
-;;    (html-ts-mode . lsp-deferred)
-;;    (python-ts-mode . lsp-deferred)
-;;    (lsp-mode . lsp-enable-which-key-integration))
-;;   :commands
-;;   (lsp lsp-deferred)
-;;   )
+;;   (dolist (tw-major-mode
+;;            '(css-mode
+;;              css-ts-mode
+;;              typescript-mode
+;;              typescript-ts-mode
+;;              tsx-ts-mode
+;;              js2-mode
+;;              js-ts-mode
+;;              clojure-mode))
+;;     (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(modus-vivendi))
+ '(custom-enabled-themes '(modus-vivendi-tritanopia))
+ '(custom-safe-themes
+   '("1e6997bc08f0b11a2b5b6253525aed4e1eb314715076a0c0c2486bd97569f18a"
+     default))
  '(package-selected-packages
-   '(ace-window beacon benchmark-init corfu doom-modeline drag-stuff
-		eglot embark-consult emmet-mode expand-region hydra
-		iedit lsp-mode magit marginalia mood-line
-		multiple-cursors orderless poetry pos-tip
-		rainbow-delimiters restclient smartparens
-		typescript-mode vertico yasnippet-snippets))
- )
+   '(abyss-theme all-the-icons beacon benchmark-init c-eldoc ccls
+		 consult-spotify corfu csv csv-mode dap-mode
+		 dash-functional diminish dired-preview docker
+		 docker-compose-mode doom-modeline doom-themes
+		 dotenv-mode drag-stuff eldoc-eval embark-consult
+		 emmet-mode evil exec-path-from-shell expand-region
+		 flycheck fortune-cookie gnu-elpa-keyring-update
+		 graphql graphql-mode helm-spotify-plus htmlize
+		 hungry-delete hyperspace iedit ivy js2-mode json-mode
+		 json-reformat jump-char kaolin-themes leetcode magit
+		 magit-popup marginalia memoize multi-vterm
+		 multiple-cursors nginx-mode nyan-mode ob-mongo
+		 ob-restclient orderless org-babel-eval-in-repl
+		 org-bullets origami ox-asciidoc ox-latex-subfigure
+		 pkg-info popup pos-tip protobuf-mode pyenv-mode
+		 pyvenv rainbow-delimiters request-deferred shrface
+		 shut-up sideline-flymake smartparens terraform-mode
+		 transpose-frame tree-mode treepy undo-tree use-ttf
+		 vertico wgrep xkcd yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

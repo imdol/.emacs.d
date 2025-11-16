@@ -23,26 +23,15 @@
   :hook
   (prog-mode-hook . hs-minor-mode)
   :bind
-  ;; ("C-c C-k" . hs-toggle-hiding)
-  ;; ("C-c C-j" . hs-hide-all)
-  ;; ("C-c C-l" . hs-show-all)
+  ("C-c C-k" . hs-toggle-hiding)
+  ("C-c C-j" . hs-hide-all)
+  ("C-c C-l" . hs-show-all)
   ("C-S-k" . kill-whole-line)
   ([C-tab] . other-window)
   :config
   (setq sentence-end-double-space nil)
   (setq dired-kill-when-opening-new-dired-buffer t)
   )
-
-(use-package origami
-  :ensure t
-  :defer t
-  :hook (prog-mode)
-  :bind
-  ("C-c C-k" . origami-toggle-node)
-  ("C-c C-j" . origami-close-all-nodes)
-  ("C-c C-l" . origami-open-all-nodes)
-)
-
 
 ;; decos
 (use-package zone
@@ -580,7 +569,14 @@
   (setq corfu-popupinfo-delay 0.1)
   (setq tab-always-indent 'complete)
   :hook
-  (after-init . global-corfu-mode)
+  (prog-mode-hook . corfu-mode)
+  ;; (after-init . global-corfu-mode)
+  )
+
+(use-package markdown-mode
+  :ensure t
+  :config
+  (setq corfu-mode nil)
   )
 
 ;; (use-package eglot
@@ -689,6 +685,28 @@
 ;;              clojure-mode))
 ;;     (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
 
+(use-package agent-shell
+  :ensure t
+  :config
+  (setq agent-shell-anthropic-authentication
+	(agent-shell-anthropic-make-authentication :login t))
+  )
+
+;; (use-package gptel
+;;   :ensure t
+;;   :config
+;;   (setq gptel-model 'claude-sonnet-4-5-20250929
+;;         gptel-backend (gptel-make-anthropic "Claude"
+;;                         :stream t
+;;                         :key (lambda () (auth-source-pick-first-password
+;; 					 :host "api.anthropic.com"))
+;;                         :models '("claude-sonnet-4-5-20250929"
+;; 				  "claude-sonnet-4-20250514"))
+;; 	)
+;;   :bind (("C-c g RET" . gptel-send)
+;; 	 ("C-c g m" . gptel-menu)
+;;          ("C-c g g" . gptel)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -699,25 +717,27 @@
    '("1e6997bc08f0b11a2b5b6253525aed4e1eb314715076a0c0c2486bd97569f18a"
      default))
  '(package-selected-packages
-   '(abyss-theme all-the-icons beacon benchmark-init c-eldoc ccls
-		 consult-spotify corfu csv csv-mode dap-mode
+   '(abyss-theme agent-shell all-the-icons beacon benchmark-init c-eldoc
+		 ccls consult-spotify corfu csv csv-mode dap-mode
 		 dash-functional diminish dired-preview docker
 		 docker-compose-mode doom-modeline doom-themes
-		 dotenv-mode drag-stuff eldoc-eval embark-consult
+		 dotenv-mode drag-stuff eat eldoc-eval embark-consult
 		 emmet-mode evil exec-path-from-shell expand-region
-		 flycheck fortune-cookie gnu-elpa-keyring-update
+		 flycheck fortune-cookie gnu-elpa-keyring-update gptel
 		 graphql graphql-mode helm-spotify-plus htmlize
 		 hungry-delete hyperspace iedit ivy js2-mode json-mode
-		 json-reformat jump-char kaolin-themes leetcode magit
-		 magit-popup marginalia memoize multi-vterm
+		 json-reformat jtsx jump-char kaolin-themes leetcode
+		 magit magit-popup marginalia memoize multi-vterm
 		 multiple-cursors nginx-mode nyan-mode ob-mongo
 		 ob-restclient orderless org-babel-eval-in-repl
-		 org-bullets origami ox-asciidoc ox-latex-subfigure
-		 pkg-info popup pos-tip protobuf-mode pyenv-mode
-		 pyvenv rainbow-delimiters request-deferred shrface
-		 shut-up sideline-flymake smartparens terraform-mode
+		 org-bullets ox-asciidoc ox-latex-subfigure pkg-info
+		 popup pos-tip protobuf-mode pyenv-mode pyvenv
+		 rainbow-delimiters request-deferred shrface shut-up
+		 sideline-flymake smartparens terraform-mode
 		 transpose-frame tree-mode treepy undo-tree use-ttf
-		 vertico wgrep xkcd yasnippet-snippets)))
+		 vertico wgrep xkcd yasnippet-snippets))
+ '(package-vc-selected-packages
+   '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -11,31 +11,34 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; (use-package benchmark-init
-;;   :ensure t
-;;   :config
-;;   ;; To disable collection of benchmark data after init is done.
-;;   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-;; (setq debug-on-message "Package cl is deprecated") 
+;; (setq debug-on-message "Package cl is deprecated")
 
-(use-package emacs
-  :hook
-  (prog-mode-hook . hs-minor-mode)
+(use-package hs-minor-mode
   :bind
   ("C-c C-k" . hs-toggle-hiding)
   ("C-c C-j" . hs-hide-all)
   ("C-c C-l" . hs-show-all)
+  )
+
+(use-package emacs
+  :bind
   ("C-S-k" . kill-whole-line)
   ([C-tab] . other-window)
   :config
-  (setq sentence-end-double-space nil)
+  ;; (setq sentence-end-double-space nil)
+  :init
   (setq dired-kill-when-opening-new-dired-buffer t)
   )
 
 ;; decos
 (use-package zone
-  :ensure nil  
+  :ensure t
   :defer t
   :config
   (zone-when-idle 60)
@@ -54,7 +57,8 @@
   :ensure t
   :defer t
   :hook
-  (prog-mode-hook . rainbow-delimiters-mode))
+  (prog-mode-hook . rainbow-delimiters-mode)
+  )
 
 (use-package iedit
   :ensure t
@@ -85,14 +89,12 @@
   :defer t
   :bind
   ("M-p" . drag-stuff-up)
-  ("M-n" . drag-stuff-down))
+  ("M-n" . drag-stuff-down)
+  )
 
 (use-package smartparens
   :ensure t
   :defer t
-  :init
-  (smartparens-global-mode)
-  ;; (smartparens-global-strict-mode)
   :config
   (sp-pair "`" nil :post-handlers '(:add ("||\n[i]" "RET")))
   (sp-pair "(" nil :post-handlers '(:add ("||\n[i]" "RET")))
@@ -104,7 +106,8 @@
   :ensure t
   :defer t
   :bind
-  ("C-=" . er/expand-region))
+  ("C-=" . er/expand-region)
+  )
 
 (use-package vertico
   :ensure t
@@ -138,36 +141,6 @@
 (use-package project
   :bind-keymap
   ("C-c p" . project-prefix-map)
-  )
-
-;; (use-package projectile
-;;   :ensure t
-;;   :defer t
-;;   :bind-keymap
-;;   ("C-c p" . projectile-command-map)
-;;   :config
-;; ;;  (setq projectile-completion-system 'helm)
-;; ;;  (helm-projectile-on)
-;;   (setq additional-ignored-directories '("node_modules" "elpa" ".next" "python3.8" "dist" "misc" ))
-;;   (setq projectile-globally-ignored-directories (append projectile-globally-ignored-directories additional-ignored-directories))
-;;   (setq additional-ignored-files '("*.png" "*.jpg" "*.md"
-;; 				 "polyfills.js" "package.json" "package-lock.json"
-;;                                  "*.dll" "*.targets" "*.props" "*.pdb" "*.deps.json" "*.exe"
-;;                                  "*.linux-x86_64" "*.gz"
-;; 				 ))
-;;   (setq projectile-enable-caching t)
-;;   (setq projectile-indexing-method 'alien)
-;;   (projectile-mode +1)
-;;   )
-
-(use-package yasnippet
-  :ensure t
-  :hook
-  (prog-mode-hook . yas-minor-mode)
-  )
-(use-package yasnippet-snippets         ; Collection of snippets
-  :ensure t
-  :defer t
   )
 
 ;; Example configuration for Consult
@@ -319,15 +292,6 @@
   (setq sideline-backends-right '(sideline-flymake))
   )
 
-;; (use-package flycheck
-;;   :ensure t
-;;   :defer t
-;;   :bind
-;;   ("C-c f l" . flycheck-list-errors)
-;;   ("C-c f n" . flycheck-next-error)
-;;   ("C-c f p" . flycheck-previous-error)
-;;   )
-
 (use-package treesit
   :config 
   (setq treesit-font-lock-level 4)
@@ -350,8 +314,8 @@
                (c "https://github.com/tree-sitter/tree-sitter-c")
                (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
                (toml "https://github.com/tree-sitter/tree-sitter-toml")
-               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "tsx/src"))
-               (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "typescript/src"))
+               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "tsx/src"))
+               (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "typescript/src"))
                (yaml . ("https://github.com/ikatyang/tree-sitter-yaml" "v0.5.0"))
                (prisma "https://github.com/victorhqc/tree-sitter-prisma")))
       (add-to-list 'treesit-language-source-alist grammar)
@@ -368,20 +332,22 @@
   ;; that this does *not* extend to hooks! Make sure you migrate them
   ;; also
   (dolist (mapping
-           '((python-mode . python-ts-mode)
-             (css-mode . css-ts-mode)
-             (typescript-mode . typescript-ts-mode)
-             (js-mode . typescript-ts-mode)
-             (js2-mode . typescript-ts-mode)
-             (c-mode . c-ts-mode)
-             (c++-mode . c++-ts-mode)
-             (c-or-c++-mode . c-or-c++-ts-mode)
-             (bash-mode . bash-ts-mode)
-             (css-mode . css-ts-mode)
-             (json-mode . json-ts-mode)
-             (js-json-mode . json-ts-mode)
-             (sh-mode . bash-ts-mode)
-             (sh-base-mode . bash-ts-mode)))
+           '(
+	     ;; (python-mode . python-ts-mode)
+             ;; (css-mode . css-ts-mode)
+             ;; (js-mode . js-ts-mode)
+             ;; (js2-mode . js-ts-mode)
+             ;; (c-mode . c-ts-mode)
+             ;; (c++-mode . c++-ts-mode)
+	     ;; (typescript-mode . typescript-ts-mode)
+             ;; (c-or-c++-mode . c-or-c++-ts-mode)
+             ;; (bash-mode . bash-ts-mode)
+             ;; (css-mode . css-ts-mode)
+             ;; (json-mode . json-ts-mode)
+             ;; (js-json-mode . json-ts-mode)
+             ;; (sh-mode . bash-ts-mode)
+             ;; (sh-base-mode . bash-ts-mode)
+	     ))
     (add-to-list 'major-mode-remap-alist mapping))
   :config
   (os/setup-install-grammars)
@@ -392,11 +358,11 @@
   :defer t
   :mode ("\\.cpp\\'" "\\.cc\\'" "\\.hpp\\'" "\\.h\\'")
   :preface
-  (defun cc-start()
+  (defun cpp-start()
     (setq c-ts-mode-indent-offset 2)
     )
   :hook
-  (c++-ts-mode . cc-start)
+  (c++-ts-mode . cpp-start)
   )
 
 (use-package c-ts-mode
@@ -411,30 +377,61 @@
   (c-ts-mode . c-start)
   )
 
+(use-package typescript-mode
+  ;; :mode ("\\.ts\\'")
+  :preface
+  (defun ts-start()
+    (setq typescript-indent-level 2)
+    (setq indent-tabs-mode nil)
+    (smartparens-mode t)
+    (corfu-mode t)
+    (hs-minor-mode t)
+    (flymake-mode t)
+    (hungry-delete-mode t)
+    (yas-global-mode t)    
+    )
+  :hook
+  (typescript-mode . ts-start)
+  )
+
+(use-package js-ts-mode
+  :mode ("\\.js\\'" "\\.mjs\\'" "\\.cjs\\'" "\\.mts\\'")
+  :config
+  )
+
 (use-package typescript-ts-mode
-  :defer t
-  :mode ("\\.ts\\'" "\\.js\\'" "\\.mjs\\'" "\\.cjs\\'" "\\.mts\\'")
+  :mode ("\\.ts\\'")
   :preface
   (defun ts-start()
     (setq typescript-ts-mode-indent-offset 2)
     (setq indent-tabs-mode nil)
+    (corfu-mode t)
+    (smartparens-mode t)
+    (hungry-delete-mode 1)
+    (hs-minor-mode t)
+    (flymake-mode t)
+    (yas-global-mode t)
     )
   :hook
   (typescript-ts-mode . ts-start)
-  (typescript-ts-mode . flymake-mode)
   )
 
 (use-package tsx-ts-mode
   :defer t
-  :mode ("\\.tsx\\'" "\\.jsx\\'")
+  :mode ("\\.tsx\\'")
   :preface
   (defun tsx-start()
     (setq typescript-ts-mode-indent-offset 2)
     (setq indent-tabs-mode nil)
+    (corfu-mode t)
+    (smartparens-mode t)
+    (hungry-delete-mode 1)
+    (hs-minor-mode t)
+    (flymake-mode t)
+    (yas-global-mode t)
     )
   :hook
   (tsx-ts-mode . tsx-start)
-  (tsx-ts-mode . flymake-mode)
   )
 
 (use-package html-ts-mode
@@ -558,19 +555,18 @@
   ;; :init
   ;; (global-corfu-mode t)
   :config
-  (corfu-popupinfo-mode t)
-  (setq corfu-auto t)
-  (setq corfu-on-exact-match nil)
-  (setq corfu-cycle nil)
   (setq corfu-auto-delay 0.2)
-  (setq corfu-auto-prefix 3)
+  (setq corfu-auto-prefix 5)
+  (setq corfu-auto-trigger ".")
+  (setq corfu-auto t)
+  (setq corfu-on-exact-match 'quit)
+  (setq corfu-cycle t)
   (setq corfu-quit-at-boundary t)
   (setq corfu-quit-no-match t)
-  (setq corfu-popupinfo-delay 0.1)
-  (setq tab-always-indent 'complete)
-  :hook
-  (prog-mode-hook . corfu-mode)
-  ;; (after-init . global-corfu-mode)
+  (setq corfu-popupinfo-delay 1)
+  (setq tab-always-indent t)
+  
+  (corfu-popupinfo-mode t)
   )
 
 (use-package markdown-mode
@@ -578,18 +574,6 @@
   :config
   (setq corfu-mode nil)
   )
-
-;; (use-package eglot
-;;   :ensure t
-;;   :hook
-;;   ((c-ts-mode . eglot-ensure)
-;;    (c++-ts-mode . eglot-ensure)
-;;    (html-ts-mode . eglot-ensure)
-;;    (python-ts-mode . eglot-ensure)
-;;    (js-ts-mode . eglot-ensure)
-;;    (typescript-ts-mode . eglot-ensure)
-;;    (tsx-ts-mode . eglot-ensure))
-;;   )
 
 (use-package lsp-mode
   :ensure t
@@ -620,9 +604,11 @@
    (c++-ts-mode . lsp-deferred)
    (js-ts-mode . lsp-deferred)
    (typescript-ts-mode . lsp-deferred)
+   (typescript-mode . lsp-deferred)
    (tsx-ts-mode . lsp-deferred)
    (html-ts-mode . lsp-deferred)
    (python-ts-mode . lsp-deferred)
+   (elisp-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)
    )
   :custom
@@ -666,46 +652,12 @@
   (lsp lsp-deferred)
   )
 
-;; (use-package lsp-eslint
-;;   :demand t
-;;   :after lsp-mode)
-
-;; (use-package lsp-tailwindcss
-;;   :straight '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss")
-;;   :init (setq lsp-tailwindcss-add-on-mode t)
-;;   :config
-;;   (dolist (tw-major-mode
-;;            '(css-mode
-;;              css-ts-mode
-;;              typescript-mode
-;;              typescript-ts-mode
-;;              tsx-ts-mode
-;;              js2-mode
-;;              js-ts-mode
-;;              clojure-mode))
-;;     (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
-
 (use-package agent-shell
   :ensure t
   :config
   (setq agent-shell-anthropic-authentication
 	(agent-shell-anthropic-make-authentication :login t))
   )
-
-;; (use-package gptel
-;;   :ensure t
-;;   :config
-;;   (setq gptel-model 'claude-sonnet-4-5-20250929
-;;         gptel-backend (gptel-make-anthropic "Claude"
-;;                         :stream t
-;;                         :key (lambda () (auth-source-pick-first-password
-;; 					 :host "api.anthropic.com"))
-;;                         :models '("claude-sonnet-4-5-20250929"
-;; 				  "claude-sonnet-4-20250514"))
-;; 	)
-;;   :bind (("C-c g RET" . gptel-send)
-;; 	 ("C-c g m" . gptel-menu)
-;;          ("C-c g g" . gptel)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -721,21 +673,23 @@
 		 ccls consult-spotify corfu csv csv-mode dap-mode
 		 dash-functional diminish dired-preview docker
 		 docker-compose-mode doom-modeline doom-themes
-		 dotenv-mode drag-stuff eat eldoc-eval embark-consult
-		 emmet-mode evil exec-path-from-shell expand-region
-		 flycheck fortune-cookie gnu-elpa-keyring-update gptel
-		 graphql graphql-mode helm-spotify-plus htmlize
-		 hungry-delete hyperspace iedit ivy js2-mode json-mode
-		 json-reformat jtsx jump-char kaolin-themes leetcode
-		 magit magit-popup marginalia memoize multi-vterm
-		 multiple-cursors nginx-mode nyan-mode ob-mongo
-		 ob-restclient orderless org-babel-eval-in-repl
-		 org-bullets ox-asciidoc ox-latex-subfigure pkg-info
-		 popup pos-tip protobuf-mode pyenv-mode pyvenv
-		 rainbow-delimiters request-deferred shrface shut-up
-		 sideline-flymake smartparens terraform-mode
-		 transpose-frame tree-mode treepy undo-tree use-ttf
-		 vertico wgrep xkcd yasnippet-snippets))
+		 dotenv-mode doxymin drag-stuff eldoc-eval
+		 embark-consult emmet-mode evil exec-path-from-shell
+		 expand-region flycheck fortune-cookie
+		 gnu-elpa-keyring-update gptel graphql graphql-mode
+		 helm-spotify-plus htmlize hungry-delete hyperspace
+		 iedit ivy js-react-redux-yasnippets js2-mode
+		 json-mode json-reformat jtsx jump-char kaolin-themes
+		 leetcode magit magit-popup marginalia memoize
+		 multi-vterm multiple-cursors nginx-mode nyan-mode
+		 ob-mongo ob-restclient orderless
+		 org-babel-eval-in-repl org-bullets ox-asciidoc
+		 ox-latex-subfigure pkg-info popup pos-tip
+		 protobuf-mode pyenv-mode pyvenv rainbow-delimiters
+		 request-deferred shrface shut-up sideline-flymake
+		 smartparens terraform-mode transpose-frame tree-mode
+		 treepy typescript-mode undo-tree use-ttf vertico
+		 wgrep xkcd yasnippet-capf yasnippet-snippets))
  '(package-vc-selected-packages
    '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces

@@ -565,7 +565,7 @@
 
 (use-package json-ts-mode
   :defer t
-  :mode ("\\.json\\'")
+  :mode ("\\.json\\'" "\\.jsonc\\'")
   :custom
   (json-ts-mode-indent-offset 2)
   )

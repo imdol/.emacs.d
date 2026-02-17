@@ -586,6 +586,7 @@
   :mode ("\\.c\\'")
   :preface
   (defun c-start()
+    (setq indent-tabs-mode t)
     (setq c-ts-mode-indent-offset 8)
     (setq c-ts-mode-indent-style 'linux)
     )

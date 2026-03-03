@@ -22,6 +22,12 @@
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                     gen                                    ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,6 +76,8 @@
   :bind
   ("C-=" . er/expand-region)
   )
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                   parens                                   ;
@@ -215,7 +223,6 @@
    :preview-key '(:debounce 0.4 any))
   (setq consult-narrow-key "<") ;; "C-+"
   )
-
 (use-package orderless
   :ensure t
   :init
@@ -239,6 +246,8 @@
 (use-package project
   :bind-keymap
   ("C-c p" . project-prefix-map)
+  :config
+  (add-to-list 'project-vc-extra-root-markers "deno.json")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -280,11 +289,13 @@
   :ensure t
   :hook ((prog-mode . yas-minor-mode))
   :config
-  (yas-reload-all))
+  (yas-reload-all)
+  )
 
 (use-package yasnippet-snippets
   :ensure t
-  :after yasnippet)
+  :after yasnippet
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                 treesitter                                 ;
@@ -294,13 +305,13 @@
   (setq treesit-font-lock-level 4)
   )
 
-(use-package treesit-auto
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode)
-  )
+;; (use-package treesit-auto
+;;   :custom
+;;   (treesit-auto-install 'prompt)
+;;   :config
+;;   (treesit-auto-add-to-auto-mode-alist 'all)
+;;   (global-treesit-auto-mode)
+;;   )
 
 (use-package treesit-fold
   :ensure t
@@ -401,81 +412,103 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                     lsp                                    ;
+;;                                     lang servers                           ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package lsp-mode
+(use-package eglot
   :ensure t
-  :preface
-  (defun lsp-booster--advice-json-parse (old-fn &rest args)
-    "Try to parse bytecode instead of json."
-    (or
-     (when (equal (following-char) ?#)
-       (let ((bytecode (read (current-buffer))))
-         (when (byte-code-function-p bytecode)
-           (funcall bytecode))))
-     (apply old-fn args)))
-  (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-    "Prepend emacs-lsp-booster command to lsp CMD."
-    (let ((orig-result (funcall old-fn cmd test?)))
-      (if (and (not test?)                             ;; for check lsp-server-present?
-               (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-               lsp-use-plists
-               (not (functionp 'json-rpc-connection))  ;; native json-rpc
-               (executable-find "emacs-lsp-booster"))
-          (progn
-            (message "Using emacs-lsp-booster for %s!" orig-result)
-            (cons "emacs-lsp-booster" orig-result))
-        orig-result)))
-  :hook
-  ((c-ts-mode . lsp-deferred)
-   (c++-ts-mode . lsp-deferred)
-   (js-ts-mode . lsp-deferred)
-   (typescript-ts-mode . lsp-deferred)
-   (tsx-ts-mode . lsp-deferred)
-   (html-ts-mode . lsp-deferred)
-   (python-ts-mode . lsp-deferred)
-   (lsp-mode . lsp-enable-which-key-integration))
-  :custom
-  (lsp-auto-configure t)
-  (lsp-prefer-capf t)
-  (lsp-completion-provider :capf)
-  (lsp-keymap-prefix "C-c l")
-  (lsp-semgrep-languages nil)
+  ;; :hook ((c-ts-mode . eglot-ensure)
+  ;; 	 (c++-ts-mode . eglot-ensure)
+  ;; 	 (python-ts-mode . eglot-ensure))
   :config
-  (setq lsp-use-plists t)
-  ;; Disable semgrep-ls for all languages
-  (setq lsp-completion-enable t)
-  (setq lsp-completion-default-behaviour :insert)
-  
-  (setq lsp-diagnostics-provider :flymake)
-  (setq lsp-log-io nil)
-  (setq lsp-before-save-edits nil)
-  (setq lsp-eldoc-enable-hover t)
-
-  (setq lsp-enable-xref t)
-  (setq lsp-enable-dap-auto-configure t)
-  (setq lsp-enable-file-watchers nil)
-  (setq lsp-enable-folding t)
-  (setq lsp-enable-indentation nil)
-  (setq lsp-enable-snippet t)
-  (setq lsp-enable-symbol-highlighting t)
-  (setq lsp-enable-suggest-server-download t)
-  (setq lsp-enable-text-document-color nil)
-  
-  (setq lsp-auto-guess-root nil)
-  (setq lsp-auto-execute-action nil)
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :init
-  (advice-add (if (progn (require 'json)
-                         (fboundp 'json-parse-buffer))
-                  'json-parse-buffer
-                'json-read)
-              :around
-              #'lsp-booster--advice-json-parse)
-  (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
-  :commands
-  (lsp lsp-deferred)
+  ;; (add-to-list 'eglot-server-programs
+  ;;              '(deno-ts-mode . ("deno" "lsp" :initializationOptions
+  ;;                                (:enable t :lint t))))
+  (add-to-list 'eglot-server-programs '((deno-ts-mode) . (eglot-deno "deno" "lsp")))
   )
+
+(use-package eglot-booster
+  :vc (eglot-booster
+       :url "https://github.com/jdtsmith/eglot-booster"
+       :branch "main"
+       :rev :newest)
+  :after eglot
+  :config
+  (eglot-booster-mode)
+  )
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :preface
+;;   (defun lsp-booster--advice-json-parse (old-fn &rest args)
+;;     "Try to parse bytecode instead of json."
+;;     (or
+;;      (when (equal (following-char) ?#)
+;;        (let ((bytecode (read (current-buffer))))
+;;          (when (byte-code-function-p bytecode)
+;;            (funcall bytecode))))
+;;      (apply old-fn args)))
+;;   (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+;;     "Prepend emacs-lsp-booster command to lsp CMD."
+;;     (let ((orig-result (funcall old-fn cmd test?)))
+;;       (if (and (not test?)                             ;; for check lsp-server-present?
+;;                (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+;;                lsp-use-plists
+;;                (not (functionp 'json-rpc-connection))  ;; native json-rpc
+;;                (executable-find "emacs-lsp-booster"))
+;;           (progn
+;;             (message "Using emacs-lsp-booster for %s!" orig-result)
+;;             (cons "emacs-lsp-booster" orig-result))
+;;         orig-result)))
+;;   :hook
+;;   ((c-ts-mode . lsp-deferred)
+;;    (c++-ts-mode . lsp-deferred)
+;;    (js-ts-mode . lsp-deferred)
+;;    (typescript-ts-mode . lsp-deferred)
+;;    (tsx-ts-mode . lsp-deferred)
+;;    (html-ts-mode . lsp-deferred)
+;;    (python-ts-mode . lsp-deferred)
+;;    (lsp-mode . lsp-enable-which-key-integration))
+;;   :custom
+;;   (lsp-auto-configure t)
+;;   (lsp-prefer-capf t)
+;;   (lsp-completion-provider :capf)
+;;   (lsp-keymap-prefix "C-c l")
+;;   (lsp-semgrep-languages nil)
+;;   :config
+;;   (setq lsp-use-plists t)
+;;   ;; Disable semgrep-ls for all languages
+;;   (setq lsp-completion-enable t)
+;;   (setq lsp-completion-default-behaviour :insert)
+  
+;;   (setq lsp-diagnostics-provider :flymake)
+;;   (setq lsp-log-io nil)
+;;   (setq lsp-before-save-edits nil)
+;;   (setq lsp-eldoc-enable-hover t)
+
+;;   (setq lsp-enable-xref t)
+;;   (setq lsp-enable-dap-auto-configure t)
+;;   (setq lsp-enable-file-watchers nil)
+;;   (setq lsp-enable-folding t)
+;;   (setq lsp-enable-indentation nil)
+;;   (setq lsp-enable-snippet t)
+;;   (setq lsp-enable-symbol-highlighting t)
+;;   (setq lsp-enable-suggest-server-download t)
+;;   (setq lsp-enable-text-document-color nil)
+  
+;;   (setq lsp-auto-guess-root nil)
+;;   (setq lsp-auto-execute-action nil)
+;;   (setq lsp-headerline-breadcrumb-enable nil)
+;;   :init
+;;   (advice-add (if (progn (require 'json)
+;;                          (fboundp 'json-parse-buffer))
+;;                   'json-parse-buffer
+;;                 'json-read)
+;;               :around
+;;               #'lsp-booster--advice-json-parse)
+;;   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+;;   :commands
+;;   (lsp lsp-deferred)
+;;   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                              language settings                             ;
@@ -506,6 +539,7 @@
   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")
   )
 
+
 (use-package typescript-ts-mode
   :mode ("\\.ts\\'")
   :preface
@@ -520,6 +554,14 @@
     )
   :hook
   (typescript-ts-mode . ts-start)
+  )
+
+(use-package deno-ts-mode
+  :ensure t
+  :config
+  ;; Automatically check for Deno projects in .ts and .tsx files
+  (add-to-list 'auto-mode-alist '("\\.ts?\\'" . deno-ts-mode-maybe))
+  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . deno-ts-mode-maybe))
   )
 
 (use-package emmet-mode
@@ -544,6 +586,7 @@
   :hook
   (tsx-ts-mode . tsx-start)
   )
+
 
 (use-package html-ts-mode
   :defer t
@@ -575,6 +618,7 @@
   :mode ("\\.cpp\\'" "\\.cc\\'" "\\.hpp\\'" "\\.h\\'")
   :preface
   (defun cpp-start()
+    (setq indent-tabs-mode nil)
     (setq c-ts-mode-indent-offset 2)
     )
   :hook
@@ -592,6 +636,13 @@
     )
   :hook
   (c-ts-mode . c-start)
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                              terminal emulator                             ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package eat
+  :ensure t
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -643,6 +694,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi-tritanopia))
  '(package-selected-packages nil)
+ '(package-vc-selected-packages
+   '((eglot-booster :vc-backend Git :url
+		    "https://github.com/jdtsmith/eglot-booster")))
  '(warning-suppress-types '((use-package) (use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

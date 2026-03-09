@@ -441,17 +441,20 @@
   (setq corfu-quit-at-boundary t)
   (setq corfu-quit-no-match t)
   (setq corfu-popupinfo-delay 1)
-  (setq tab-always-indent t)
+  (setq tab-always-indent nil)
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                     lang servers                           ;
+;;                                     eglot/lsp                              ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package eglot
   :ensure t
-  ;; :hook ((c-ts-mode . eglot-ensure)
-  ;; 	 (c++-ts-mode . eglot-ensure)
-  ;; 	 (python-ts-mode . eglot-ensure))
+  :hook ((c-ts-mode . eglot-ensure)
+	 (c++-ts-mode . eglot-ensure)
+	 (go-ts-mode . eglot-ensure)
+	 (typescript-ts-mode . eglot-ensure)
+	 (tsx-ts-mode . eglot-ensure)
+	 (python-ts-mode . eglot-ensure))
   :config
   ;; (add-to-list 'eglot-server-programs
   ;;              '(deno-ts-mode . ("deno" "lsp" :initializationOptions

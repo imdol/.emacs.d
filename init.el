@@ -567,6 +567,23 @@
   (python-ts-mode . flymake-mode)
   )
 
+(use-package go-ts-mode
+  :defer t
+  :mode "\\.go\\'"
+  :preface
+  (defun go-start()
+    (setq indent-tabs-mode t)
+    (setq tab-width 4)
+    (setq go-ts-mode-indent-offset 4)
+    (corfu-mode t)
+    (smartparens-mode t)
+    (flymake-mode t)
+    (yas-minor-mode 1)
+    )
+  :hook
+  (go-ts-mode . go-start)
+  )
+
 (use-package dockerfile-ts-mode
   :defer t
   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")

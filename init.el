@@ -558,6 +558,13 @@
   (emacs-lisp-mode . elisp-start)
   )
 
+(use-package dotenv-mode
+  :ensure t
+  :mode ("\\.env\\..*\\'" . dotenv-mode)
+  ;; :init
+  ;; (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+  )
+
 (use-package python-ts-mode
   :defer t
   :mode "\\.py\\'"

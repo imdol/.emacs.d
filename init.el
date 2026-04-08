@@ -131,6 +131,9 @@
                  (window-parameters (mode-line-format . none))))
   )
 
+(use-package embark-consult
+  :ensure t)
+
 (use-package marginalia
   :ensure t
   :defer t
@@ -288,8 +291,8 @@
 (use-package yasnippet
   :ensure t
   :hook ((prog-mode . yas-minor-mode))
-  :config
-  (yas-reload-all)
+  ;; :config
+  ;;(yas-reload-all)
   )
 
 (use-package yasnippet-snippets
@@ -348,8 +351,6 @@
 
 (use-package treesit-fold
   :ensure t
-  :config
-  (global-treesit-fold-mode 1)
   :bind (("C-c C-k" . treesit-fold-toggle)
          ("C-c C-j" . treesit-fold-close-all)
          ("C-c C-l" . treesit-fold-open-all)))
@@ -459,7 +460,14 @@
   ;; (add-to-list 'eglot-server-programs
   ;;              '(deno-ts-mode . ("deno" "lsp" :initializationOptions
   ;;                                (:enable t :lint t))))
-  (add-to-list 'eglot-server-programs '((deno-ts-mode) . (eglot-deno "deno" "lsp")))
+  ;; (add-to-list 'eglot-server-programs '((deno-ts-mode) . (eglot-deno "deno" "lsp")))
+  ;; (add-to-list 'eglot-server-programs '((terraform-mode :language-id "opentofu") . ("tofu-ls" "serve")))
+  (setq eglot-server-programs
+	(append '(
+		  ((deno-ts-mode) . (eglot-deno "deno" "lsp"))
+                  ((terraform-mode :language-id "opentofu") . ("tofu-ls" "serve"))
+		  )
+		eglot-server-programs))
   )
 
 (use-package eglot-booster
@@ -561,6 +569,27 @@
   (emacs-lisp-mode . elisp-start)
   )
 
+(use-package terraform-mode
+  :ensure t
+  :custom
+  (terraform-indent-level 2)
+  :config
+  (defun tf-init()
+    (corfu-mode t)
+    (smartparens-mode t)
+    (flymake-mode t)
+    (setq corfu-auto-prefix 2)
+    ;; if you want to use outline-minor-mode
+    ;; (outline-minor-mode 1)
+    )
+  :hook
+  (terraform-mode . tf-init)
+  )
+
+(use-package terraform-docs
+  :ensure t
+  )
+
 (use-package dotenv-mode
   :ensure t
   :mode ("\\.env\\..*\\'" . dotenv-mode)
@@ -573,15 +602,25 @@
   :mode "\\.py\\'"
   :custom
   (python-shell-interpreter "python3")
+  :preface
+  (defun py-init()
+    (setq indent-tabs-mode t)
+    (setq tab-width 4)
+    (corfu-mode t)
+    (smartparens-mode t)
+    (flymake-mode t)
+    (treesit-fold-mode t)
+    (yas-minor-mode 1)
+    )
   :hook
-  (python-ts-mode . flymake-mode)
+  (python-ts-mode . py-init)
   )
 
 (use-package go-ts-mode
   :defer t
   :mode "\\.go\\'"
   :preface
-  (defun go-start()
+  (defun go-init()
     (setq indent-tabs-mode t)
     (setq tab-width 4)
     (setq go-ts-mode-indent-offset 4)
@@ -591,7 +630,7 @@
     (yas-minor-mode 1)
     )
   :hook
-  (go-ts-mode . go-start)
+  (go-ts-mode . go-init)
   )
 
 (use-package dockerfile-ts-mode
@@ -603,7 +642,7 @@
 (use-package typescript-ts-mode
   :mode ("\\.ts\\'")
   :preface
-  (defun ts-start()
+  (defun ts-init()
     (setq typescript-ts-mode-indent-offset 2)
     (setq indent-tabs-mode nil)
     (corfu-mode t)
@@ -613,7 +652,7 @@
     (flymake-mode t)
     )
   :hook
-  (typescript-ts-mode . ts-start)
+  (typescript-ts-mode . ts-init)
   )
 
 (use-package deno-ts-mode
@@ -632,7 +671,7 @@
   :defer t
   :mode ("\\.tsx\\'")
   :preface
-  (defun tsx-start()
+  (defun tsx-init()
     (setq typescript-ts-mode-indent-offset 2)
     (setq indent-tabs-mode nil)
     (corfu-mode t)
@@ -644,7 +683,7 @@
     (emmet-mode t)
     )
   :hook
-  (tsx-ts-mode . tsx-start)
+  (tsx-ts-mode . tsx-init)
   )
 
 
@@ -667,36 +706,40 @@
   )
 
 (use-package json-ts-mode
-  :defer t
   :mode ("\\.json\\'" "\\.jsonc\\'")
   :custom
   (json-ts-mode-indent-offset 2)
+  )
+
+(use-package yaml-ts-mode
+  :mode ("\\.yaml\\'" "\\.yml\\'")
   )
 
 (use-package c++-ts-mode
   :defer t
   :mode ("\\.cpp\\'" "\\.cc\\'" "\\.hpp\\'" "\\.h\\'")
   :preface
-  (defun cpp-start()
+  (defun cpp-init()
     (setq indent-tabs-mode nil)
     (setq c-ts-mode-indent-offset 2)
     )
   :hook
-  (c++-ts-mode . cpp-start)
+  (c++-ts-mode . cpp-init)
   )
 
 (use-package c-ts-mode
   :defer t
   :mode ("\\.c\\'")
   :preface
-  (defun c-start()
+  (defun c-init()
     (setq indent-tabs-mode t)
     (setq c-ts-mode-indent-offset 8)
     (setq c-ts-mode-indent-style 'linux)
     )
   :hook
-  (c-ts-mode . c-start)
+  (c-ts-mode . c-init)
   )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                              terminal emulator                             ;
@@ -753,7 +796,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi-tritanopia))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(ace-window beacon benchmark-init consult corfu deno-ts-mode
+		doom-modeline dotenv-mode drag-stuff eat eglot-booster
+		embark emmet-mode exec-path-from-shell expand-region
+		hungry-delete hydra iedit lsp-mode magit marginalia
+		multiple-cursors orderless rainbow-delimiters
+		restclient sideline-flymake smartparens terraform-docs
+		terraform-mode treesit-fold vertico yasnippet-snippets))
  '(package-vc-selected-packages
    '((eglot-booster :vc-backend Git :url
 		    "https://github.com/jdtsmith/eglot-booster")))

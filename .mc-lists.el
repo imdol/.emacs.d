@@ -9,6 +9,8 @@
 	hydra-move/backward-char
 	hydra-move/forward-char
 	kill-region
+	markdown-end-of-line
+	markdown-outdent-or-delete
 	org-self-insert-command
 	rjsx-delete-creates-full-tag
 	wdired--self-insert

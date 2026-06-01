@@ -249,6 +249,9 @@
 (use-package project
   :bind-keymap
   ("C-c p" . project-prefix-map)
+  :custom
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
   :config
   (add-to-list 'project-vc-extra-root-markers "deno.json")
   )
@@ -274,7 +277,7 @@
   ("C-c f n" . flymake-goto-next-error)
   ("C-c f p" . flymake-goto-prev-error)
   :config
-  (set flymake-no-changes-timeout nil)
+  (setq flymake-no-changes-timeout nil)
   )
 
 (use-package sideline-flymake
@@ -325,9 +328,9 @@
                (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
                (scala "https://github.com/tree-sitter/tree-sitter-scala")
                (toml "https://github.com/tree-sitter/tree-sitter-toml")
+	       (yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml")
                (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
                (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
-               (yaml . ("https://github.com/ikatyang/tree-sitter-yaml" "v0.5.0"))
                (prisma "https://github.com/victorhqc/tree-sitter-prisma")))
       (add-to-list 'treesit-language-source-alist grammar)
       ;; Only install `grammar' if we don't already have it
@@ -453,7 +456,9 @@
   :hook ((c-ts-mode . eglot-ensure)
 	 (c++-ts-mode . eglot-ensure)
 	 (go-ts-mode . eglot-ensure)
+	 (js-ts-mode . eglot-ensure)
 	 (typescript-ts-mode . eglot-ensure)
+	 (deno-ts-mode . eglot-ensure)
 	 (tsx-ts-mode . eglot-ensure)
 	 (python-ts-mode . eglot-ensure))
   :config
@@ -468,17 +473,30 @@
                   ((terraform-mode :language-id "opentofu") . ("tofu-ls" "serve"))
 		  )
 		eglot-server-programs))
+  (defclass eglot-deno (eglot-lsp-server) ()
+    :documentation "A custom class for deno lsp.")
+  (cl-defmethod eglot-initialization-options ((server eglot-deno))
+    "Passes through required deno initialization options"
+    (list
+     :enable t
+     :unstable t
+     :typescript
+     (:inlayHints
+      (:variableTypes
+       (:enabled t))
+      (:parameterTypes
+       (:enabled t)))))
   )
 
-(use-package eglot-booster
-  :vc (eglot-booster
-       :url "https://github.com/jdtsmith/eglot-booster"
-       :branch "main"
-       :rev :newest)
-  :after eglot
-  :config
-  (eglot-booster-mode)
-  )
+;; (use-package eglot-booster
+;;   :vc (eglot-booster
+;;        :url "https://github.com/jdtsmith/eglot-booster"
+;;        :branch "main"
+;;        :rev :newest)
+;;   :after eglot
+;;   :config
+;;   (eglot-booster-mode)
+;;   )
 
 ;; (use-package lsp-mode
 ;;   :ensure t
@@ -633,11 +651,32 @@
   (go-ts-mode . go-init)
   )
 
-(use-package dockerfile-ts-mode
+;; (use-package dockerfile-ts-mode
+;;   :defer t
+;;   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")
+;;   )
+
+(use-package dockerfile-mode
   :defer t
   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")
   )
 
+
+(use-package js-ts-mode
+  :mode ("\\.js\\'")
+  :preface
+  (defun js-init()
+    (setq js-ts-mode-indent-offset 2)
+    (setq indent-tabs-mode nil)
+    (corfu-mode t)
+    (smartparens-mode t)
+    (hungry-delete-mode 1)
+    (yas-minor-mode 1)
+    (flymake-mode t)
+    )
+  :hook
+  (typescript-ts-mode . js-init)
+  )
 
 (use-package typescript-ts-mode
   :mode ("\\.ts\\'")
@@ -662,6 +701,12 @@
   (add-to-list 'auto-mode-alist '("\\.ts?\\'" . deno-ts-mode-maybe))
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . deno-ts-mode-maybe))
   )
+
+(use-package swift-ts-mode
+  :ensure t
+  :mode ("\\.swift\\'")
+  )
+
 
 (use-package emmet-mode
   :ensure t
@@ -767,6 +812,7 @@
   :defer t
   :custom
   (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-buffer-encoding nil)
   :hook
   (after-init . doom-modeline-mode)
   )
@@ -795,19 +841,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(modus-vivendi-tritanopia))
+ ;; '(custom-enabled-themes '(modus-vivendi-tritanopia))
  '(package-selected-packages
-   '(ace-window beacon benchmark-init consult corfu deno-ts-mode
+   '(ace-window beacon benchmark-init corfu deno-ts-mode dockerfile-mode
 		doom-modeline dotenv-mode drag-stuff eat eglot-booster
-		embark emmet-mode exec-path-from-shell expand-region
-		hungry-delete hydra iedit lsp-mode magit marginalia
-		multiple-cursors orderless rainbow-delimiters
-		restclient sideline-flymake smartparens terraform-docs
+		embark-consult emmet-mode exec-path-from-shell
+		expand-region go-mode hungry-delete hydra iedit magit
+		marginalia multiple-cursors orderless
+		rainbow-delimiters restclient sideline-flymake
+		smartparens swift-ts-mode terraform-docs
 		terraform-mode treesit-fold vertico yasnippet-snippets))
  '(package-vc-selected-packages
    '((eglot-booster :vc-backend Git :url
-		    "https://github.com/jdtsmith/eglot-booster")))
- '(warning-suppress-types '((use-package) (use-package))))
+		    "https://github.com/jdtsmith/eglot-booster"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

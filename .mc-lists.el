@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
 	dap-tooltip-mouse-motion
+	dired-toggle-read-only
+	dired-unmark-backward
 	hungry-delete-backward
 	hungry-delete-forward
 	hydra-move/backward-char
@@ -32,4 +34,5 @@
 	hydra-multi-cursors/mc/unmark-previous-like-this
 	iedit-switch-to-mc-mode
 	ignore-preserving-kill-region
+	wdired-next-line
 	))

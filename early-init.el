@@ -8,7 +8,7 @@
 
 (setq-default inhibit-splash-screen t)
 (setq-default initial-scratch-message
-	      (concat ";; if you stay long enough, you can do anything " user-login-name ""))
+	      (concat ";; If you are in control, you can dance on the line"))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)

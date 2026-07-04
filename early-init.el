@@ -1,10 +1,13 @@
-(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
-      gc-cons-percentage 0.6)
+ (setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
+       gc-cons-percentage 0.6)
 
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (* 16 1024 1024) ; 16mb
-                  gc-cons-percentage 0.1)))
+;; Elpaca replaces package.el, so keep the latter from initializing.
+(setq package-enable-at-startup nil)
+
+ (add-hook 'emacs-startup-hook
+           (lambda ()
+             (setq gc-cons-threshold (* 32 1024 1024) ; 16mb
+                   gc-cons-percentage 0.1)))
 
 (setq-default inhibit-splash-screen t)
 (setq-default initial-scratch-message
@@ -43,7 +46,3 @@
 ;;  mac-command-key-is-meta t
 ;;  mac-command-modifier 'meta
 ;;  mac-option-modifier nil)
-
-;; exec-path-from-shell
-;; (when (memq window-system '(mac ns))
-;;  (exec-path-from-shell-initialize))

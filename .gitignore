@@ -32,6 +32,9 @@ eshell
 /elpa/archives
 /elpa/gnupg
 
+# elpaca packages
+/elpaca/
+
 # reftex files
 *.rel
 

@@ -10,8 +10,51 @@
                      (time-subtract after-init-time before-init-time)))
             gcs-done)))
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                              elpaca bootstrap                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defvar elpaca-installer-version 0.12)
+(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+(defvar elpaca-sources-directory (expand-file-name "sources/" elpaca-directory))
+(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                              :ref nil :depth 1 :inherit ignore
+                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                              :build (:not elpaca-activate)))
+(let* ((repo  (expand-file-name "elpaca/" elpaca-sources-directory))
+       (build (expand-file-name "elpaca/" elpaca-builds-directory))
+       (order (cdr elpaca-order))
+       (default-directory repo))
+  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (unless (file-exists-p repo)
+    (make-directory repo t)
+    (when (<= emacs-major-version 28) (require 'subr-x))
+    (condition-case-unless-debug err
+        (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                  ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
+                                                  ,@(when-let* ((depth (plist-get order :depth)))
+                                                      (list (format "--depth=%d" depth) "--no-single-branch"))
+                                                  ,(plist-get order :repo) ,repo))))
+                  ((zerop (call-process "git" nil buffer t "checkout"
+                                        (or (plist-get order :ref) "--"))))
+                  (emacs (concat invocation-directory invocation-name))
+                  ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                        "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                  ((require 'elpaca))
+                  ((elpaca-generate-autoloads "elpaca" repo)))
+            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+          (error "%s" (with-current-buffer buffer (buffer-string))))
+      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+  (unless (require 'elpaca-autoloads nil t)
+    (require 'elpaca)
+    (elpaca-generate-autoloads "elpaca" repo)
+    (let ((load-source-file-function nil)) (load "./elpaca-autoloads"))))
+(add-hook 'after-init-hook #'elpaca-process-queues)
+(elpaca `(,@elpaca-order))
+
+;; Install use-package support, enabling `:ensure' for Elpaca.
+(elpaca elpaca-use-package
+  (elpaca-use-package-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                  benchmark                                 ;
@@ -20,7 +63,7 @@
   :ensure t
   :config
   ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+  (add-hook 'elpaca-after-init-hook 'benchmark-init/deactivate))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -32,15 +75,20 @@
 ;;                                     gen                                    ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package emacs
+  :custom
+  (compilation-read-command t)
+  (dired-kill-when-opening-new-dired-buffer t)
   :bind
   ("C-S-k" . kill-whole-line)
   ([C-tab] . other-window)
-  :config
+  ("C-c m" . compile)
+  ("C-c n" . recompile)
+  ("M-[" . kmacro-start-macro)
+  ("M-]" . kmacro-end-macro)
+  ;; :config
   ;; (setq sentence-end-double-space nil)
-  :init
-  (setq dired-kill-when-opening-new-dired-buffer t)
+  ;; :init
   )
-;; (setq debug-on-message "Package cl is deprecated")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                  key help                                  ;
@@ -51,7 +99,7 @@
   :custom
   (which-key-idle-delay 0.4)
   :hook
-  (after-init . which-key-mode)
+  (elpaca-after-init . which-key-mode)
   )
 
 (use-package iedit
@@ -77,8 +125,6 @@
   ("C-=" . er/expand-region)
   )
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                   parens                                   ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -101,7 +147,7 @@
   :custom
   (vertico-count 20)
   :hook
-  (after-init . vertico-mode)
+  (elpaca-after-init . vertico-mode)
   )
 
 (use-package embark
@@ -156,7 +202,6 @@
          ("C-c M-x" . consult-mode-command)
          ("C-c h" . consult-history)
          ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
          ("C-c i" . consult-info)
          ([remap Info-search] . consult-info)
          ;; C-x bindings in `ctl-x-map'
@@ -247,6 +292,7 @@
 ;;                                   project                                  ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package project
+  :ensure nil
   :bind-keymap
   ("C-c p" . project-prefix-map)
   :custom
@@ -259,6 +305,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                     git                                    ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package transient
+  :ensure t
+  :demand t)
 (use-package magit
   :ensure t
   :defer t
@@ -277,7 +326,7 @@
   ("C-c f n" . flymake-goto-next-error)
   ("C-c f p" . flymake-goto-prev-error)
   :config
-  (setq flymake-no-changes-timeout nil)
+  (add-to-list 'project-vc-extra-root-markers "tsconfig.json")
   )
 
 (use-package sideline-flymake
@@ -430,9 +479,8 @@
 ;;                                 completion                                 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package corfu
-  :after orderless
   :ensure t
-  :defer t
+  :after orderless
   ;; :init
   ;; (global-corfu-mode t)
   :config
@@ -452,7 +500,8 @@
 ;;                                     eglot/lsp                              ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package eglot
-  :ensure t
+  :ensure nil
+  :defer t
   :hook ((c-ts-mode . eglot-ensure)
 	 (c++-ts-mode . eglot-ensure)
 	 (go-ts-mode . eglot-ensure)
@@ -488,15 +537,11 @@
        (:enabled t)))))
   )
 
-;; (use-package eglot-booster
-;;   :vc (eglot-booster
-;;        :url "https://github.com/jdtsmith/eglot-booster"
-;;        :branch "main"
-;;        :rev :newest)
-;;   :after eglot
-;;   :config
-;;   (eglot-booster-mode)
-;;   )
+(use-package eglot-booster
+  :elpaca (:type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
+  :after eglot
+  :config
+  (eglot-booster-mode))
 
 ;; (use-package lsp-mode
 ;;   :ensure t
@@ -657,6 +702,7 @@
 ;;   )
 
 (use-package dockerfile-mode
+  :ensure t
   :defer t
   :mode ("\\Dockerfile\\'" "\\.dockerignore\\'")
   )
@@ -814,7 +860,7 @@
   (doom-modeline-buffer-file-name-style 'truncate-upto-project)
   (doom-modeline-buffer-encoding nil)
   :hook
-  (after-init . doom-modeline-mode)
+  (elpaca-after-init . doom-modeline-mode)
   )
 
 (use-package beacon
@@ -823,7 +869,7 @@
   :custom
   (beacon-color "#66B2B2")
   :hook
-  (after-init . beacon-mode)
+  (elpaca-after-init . beacon-mode)
   )
 
 (use-package rainbow-delimiters
@@ -841,19 +887,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(modus-vivendi-deuteranopia))
- '(package-selected-packages
-   '(ace-window beacon benchmark-init corfu deno-ts-mode dockerfile-mode
-		doom-modeline dotenv-mode drag-stuff eat eglot-booster
-		embark-consult emmet-mode exec-path-from-shell
-		expand-region go-mode hungry-delete hydra iedit magit
-		marginalia multiple-cursors orderless
-		rainbow-delimiters restclient sideline-flymake
-		smartparens swift-ts-mode terraform-docs
-		terraform-mode treesit-fold vertico yasnippet-snippets))
- '(package-vc-selected-packages
-   '((eglot-booster :vc-backend Git :url
-		    "https://github.com/jdtsmith/eglot-booster"))))
+ '(custom-enabled-themes '(modus-operandi-tinted))
+ '(package-selected-packages '(dockerfile-mode))
+ '(warning-suppress-types '((emacs) (native-compiler))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

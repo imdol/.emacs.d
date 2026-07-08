@@ -72,25 +72,6 @@
     (exec-path-from-shell-initialize)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                     gen                                    ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package emacs
-  :custom
-  (compilation-read-command t)
-  (dired-kill-when-opening-new-dired-buffer t)
-  :bind
-  ("C-S-k" . kill-whole-line)
-  ([C-tab] . other-window)
-  ("C-c m" . compile)
-  ("C-c n" . recompile)
-  ("M-[" . kmacro-start-macro)
-  ("M-]" . kmacro-end-macro)
-  ;; :config
-  ;; (setq sentence-end-double-space nil)
-  ;; :init
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                  key help                                  ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package which-key
@@ -211,7 +192,7 @@
          ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
          ("C-x t b" . consult-buffer-other-tab)    ;; orig. switch-to-buffer-other-tab
          ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
-         ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+         ("C-x C-b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
          ;; Custom M-# bindings for fast register access
          ("M-#" . consult-register-load)
          ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
@@ -742,6 +723,7 @@
 
 (use-package deno-ts-mode
   :ensure t
+  :defer t
   :config
   ;; Automatically check for Deno projects in .ts and .tsx files
   (add-to-list 'auto-mode-alist '("\\.ts?\\'" . deno-ts-mode-maybe))
@@ -831,12 +813,19 @@
   (c-ts-mode . c-init)
   )
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                              terminal emulator                             ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package eat
   :ensure t
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                     org                                    ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package org
+  :defer t
+  :ensure nil
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -877,6 +866,24 @@
   :defer t
   :hook
   (prog-mode-hook . rainbow-delimiters-mode)
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                     gen                                    ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package emacs
+  :custom
+  (compilation-read-command t)
+  (dired-kill-when-opening-new-dired-buffer t)
+  :bind
+  ("C-S-k" . kill-whole-line)
+  ([C-tab] . other-window)
+  ("C-c m" . compile)
+  ("C-c n" . recompile)
+  ("M-[" . kmacro-start-macro)
+  ("M-]" . kmacro-end-macro)
+  ;; :config
+  ;; (setq sentence-end-double-space nil)
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

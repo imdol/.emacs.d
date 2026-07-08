@@ -1,32 +1,30 @@
- (setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
-       gc-cons-percentage 0.6)
-
 ;; Elpaca replaces package.el, so keep the latter from initializing.
 (setq package-enable-at-startup nil)
 
- (add-hook 'emacs-startup-hook
-           (lambda ()
-             (setq gc-cons-threshold (* 32 1024 1024) ; 16mb
-                   gc-cons-percentage 0.1)))
+(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
+      gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 32 1024 1024) ; 16mb
+                  gc-cons-percentage 0.1)))
 
 (setq-default inhibit-splash-screen t)
-(setq-default initial-scratch-message
-	      (concat ";; If you are in control, you can dance on the line"))
-
+(setq-default initial-scratch-message (concat ";; the void"))
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
 (delete-selection-mode 1)
 
 (setenv "LSP_USE_PLISTS" "true")
-
-(global-display-line-numbers-mode t)
 (column-number-mode t)
+
 (global-auto-revert-mode t)
+(global-display-line-numbers-mode t)
 
 (global-set-key [f3] 'comment-region)
 (global-set-key [f4] 'uncomment-region)

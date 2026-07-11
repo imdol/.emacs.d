@@ -895,7 +895,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-operandi-tinted))
- '(package-selected-packages '(dockerfile-mode))
  '(warning-suppress-types '((emacs) (native-compiler))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
